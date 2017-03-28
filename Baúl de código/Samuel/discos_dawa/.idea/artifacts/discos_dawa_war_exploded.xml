@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="discos_dawa:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/discos_dawa_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="discos_dawa" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="discos_dawa/web/Web" />
+    </root>
+  </artifact>
+</component>
