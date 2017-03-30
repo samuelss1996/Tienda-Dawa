@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
 <XPD:HEADER>
 <XPD:SUBUNITS>
@@ -11,7 +11,7 @@
 <XPD:ATTR name="Title" type="string">Untitled</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="sH3rH/8XNkGMRS2QKl24VQAA">
-<XPD:ATTR name="Name" type="string">Diseño</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Dise&#241;o</XPD:ATTR>
 <XPD:REF name="Namespace">y0Hg3+VzS0uhTP/1NiZ/UQAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="0imPDhZrMU+b1/kD08CoAQAA">
@@ -384,7 +384,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="EkGy85Yd6Eyx8EI+l/+gvgAA">
 <XPD:ATTR name="Alpha" type="real">-1,81164221908513</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">58,6941223633168</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Entradas inválidas</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Entradas inv&#225;lidas</XPD:ATTR>
 <XPD:REF name="Model">kKDCSih1CUqjcXap6ra8mwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="+P2PMWQIP0m9xUzUxb4cQwAA">
@@ -619,7 +619,7 @@
 <XPD:REF name="Views[3]">rTeNRSgIDkOcS/1kiJMQegAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[4]" type="UMLTransition" guid="kKDCSih1CUqjcXap6ra8mwAA">
-<XPD:ATTR name="Name" type="string">Entradas inválidas</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Entradas inv&#225;lidas</XPD:ATTR>
 <XPD:REF name="StateMachine">APvohtehb0+xYbd07nJ4VQAA</XPD:REF>
 <XPD:REF name="Source">0RtI8ReLqEOnTh+DhNrc4QAA</XPD:REF>
 <XPD:REF name="Target">j9D10mHex0SPUteDt3JrCQAA</XPD:REF>
@@ -684,7 +684,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[1]" type="UMLActivityGraph" guid="OLbWtXc5J0qa0W/zQTKFJwAA">
-<XPD:ATTR name="Name" type="string">F2 - Validar nombre/contraseña de usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F2 - Validar nombre/contrase&#241;a de usuario</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="/a2/fB/lw0y1+/4L3WivuQAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -723,7 +723,7 @@
 <XPD:REF name="Incomings[0]">LoQqO4BCu0axNswzepyqVgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="Ia4EIcuLoU2s0RCjLLU5dgAA">
-<XPD:ATTR name="Name" type="string">Reconocer la contraseña</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Reconocer la contrase&#241;a</XPD:ATTR>
 <XPD:REF name="ContainerState">/a2/fB/lw0y1+/4L3WivuQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">CtxJuoalJ0a+/EDfDG46/AAA</XPD:REF>
@@ -746,7 +746,7 @@
 <XPD:REF name="Incomings[0]">fcyOTPBy0EmVYJouH7kExQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[5]" type="UMLActionState" guid="aHSRgy1gGUiE9xc0bn+zsgAA">
-<XPD:ATTR name="Name" type="string">La contraseña es correcta</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">La contrase&#241;a es correcta</XPD:ATTR>
 <XPD:REF name="ContainerState">/a2/fB/lw0y1+/4L3WivuQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[6]" type="UMLFinalState" guid="WyROzAgYCUuhjzfJe05vfwAA">
@@ -780,9 +780,10 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="4QasgAh5dUyagzWhIWjB8gAA">
-<XPD:ATTR name="Name" type="string">Validar nombre/contraseña de usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Validar nombre/contrase&#241;a de usuario</XPD:ATTR>
 <XPD:REF name="DiagramOwner">OLbWtXc5J0qa0W/zQTKFJwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="BPfHopwTl0myV0ZxSMxt5AAA">
+<XPD:REF name="Model">4QasgAh5dUyagzWhIWjB8gAA</XPD:REF>
 <XPD:REF name="Diagram">4QasgAh5dUyagzWhIWjB8gAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">18</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="OCfTS1maW0KGNo8ZONkTJgAA">
@@ -886,7 +887,7 @@
 <XPD:REF name="Model">Ia4EIcuLoU2s0RCjLLU5dgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="47TI+6NuNUOio21Jx3Zr3QAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="JMEA2Rw/+kqFQ/Dm+/H40QAA">
-<XPD:ATTR name="Text" type="string">Reconocer la contraseña</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Reconocer la contrase&#241;a</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="QFa40eEqk0KxhYbmKcJo/QAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -988,7 +989,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="NxMx8LjwFUuqXD2dM5kqEQAA">
 <XPD:ATTR name="Alpha" type="real">-1,5707958732051</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">79</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">La contraseña es correcta</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">La contrase&#241;a es correcta</XPD:ATTR>
 <XPD:REF name="Model">eWo2K79ll0uNEOZW8X27fwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="d29DFmwMCEud1H04DmtxJgAA">
@@ -1109,7 +1110,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="X+qGlRhTvEqdNQyie1fWhgAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">La contraseña es incorrecta</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">La contrase&#241;a es incorrecta</XPD:ATTR>
 <XPD:REF name="Model">VppliemdE0iQl5duIuSGlQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="zZ78EiLFzkyn2AR6DC4XQgAA">
@@ -1197,7 +1198,7 @@
 <XPD:REF name="Views[3]">N5ztBU9GokaZLtbfaeUyOwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[4]" type="UMLTransition" guid="eWo2K79ll0uNEOZW8X27fwAA">
-<XPD:ATTR name="Name" type="string">La contraseña es correcta</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">La contrase&#241;a es correcta</XPD:ATTR>
 <XPD:REF name="StateMachine">OLbWtXc5J0qa0W/zQTKFJwAA</XPD:REF>
 <XPD:REF name="Source">sXPibwtvB0u3VQL1UCXG1wAA</XPD:REF>
 <XPD:REF name="Target">WyROzAgYCUuhjzfJe05vfwAA</XPD:REF>
@@ -1229,7 +1230,7 @@
 <XPD:REF name="Views[3]">XeZTGJP1J0SMgbxwpcCeygAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[7]" type="UMLTransition" guid="VppliemdE0iQl5duIuSGlQAA">
-<XPD:ATTR name="Name" type="string">La contraseña es incorrecta</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">La contrase&#241;a es incorrecta</XPD:ATTR>
 <XPD:REF name="StateMachine">OLbWtXc5J0qa0W/zQTKFJwAA</XPD:REF>
 <XPD:REF name="Source">sXPibwtvB0u3VQL1UCXG1wAA</XPD:REF>
 <XPD:REF name="Target">9B0xEyksbka8nIgNFVC3zwAA</XPD:REF>
@@ -1251,7 +1252,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[2]" type="UMLActivityGraph" guid="MFD3TpchiEeHy+Z57rXwlgAA">
-<XPD:ATTR name="Name" type="string">F3 - Presentación de stock</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F3 - Presentaci&#243;n de stock</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="GM6RJUFfD0Gyky+o1N0/+wAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -1299,7 +1300,7 @@
 <XPD:REF name="Incomings[0]">xqCrLMQnN0eClAG77cEhKgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[4]" type="UMLActionState" guid="T6mwVwi8rkSlwMYHCL10JgAA">
-<XPD:ATTR name="Name" type="string">Mostrar página vacía</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Mostrar p&#225;gina vac&#237;a</XPD:ATTR>
 <XPD:REF name="ContainerState">GM6RJUFfD0Gyky+o1N0/+wAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">a134lzZxJ0umQiIBoFCfxwAA</XPD:REF>
@@ -1337,7 +1338,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="RGnHeMlJTU6BvipWP056EQAA">
-<XPD:ATTR name="Name" type="string">Presentación de stock</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Presentaci&#243;n de stock</XPD:ATTR>
 <XPD:REF name="DiagramOwner">MFD3TpchiEeHy+Z57rXwlgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="U5HKtcnX5E+jqLAzEsaMPAAA">
 <XPD:REF name="Model">RGnHeMlJTU6BvipWP056EQAA</XPD:REF>
@@ -1492,7 +1493,7 @@
 <XPD:REF name="Model">T6mwVwi8rkSlwMYHCL10JgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DZEcq1hdWkSZZHW0Hn9srAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="+c9e62BpKkiXazb0+UmR1gAA">
-<XPD:ATTR name="Text" type="string">Mostrar página vacía</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Mostrar p&#225;gina vac&#237;a</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="3d36PokzyU6NotZaivH3YwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1513,7 +1514,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="0cIC5jN1f0mZEvnjsesTcQAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Listado vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Listado vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">HWDNRCJvkEKtFTxOBVIdzgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="cFIto7h54kSSYvTYHfL8hQAA">
@@ -1632,7 +1633,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="cKqdzh/UOkCjDxj/vH0IwQAA">
 <XPD:ATTR name="Alpha" type="real">1,79211063560314</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">41</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Página de error</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">P&#225;gina de error</XPD:ATTR>
 <XPD:REF name="Model">benr11Wl/0ud63HYoSZNCAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="5+sLWIpmlku0zHIj6YZ5lQAA">
@@ -1685,7 +1686,7 @@
 <XPD:REF name="Views[3]">831FkmwhF0qcJLBZNI7/XQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[3]" type="UMLTransition" guid="HWDNRCJvkEKtFTxOBVIdzgAA">
-<XPD:ATTR name="Name" type="string">Listado vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Listado vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">MFD3TpchiEeHy+Z57rXwlgAA</XPD:REF>
 <XPD:REF name="Source">66vyZWi+JkS+oOTXcZnTcwAA</XPD:REF>
 <XPD:REF name="Target">T6mwVwi8rkSlwMYHCL10JgAA</XPD:REF>
@@ -1717,7 +1718,7 @@
 <XPD:REF name="Views[3]">RYq7FjCBKkajjmRxDlHSnwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[6]" type="UMLTransition" guid="benr11Wl/0ud63HYoSZNCAAA">
-<XPD:ATTR name="Name" type="string">Página de error</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">P&#225;gina de error</XPD:ATTR>
 <XPD:REF name="StateMachine">MFD3TpchiEeHy+Z57rXwlgAA</XPD:REF>
 <XPD:REF name="Source">T6mwVwi8rkSlwMYHCL10JgAA</XPD:REF>
 <XPD:REF name="Target">Qir1KHHkYkOws/U+4l3ThgAA</XPD:REF>
@@ -1729,7 +1730,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[3]" type="UMLActivityGraph" guid="FfH9TlknEEOXOuw/wLyilwAA">
-<XPD:ATTR name="Name" type="string">F4 - Realizar búsquedas de CDs disponbiles</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F4 - Realizar b&#250;squedas de CDs disponbiles</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="oLyaqhCi0EqNJ4ulzUCr3AAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -1745,7 +1746,7 @@
 <XPD:REF name="Outgoings[0]">jG3ahfqwp0yZOh4o6RkXGAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="1sKAFeSP3E2LNj9JLnQ4lgAA">
-<XPD:ATTR name="Name" type="string">Se introducen los datos de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se introducen los datos de b&#250;squeda</XPD:ATTR>
 <XPD:REF name="ContainerState">oLyaqhCi0EqNJ4ulzUCr3AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">eHfnTHNws0KbQtDuLyd5jgAA</XPD:REF>
@@ -1778,7 +1779,7 @@
 <XPD:REF name="Incomings[0]">T+W2PcAC9ECXG0BPeWud/QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[4]" type="UMLActionState" guid="PTiCYsqaDUySpdpk7wyXaQAA">
-<XPD:ATTR name="Name" type="string">Se modifican los criterios de búsqueda en la misma vista</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se modifican los criterios de b&#250;squeda en la misma vista</XPD:ATTR>
 <XPD:REF name="ContainerState">oLyaqhCi0EqNJ4ulzUCr3AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">eQdXA7alS0e4HTuYn3puYQAA</XPD:REF>
@@ -1820,7 +1821,7 @@
 <XPD:REF name="Incomings[0]">GJGlM9nIa0yP8s5uVJbL8QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[8]" type="UMLActionState" guid="i6+7cKLgHk+BlsuDcwBsegAA">
-<XPD:ATTR name="Name" type="string">Se muestra una página con los resultados</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra una p&#225;gina con los resultados</XPD:ATTR>
 <XPD:REF name="ContainerState">oLyaqhCi0EqNJ4ulzUCr3AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">/Ak+YNMi802iviIVGgFB7QAA</XPD:REF>
@@ -1830,7 +1831,7 @@
 <XPD:REF name="Incomings[0]">XHh+iFm6mUGDncRrjyqqrAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[9]" type="UMLActionState" guid="yaror6ZPMUazQQyjbr+f7gAA">
-<XPD:ATTR name="Name" type="string">Se dividen los resultados en las páginas necesarias de forma que en ninguna haya más de 20</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se dividen los resultados en las p&#225;ginas necesarias de forma que en ninguna haya m&#225;s de 20</XPD:ATTR>
 <XPD:REF name="ContainerState">oLyaqhCi0EqNJ4ulzUCr3AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">DVWYv51N+EemrE/ws0+ERwAA</XPD:REF>
@@ -1848,7 +1849,7 @@
 <XPD:REF name="Incomings[0]">H1gtw46H5kiN3L76m8eecwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[11]" type="UMLActionState" guid="ml0yVqmcd0uXfN8g/1uk5QAA">
-<XPD:ATTR name="Name" type="string">Se muestra la primera página</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra la primera p&#225;gina</XPD:ATTR>
 <XPD:REF name="ContainerState">oLyaqhCi0EqNJ4ulzUCr3AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">qnyANG1XZESwRrbp0S53ggAA</XPD:REF>
@@ -1868,9 +1869,10 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="dD5cpTLl3ki6KbZR1hTSDwAA">
-<XPD:ATTR name="Name" type="string">Realizar búsquedas de CDs disponibles</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Realizar b&#250;squedas de CDs disponibles</XPD:ATTR>
 <XPD:REF name="DiagramOwner">FfH9TlknEEOXOuw/wLyilwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="cn83ZX4VD0uY+O9K3bPlrgAA">
+<XPD:REF name="Model">dD5cpTLl3ki6KbZR1hTSDwAA</XPD:REF>
 <XPD:REF name="Diagram">dD5cpTLl3ki6KbZR1hTSDwAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">27</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="J3oUA8nRjkKvMeJfs+qk3QAA">
@@ -1892,7 +1894,7 @@
 <XPD:REF name="Model">1sKAFeSP3E2LNj9JLnQ4lgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="nuLVFpm7NUWK7chMoprTHAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="9txDnt//p0uuzI9s/ToW4gAA">
-<XPD:ATTR name="Text" type="string">Se introducen los datos de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se introducen los datos de b&#250;squeda</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="D06Zua6OUk6Qdk4CgS3PMgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2021,7 +2023,7 @@
 <XPD:REF name="Model">PTiCYsqaDUySpdpk7wyXaQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="BO7C+qD9fUSXC+91anggtgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="AWRVWFYDFkOqa8NY2fmEnQAA">
-<XPD:ATTR name="Text" type="string">Se modifican los criterios de búsqueda en la misma vista</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se modifican los criterios de b&#250;squeda en la misma vista</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="c6eS206peUy8OLTTXrSeKwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2042,7 +2044,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="OmbecGDvzEG9QMBs7LewoQAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El usuario quiere modificar los criterios de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El usuario quiere modificar los criterios de b&#250;squeda</XPD:ATTR>
 <XPD:REF name="Model">/qN+y0pmzkiQyf1lvpR6GwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="JAUvuPOS9kSvxNITowL+7QAA">
@@ -2104,7 +2106,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="780NO69FPkKMsVVdVgvDQAAA">
 <XPD:ATTR name="Alpha" type="real">1,5707960142949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">149</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El usuario está conforme con los criterios de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El usuario est&#225; conforme con los criterios de b&#250;squeda</XPD:ATTR>
 <XPD:REF name="Model">WF8MVWK//0m76pjw9QFSsgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="qnljOIFpU0icb5azhsbRcwAA">
@@ -2211,7 +2213,7 @@
 <XPD:REF name="Model">i6+7cKLgHk+BlsuDcwBsegAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="iOU79gmsNku4Oue2699GvgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="IVcHLTO4mUGKU0WGK++fYAAA">
-<XPD:ATTR name="Text" type="string">Se muestra una página con los resultados</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra una p&#225;gina con los resultados</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="JDZd11Hkfka6dbkthgVEcgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2260,7 +2262,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="6f/wVn0+AUqqdjD90ztGfwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="R1Xxqb01SE+BtMSJ2wjG4AAA">
 <XPD:ATTR name="Width" type="integer">251</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se dividen los resultados en las páginas necesarias de forma que en ninguna haya más de 20</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se dividen los resultados en las p&#225;ginas necesarias de forma que en ninguna haya m&#225;s de 20</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="4EKTnm3RqEWSQIysKv5liQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2317,7 +2320,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="0dPqKvKGp0aGgesMr5ZO5AAA">
 <XPD:ATTR name="Alpha" type="real">1,570796063637</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">88</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se obtienen más de 20 resultados</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se obtienen m&#225;s de 20 resultados</XPD:ATTR>
 <XPD:REF name="Model">S0nG5R90sUqnqMGuWjbzpQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="G/0I3D0ACUq+QxWf6848YQAA">
@@ -2343,7 +2346,7 @@
 <XPD:REF name="Model">ml0yVqmcd0uXfN8g/1uk5QAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="AwtpzN9kr0GWfGXz2AaDMwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="yU/zvmD/a0236NcZiTw3XgAA">
-<XPD:ATTR name="Text" type="string">Se muestra la primera página</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra la primera p&#225;gina</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="h97ORKljZkiL8z66y6tcnwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2450,7 +2453,7 @@
 <XPD:REF name="Views[3]">Mi9an6ddXESv6tqeA0aLCwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[3]" type="UMLTransition" guid="/qN+y0pmzkiQyf1lvpR6GwAA">
-<XPD:ATTR name="Name" type="string">El usuario quiere modificar los criterios de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El usuario quiere modificar los criterios de b&#250;squeda</XPD:ATTR>
 <XPD:REF name="StateMachine">FfH9TlknEEOXOuw/wLyilwAA</XPD:REF>
 <XPD:REF name="Source">/3T8ojGI6kOwRIZCRVo9hgAA</XPD:REF>
 <XPD:REF name="Target">PTiCYsqaDUySpdpk7wyXaQAA</XPD:REF>
@@ -2471,7 +2474,7 @@
 <XPD:REF name="Views[3]">tJSsN/K+7E6O3ebRhA67SgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[5]" type="UMLTransition" guid="WF8MVWK//0m76pjw9QFSsgAA">
-<XPD:ATTR name="Name" type="string">El usuario está conforme con los criterios de búsqueda</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El usuario est&#225; conforme con los criterios de b&#250;squeda</XPD:ATTR>
 <XPD:REF name="StateMachine">FfH9TlknEEOXOuw/wLyilwAA</XPD:REF>
 <XPD:REF name="Source">/3T8ojGI6kOwRIZCRVo9hgAA</XPD:REF>
 <XPD:REF name="Target">GFLtTUvcgkGffWwgpR/jtwAA</XPD:REF>
@@ -2525,7 +2528,7 @@
 <XPD:REF name="Views[3]">YCuftAeagk6gGyMQVwL87wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[10]" type="UMLTransition" guid="S0nG5R90sUqnqMGuWjbzpQAA">
-<XPD:ATTR name="Name" type="string">Se obtienen más de 20 resultados</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se obtienen m&#225;s de 20 resultados</XPD:ATTR>
 <XPD:REF name="StateMachine">FfH9TlknEEOXOuw/wLyilwAA</XPD:REF>
 <XPD:REF name="Source">zbxcPHng9kKPZ6VY9IIiJwAA</XPD:REF>
 <XPD:REF name="Target">yaror6ZPMUazQQyjbr+f7gAA</XPD:REF>
@@ -2557,7 +2560,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[4]" type="UMLActivityGraph" guid="KnDyedAfRUaui2TpXxvZ0wAA">
-<XPD:ATTR name="Name" type="string">F5 - Selección de CDs</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F5 - Selecci&#243;n de CDs</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="agTzcpQPl02oESIJ0Z2algAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -2573,7 +2576,7 @@
 <XPD:REF name="Outgoings[0]">6NXu9i0pQ0GCAqnF5hx+tQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="Ui2iN9wt5ECaxfoA0ManjQAA">
-<XPD:ATTR name="Name" type="string">Selección de un CD</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Selecci&#243;n de un CD</XPD:ATTR>
 <XPD:REF name="ContainerState">agTzcpQPl02oESIJ0Z2algAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">lCBJ5OvLIkWQ8GF2j5wwQwAA</XPD:REF>
@@ -2597,7 +2600,7 @@
 <XPD:REF name="Incomings[0]">ZpML0XfWY0ioCpWJfORTnQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[4]" type="UMLActionState" guid="8on8BSupuEamjQyEIongsgAA">
-<XPD:ATTR name="Name" type="string">Presentar página de infomación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Presentar p&#225;gina de infomaci&#243;n</XPD:ATTR>
 <XPD:REF name="ContainerState">agTzcpQPl02oESIJ0Z2algAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">D9WAl+6nmEC9bkwHnokycQAA</XPD:REF>
@@ -2617,7 +2620,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="sU5AXbUQk0iI4vmE3KbdcQAA">
-<XPD:ATTR name="Name" type="string">Selección de CDs</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Selecci&#243;n de CDs</XPD:ATTR>
 <XPD:REF name="DiagramOwner">KnDyedAfRUaui2TpXxvZ0wAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="pNxsm1nv6UKyL5JofvFD9QAA">
 <XPD:REF name="Model">sU5AXbUQk0iI4vmE3KbdcQAA</XPD:REF>
@@ -2642,7 +2645,7 @@
 <XPD:REF name="Model">Ui2iN9wt5ECaxfoA0ManjQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Q0jDURwj+0yQ9zNj8qcK1wAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="giX1EHLrBUCHgBW3v1etmgAA">
-<XPD:ATTR name="Text" type="string">Selección de un CD</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Selecci&#243;n de un CD</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="wGvgwTaTfECNzAHrK3hktAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2682,7 +2685,7 @@
 <XPD:REF name="Model">8on8BSupuEamjQyEIongsgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="9CAhGv6bTUqRhGWKkvGB+gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="UeyeW3+Bk0OrNdHc0EOz+QAA">
-<XPD:ATTR name="Text" type="string">Presentar página de infomación</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Presentar p&#225;gina de infomaci&#243;n</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="cdGtA7OW5U++3Tjok9eXUgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2894,7 +2897,7 @@
 <XPD:REF name="Incomings[0]">wJCmQDZ3uEmcFgcedJJIFwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="Yr7Rj3OeRE2rjIQjVGNRzQAA">
-<XPD:ATTR name="Name" type="string">Mostrar una pantalla que indique que el carro está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Mostrar una pantalla que indique que el carro est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="ContainerState">63U9If+21ESl7x74sv2P/AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">vDHLmWsW906fWTa9nZ1/3wAA</XPD:REF>
@@ -2935,7 +2938,7 @@
 <XPD:REF name="Incomings[0]">1MXjXGpqKE2ZqBXIXGiQbAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[8]" type="UMLActionState" guid="uLVkJ85zh0aYpl4UCt1iGgAA">
-<XPD:ATTR name="Name" type="string">La lista se divide en las páginas necesarias para que en ninguna haya más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">La lista se divide en las p&#225;ginas necesarias para que en ninguna haya m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="ContainerState">63U9If+21ESl7x74sv2P/AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">nMbEL6j/O0GhYpCYNO9GEAAA</XPD:REF>
@@ -2945,7 +2948,7 @@
 <XPD:REF name="Incomings[0]">vUPD2cIeCkSKA9MFtderjQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[9]" type="UMLActionState" guid="qKGGrBZfaEm1KoCEQaizmgAA">
-<XPD:ATTR name="Name" type="string">Se muestra la primera página</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra la primera p&#225;gina</XPD:ATTR>
 <XPD:REF name="ContainerState">63U9If+21ESl7x74sv2P/AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">XD3gpdbPDUCJVf9pPDEWHwAA</XPD:REF>
@@ -2968,6 +2971,7 @@
 <XPD:ATTR name="Name" type="string">Mostrar el contenido del carro de la compra al usuario</XPD:ATTR>
 <XPD:REF name="DiagramOwner">V2S4VSsUf0KAdzq7ajBZCwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="zwFX8fGgO020dHaO/NNOXAAA">
+<XPD:REF name="Model">DVDJZ5e/0kaCk6KxtJfJoQAA</XPD:REF>
 <XPD:REF name="Diagram">DVDJZ5e/0kaCk6KxtJfJoQAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">19</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLActionStateView" guid="kkRnkz7HvE2huYFL7YiN+QAA">
@@ -3072,7 +3076,7 @@
 <XPD:REF name="Model">Yr7Rj3OeRE2rjIQjVGNRzQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="p20jKGH8VEeusINBz3nvtwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="m89ysyVtpEG7BJsh0jJ9fwAA">
-<XPD:ATTR name="Text" type="string">Mostrar una pantalla que indique que el carro está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Mostrar una pantalla que indique que el carro est&#225; vac&#237;o</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="q13kWxxKT0yx//co7bJ7dgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3092,7 +3096,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="Rg6naVIEskqhuRqyhMQCCgAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El carro está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El carro est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">y8IZS/qSWkiZoAFp0BQp3gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="7w3uQ4maNUisEipVmh0L4wAA">
@@ -3127,7 +3131,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="U+AGvcus+k+GNdwLVAUHwwAA">
 <XPD:ATTR name="Alpha" type="real">1,570796063637</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">59</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El carro no está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El carro no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">16sJn5FT0kWnJNK3ityXgQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="G+Hd5kZ8yEeMa4Emxol2EgAA">
@@ -3237,7 +3241,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="z02EzJXJIUGM7R4bSNpK4AAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="enILXCxIj0OQkbhXK8XgHAAA">
 <XPD:ATTR name="Width" type="integer">239</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">La lista se divide en las páginas necesarias para que en ninguna haya más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">La lista se divide en las p&#225;ginas necesarias para que en ninguna haya m&#225;s de 20 elementos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="YsGy3LKZy0Oa4Nmu8tGgEwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3257,7 +3262,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="pOzIWzestEKm1d+PsonUGgAA">
 <XPD:ATTR name="Alpha" type="real">1,57079610940359</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">91</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El carro tiene más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El carro tiene m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="Model">vUPD2cIeCkSKA9MFtderjQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="GOveuZx1bka3nKFsOWbPFgAA">
@@ -3283,7 +3288,7 @@
 <XPD:REF name="Model">qKGGrBZfaEm1KoCEQaizmgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="m4+M8HqdL0aiAvRKc80orwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="6aHQMCPkgk+n/+miZKY3vgAA">
-<XPD:ATTR name="Text" type="string">Se muestra la primera página</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra la primera p&#225;gina</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="9Gry4YPeG0WZr+0s92Ql7QAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3380,7 +3385,7 @@
 <XPD:REF name="Views[3]">HUYPN9Pp/EugxW8GOgsxtQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[2]" type="UMLTransition" guid="y8IZS/qSWkiZoAFp0BQp3gAA">
-<XPD:ATTR name="Name" type="string">El carro está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El carro est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">V2S4VSsUf0KAdzq7ajBZCwAA</XPD:REF>
 <XPD:REF name="Source">XZrH4stRkUCU3MFPU0PvKAAA</XPD:REF>
 <XPD:REF name="Target">Yr7Rj3OeRE2rjIQjVGNRzQAA</XPD:REF>
@@ -3391,7 +3396,7 @@
 <XPD:REF name="Views[3]">z43heiNYoE+ZnbyB1PnpBgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[3]" type="UMLTransition" guid="16sJn5FT0kWnJNK3ityXgQAA">
-<XPD:ATTR name="Name" type="string">El carro no está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El carro no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">V2S4VSsUf0KAdzq7ajBZCwAA</XPD:REF>
 <XPD:REF name="Source">XZrH4stRkUCU3MFPU0PvKAAA</XPD:REF>
 <XPD:REF name="Target">TEBRlzc+9EKOZxZPtIY79QAA</XPD:REF>
@@ -3423,7 +3428,7 @@
 <XPD:REF name="Views[3]">h1nFvKHHJ02R7X8Bgs/I+QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[6]" type="UMLTransition" guid="vUPD2cIeCkSKA9MFtderjQAA">
-<XPD:ATTR name="Name" type="string">El carro tiene más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El carro tiene m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="StateMachine">V2S4VSsUf0KAdzq7ajBZCwAA</XPD:REF>
 <XPD:REF name="Source">TEBRlzc+9EKOZxZPtIY79QAA</XPD:REF>
 <XPD:REF name="Target">uLVkJ85zh0aYpl4UCt1iGgAA</XPD:REF>
@@ -3455,7 +3460,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[6]" type="UMLActivityGraph" guid="cR7RpBGXUkq9RwCnGXjPHwAA">
-<XPD:ATTR name="Name" type="string">F7 - Confirmación de compra y pedido</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F7 - Confirmaci&#243;n de compra y pedido</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="eg2yO3aIkUuDSfA30fHVMAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -3568,7 +3573,7 @@
 <XPD:REF name="Incomings[0]">z850pL3Cw06CCxeKlPtzjQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[10]" type="UMLActionState" guid="SQGgUctD5kGhJNje96BK/gAA">
-<XPD:ATTR name="Name" type="string">Registrar pedido</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Guardar pedido</XPD:ATTR>
 <XPD:REF name="ContainerState">eg2yO3aIkUuDSfA30fHVMAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">0gBv3sqmoEaPimu+2lMJCAAA</XPD:REF>
@@ -3586,7 +3591,7 @@
 <XPD:REF name="Incomings[0]">/atnKHK1QEKNIREKms2HmgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[12]" type="UMLActionState" guid="YZRqIWeb9UWLVAXIqe22hAAA">
-<XPD:ATTR name="Name" type="string">Enviar correo de confirmación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Enviar correo de confirmaci&#243;n</XPD:ATTR>
 <XPD:REF name="ContainerState">eg2yO3aIkUuDSfA30fHVMAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">ToWV0k6BZEK+l+z8ph+pkAAA</XPD:REF>
@@ -3610,12 +3615,12 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="ppPQ+E74OU+p8nIiANL/HwAA">
-<XPD:ATTR name="Name" type="string">Confirmación de compra y pedido</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Confirmaci&#243;n de compra y pedido</XPD:ATTR>
 <XPD:REF name="DiagramOwner">cR7RpBGXUkq9RwCnGXjPHwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="4uoJQoEPhUGZPVH2yzbSdwAA">
 <XPD:REF name="Model">ppPQ+E74OU+p8nIiANL/HwAA</XPD:REF>
 <XPD:REF name="Diagram">ppPQ+E74OU+p8nIiANL/HwAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">34</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">36</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="BFEEGU2rT0iJTN/xuB9j+AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -3656,7 +3661,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="42Qs9PJSaEywjhIjzFlE+AAA">
 <XPD:ATTR name="Alpha" type="real">1,36226675459268</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">68,6585755750875</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Confirmación del carrito</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Confirmaci&#243;n del carrito</XPD:ATTR>
 <XPD:REF name="Model">869Jvp8ew02znTDfYuHbGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="VhIffysy+UelZuhW3LDR+AAA">
@@ -3684,6 +3689,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="I8D9ymvtSUSTFeUeyvZm9gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="k0dGP0hNjk6qme1TfBWdZQAA">
 <XPD:ATTR name="Width" type="integer">187</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Calcular precios y datos relevantes a partir del carrito</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="G1q5VvojvE2wmGJ7MTLLwgAA">
@@ -3733,6 +3739,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="hb/f3+Tt20ukVD4dzjmHGAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="uGFfWF8VCECMguhUQ7Gl1QAA">
 <XPD:ATTR name="Width" type="integer">159</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Consultar disponibilidad actualizada de los productos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="yk+Z8ohHzU286xVnI8PdkAAA">
@@ -3837,7 +3844,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="dMUiy0BrckuRDPkOkWl8UAAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Algún producto no está disponible</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Alg&#250;n producto no est&#225; disponible</XPD:ATTR>
 <XPD:REF name="Model">v1PTEp14BEy3CmbmxuIKRwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="k2FUdIu3zkqAyk1+TVXm8AAA">
@@ -3964,6 +3971,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="KReoU5F62UuAyxQCJM1HRAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="xYBAprTDUU6MO2WwlHgACwAA">
 <XPD:ATTR name="Width" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Mostrar el resumen de compra</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="gpE/SkEKAkeippnPcrg95gAA">
@@ -4074,7 +4082,7 @@
 <XPD:REF name="Model">SQGgUctD5kGhJNje96BK/gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="awMVHFkjxESQZwhABdSLagAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="OKNSnhq4GUmxNy/u9ZG+uwAA">
-<XPD:ATTR name="Text" type="string">Registrar pedido</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Guardar pedido</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="X64JziQTGEOIqugcT6RZdQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4095,7 +4103,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="YLR3qBU3HUWKMGYqG3UU8gAA">
 <XPD:ATTR name="Alpha" type="real">1,71269294022262</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">36,8781778291715</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Confirmación</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Confirmaci&#243;n</XPD:ATTR>
 <XPD:REF name="Model">AHpanoAhFEa4JOK5DOHB7wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="hiIt72wFkkubRQJOJZBqVgAA">
@@ -4130,7 +4138,7 @@
 <XPD:REF name="Model">YZRqIWeb9UWLVAXIqe22hAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="p1MCpVMj9EuYuTsR0Dv0twAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="jNPKXkwX1UObD/QqwA2GawAA">
-<XPD:ATTR name="Text" type="string">Enviar correo de confirmación</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Enviar correo de confirmaci&#243;n</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="AMyTPAEInEOsPbCBOty7gQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4290,13 +4298,30 @@
 <XPD:REF name="Head">JKeaaUOI802agPLyU8hKIgAA</XPD:REF>
 <XPD:REF name="Tail">ToWV0k6BZEK+l+z8ph+pkAAA</XPD:REF>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="0oQTNoi8ika0SXfpvRdaKgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">89</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Definido en F8
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteLinkView" guid="QzuVR39fAE6D6mWGw1KVrAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">256,639;188,629</XPD:ATTR>
+<XPD:REF name="Head">0oQTNoi8ika0SXfpvRdaKgAA</XPD:REF>
+<XPD:REF name="Tail">0gBv3sqmoEaPimu+2lMJCAAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">4uoJQoEPhUGZPVH2yzbSdwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Transitions" type="integer">16</XPD:ATTR>
 <XPD:OBJ name="Transitions[0]" type="UMLTransition" guid="869Jvp8ew02znTDfYuHbGgAA">
-<XPD:ATTR name="Name" type="string">Confirmación del carrito</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Confirmaci&#243;n del carrito</XPD:ATTR>
 <XPD:REF name="StateMachine">cR7RpBGXUkq9RwCnGXjPHwAA</XPD:REF>
 <XPD:REF name="Source">8uf7bLFEIEiFcbLKv31giwAA</XPD:REF>
 <XPD:REF name="Target">iRQaOHN5jkeeX0FtWaGgAgAA</XPD:REF>
@@ -4337,7 +4362,7 @@
 <XPD:REF name="Views[3]">M6I6BVtgp0yrV6KsW97BCQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[4]" type="UMLTransition" guid="v1PTEp14BEy3CmbmxuIKRwAA">
-<XPD:ATTR name="Name" type="string">Algún producto no está disponible</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Alg&#250;n producto no est&#225; disponible</XPD:ATTR>
 <XPD:REF name="StateMachine">cR7RpBGXUkq9RwCnGXjPHwAA</XPD:REF>
 <XPD:REF name="Source">/0/fxvITGEOtoOma7NFohQAA</XPD:REF>
 <XPD:REF name="Target">o52phbKbMk2MnA9jEiCaZgAA</XPD:REF>
@@ -4411,7 +4436,7 @@
 <XPD:REF name="Views[3]">nQhnDLSKXEaPUdf0fYF9ogAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[11]" type="UMLTransition" guid="AHpanoAhFEa4JOK5DOHB7wAA">
-<XPD:ATTR name="Name" type="string">Confirmación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Confirmaci&#243;n</XPD:ATTR>
 <XPD:REF name="StateMachine">cR7RpBGXUkq9RwCnGXjPHwAA</XPD:REF>
 <XPD:REF name="Source">82DvyVqJikSWLXzA1Z9lgAAA</XPD:REF>
 <XPD:REF name="Target">SQGgUctD5kGhJNje96BK/gAA</XPD:REF>
@@ -4479,7 +4504,7 @@
 <XPD:REF name="Outgoings[0]">XN5LRTnygka83kDV+L3OrgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="qkKHhRNuJ02BvIpNzjOoQAAA">
-<XPD:ATTR name="Name" type="string">Se muestra al usuario el pedido que está a punto de realizar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra al usuario el pedido que est&#225; a punto de realizar</XPD:ATTR>
 <XPD:REF name="ContainerState">+L6JqlhgwEKGMd25g1AZmAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">XZDwFXJdbkeiMtsi7wVKSwAA</XPD:REF>
@@ -4505,7 +4530,7 @@
 <XPD:REF name="Incomings[0]">XN5LRTnygka83kDV+L3OrgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="sxBZf0WJxkGQUhvrQOrx9wAA">
-<XPD:ATTR name="Name" type="string">Se muestra al usuario una pantalla que le indica que debe añadir productos al carrito para poder comprar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra al usuario una pantalla que le indica que debe a&#241;adir productos al carrito para poder comprar</XPD:ATTR>
 <XPD:REF name="ContainerState">+L6JqlhgwEKGMd25g1AZmAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">h+seJJ7q7EWBRHBCN6BGMwAA</XPD:REF>
@@ -4576,6 +4601,7 @@
 <XPD:ATTR name="Name" type="string">Guardar el pedido</XPD:ATTR>
 <XPD:REF name="DiagramOwner">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="Up57AQeE0EOW79LEJG+zWgAA">
+<XPD:REF name="Model">HGg12UlMCk+RNX3BpNNdYQAA</XPD:REF>
 <XPD:REF name="Diagram">HGg12UlMCk+RNX3BpNNdYQAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">19</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="PpEv4YwkgEe4kj3F2i07+wAA">
@@ -4607,7 +4633,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="e2sB8rfF1k6ycEjAbv7QzgAA">
 <XPD:ATTR name="Alpha" type="real">1,60479642195614</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">147,085009433321</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Tras haber llenado el carro y pulsado el botón de continuar</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Tras haber llenado el carro y pulsado el bot&#243;n de continuar</XPD:ATTR>
 <XPD:REF name="Model">XN5LRTnygka83kDV+L3OrgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="62cT8a9jQUiRGO+ZG3B5zwAA">
@@ -4633,7 +4659,7 @@
 <XPD:REF name="Model">qkKHhRNuJ02BvIpNzjOoQAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="WF/gBv1k/0aZkFli7fmzLQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="HM3LZuNUyEGBYDvNPalWEQAA">
-<XPD:ATTR name="Text" type="string">Se muestra al usuario el pedido que está a punto de realizar</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra al usuario el pedido que est&#225; a punto de realizar</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="pbu4GDX4pUu2KrAIZz1WdwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4655,7 +4681,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DjksEJl/4U+wlhHd+GT7fQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="xV5A7T4gi0ukhoEchddXnQAA">
 <XPD:ATTR name="Width" type="integer">305</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se muestra al usuario una pantalla que le indica que debe añadir productos al carrito para poder comprar</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra al usuario una pantalla que le indica que debe a&#241;adir productos al carrito para poder comprar</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="ODw/rnSaikOGDnsoT1pvgwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4676,7 +4703,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="mRx1nZXTQE+qWIQmSl3Z6gAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El pedido está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El pedido est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">y0KrtC8Mekyu0LcVsUvPgAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="9Q4tRfW65kq5xHRjrlZcGwAA">
@@ -4829,7 +4856,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="+oVLjShOwkuJ9kfXP05dSAAA">
 <XPD:ATTR name="Alpha" type="real">1,63522286174011</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">62,1288982680363</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El pedido no está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El pedido no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">5VUvCzKsSEeIivdv6fzarQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="8/47h0QPR0WoHZREbfV3wwAA">
@@ -4857,6 +4884,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="trLR64k9tku4pVypFjFd1gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="GvhAJ9gNCESZ0pwc6IB9eAAA">
 <XPD:ATTR name="Width" type="integer">299</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">26</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Se muestra al usuario una pantalla de error que le indica que no hay stock suficiente para satisfacer el pedido</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="6PutxKc/A02aBiWSyIThYQAA">
@@ -4961,13 +4989,13 @@
 </XPD:OBJ>
 <XPD:ATTR name="#Transitions" type="integer">11</XPD:ATTR>
 <XPD:OBJ name="Transitions[0]" type="UMLTransition" guid="Gt1eJ2g7MEqNrkutt2HylQAA">
-<XPD:ATTR name="Name" type="string">Tras haber llenado el carrito y pulsado el botón de continuar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Tras haber llenado el carrito y pulsado el bot&#243;n de continuar</XPD:ATTR>
 <XPD:REF name="StateMachine">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:REF name="Source">edMzVcXCM0yXe9NAF8E4fQAA</XPD:REF>
 <XPD:REF name="Target">qkKHhRNuJ02BvIpNzjOoQAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[1]" type="UMLTransition" guid="XN5LRTnygka83kDV+L3OrgAA">
-<XPD:ATTR name="Name" type="string">Tras haber llenado el carro y pulsado el botón de continuar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Tras haber llenado el carro y pulsado el bot&#243;n de continuar</XPD:ATTR>
 <XPD:REF name="StateMachine">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:REF name="Source">kqAsByJEDUman9L8M4SVugAA</XPD:REF>
 <XPD:REF name="Target">edMzVcXCM0yXe9NAF8E4fQAA</XPD:REF>
@@ -4978,13 +5006,13 @@
 <XPD:REF name="Views[3]">KeVRBCc7I0ecsZIjNE0cKwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[2]" type="UMLTransition" guid="fgBDOesSA0COG+/nIgXMfwAA">
-<XPD:ATTR name="Name" type="string">El pedido no está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El pedido no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:REF name="Source">edMzVcXCM0yXe9NAF8E4fQAA</XPD:REF>
 <XPD:REF name="Target">qkKHhRNuJ02BvIpNzjOoQAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[3]" type="UMLTransition" guid="y0KrtC8Mekyu0LcVsUvPgAAA">
-<XPD:ATTR name="Name" type="string">El pedido está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El pedido est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:REF name="Source">edMzVcXCM0yXe9NAF8E4fQAA</XPD:REF>
 <XPD:REF name="Target">sxBZf0WJxkGQUhvrQOrx9wAA</XPD:REF>
@@ -5025,7 +5053,7 @@
 <XPD:REF name="Views[3]">kMRigTs970S1IRHhITP47QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[7]" type="UMLTransition" guid="5VUvCzKsSEeIivdv6fzarQAA">
-<XPD:ATTR name="Name" type="string">El pedido no está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El pedido no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">8NuqrHZNiUuLHfPqZ7NxcQAA</XPD:REF>
 <XPD:REF name="Source">edMzVcXCM0yXe9NAF8E4fQAA</XPD:REF>
 <XPD:REF name="Target">gtA9lvEuYUWlqeEzMIWWeQAA</XPD:REF>
@@ -5085,7 +5113,7 @@
 <XPD:REF name="Outgoings[0]">ASE1LpYXk0+N+wS4gZIEiQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="1ECvxd25LEqW2+jxUnUqqAAA">
-<XPD:ATTR name="Name" type="string">Recibida confirmación de compra</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Recibida confirmaci&#243;n de compra</XPD:ATTR>
 <XPD:REF name="ContainerState">kXYfj5q8a0avlo9AMBMF1AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">aA3H6IumFU6peZozT1/yFAAA</XPD:REF>
@@ -5115,7 +5143,7 @@
 <XPD:REF name="Incomings[0]">i0/+5xgysEyy2nZs5yAGywAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[4]" type="UMLActionState" guid="OEV9QpeWTUukO6FkBdv3lQAA">
-<XPD:ATTR name="Name" type="string">Enviar confirmación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Enviar confirmaci&#243;n</XPD:ATTR>
 <XPD:REF name="ContainerState">kXYfj5q8a0avlo9AMBMF1AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">x7CCtXcl4UCEfqf2C1RTaQAA</XPD:REF>
@@ -5178,7 +5206,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="tqIkmzPNXUCBZqbsUqgrKgAA">
-<XPD:ATTR name="Name" type="string">Enviar correo de confirmación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Enviar correo de confirmaci&#243;n</XPD:ATTR>
 <XPD:REF name="DiagramOwner">kw5W7DtBakq5lS4meLtZYAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="YGcYZSzj8E6JLTjdF0SWTAAA">
 <XPD:REF name="Model">tqIkmzPNXUCBZqbsUqgrKgAA</XPD:REF>
@@ -5203,7 +5231,7 @@
 <XPD:REF name="Model">1ECvxd25LEqW2+jxUnUqqAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="70Xy/PJL/USRPiTjWPR1sgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Xejl6F1ACUKnldD8jGnk+gAA">
-<XPD:ATTR name="Text" type="string">Recibida confirmación de compra</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Recibida confirmaci&#243;n de compra</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="6iSK66Jz90WxoyyUkvWJdAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5290,7 +5318,7 @@
 <XPD:REF name="Model">OEV9QpeWTUukO6FkBdv3lQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="UlUa3dGtrUWgj7nnhd8YagAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="3aKOr5QaNkO9cacBvv8bqwAA">
-<XPD:ATTR name="Text" type="string">Enviar confirmación</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Enviar confirmaci&#243;n</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="OzmTvyXrrUGVVqErY8xIOwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5736,7 +5764,7 @@
 <XPD:REF name="Incomings[0]">otMxWux4Fk2ZHpDg4bvFQgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[2]" type="UMLActionState" guid="aDjrhuJoAkCcCMyjLXv+MwAA">
-<XPD:ATTR name="Name" type="string">Se comprueba si se puede satisfacer en función del stock</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se comprueba si se puede satisfacer en funci&#243;n del stock</XPD:ATTR>
 <XPD:REF name="ContainerState">aJT3zWKWGkOguKaB1gQJ7QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">eVOhnF+MrUi52Lxp5WQBzgAA</XPD:REF>
@@ -5799,6 +5827,7 @@
 <XPD:ATTR name="Name" type="string">Actualizar el stock de pedidos</XPD:ATTR>
 <XPD:REF name="DiagramOwner">APLQMCffmUSI14p2anwD6QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="2v+v8bDsvESmvqcnJnqoowAA">
+<XPD:REF name="Model">AtAEUaRGqkCW/lIJL9/YZgAA</XPD:REF>
 <XPD:REF name="Diagram">AtAEUaRGqkCW/lIJL9/YZgAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">15</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="NFz0/MqcuESHMLdvExMymwAA">
@@ -5867,7 +5896,7 @@
 <XPD:REF name="Model">aDjrhuJoAkCcCMyjLXv+MwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="GmmWK1tKL0CZSIPwCS9hLwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="v9d2Rey5fUKLDwV0ld/F+AAA">
-<XPD:ATTR name="Text" type="string">Se comprueba si se puede satisfacer en función del stock</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se comprueba si se puede satisfacer en funci&#243;n del stock</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="R0j9yoC54062nXt//z+17AAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6475,7 +6504,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[11]" type="UMLActivityGraph" guid="3fVslhPeJEixfRyW7FwwVAAA">
-<XPD:ATTR name="Name" type="string">F12 - Permitir introducción de comentarios</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F12 - Permitir introducci&#243;n de comentarios</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="BbOsidEmTE2qiX8/bAvdnwAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -6491,7 +6520,7 @@
 <XPD:REF name="Outgoings[0]">AuOtUQwtB0OkZAqT6uSm1AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="hImG2wJfBUWxHo8AkOBrbQAA">
-<XPD:ATTR name="Name" type="string">Se recuperan los datos del producto que se quiere reseñar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se recuperan los datos del producto que se quiere rese&#241;ar</XPD:ATTR>
 <XPD:REF name="ContainerState">BbOsidEmTE2qiX8/bAvdnwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">qZHt9AiGLU6g8oachzVuJAAA</XPD:REF>
@@ -6553,7 +6582,7 @@
 <XPD:REF name="Incomings[0]">na6DceFYvkqM2GVTp0lEaQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[7]" type="UMLActionState" guid="xHgAhSsXCUqeuU9JZUQwAwAA">
-<XPD:ATTR name="Name" type="string">Se almacena la valoración numérica del usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se almacena la valoraci&#243;n num&#233;rica del usuario</XPD:ATTR>
 <XPD:REF name="ContainerState">BbOsidEmTE2qiX8/bAvdnwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">QjejJdc7k06bldlq+71fBwAA</XPD:REF>
@@ -6571,7 +6600,7 @@
 <XPD:REF name="Incomings[0]">MTdxhVDyXka/7qLoI3m82AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[9]" type="UMLActionState" guid="7mh+Hr8/5ESRhx04QBuvoQAA">
-<XPD:ATTR name="Name" type="string">Se almacena el comentario y la valoración numérica del usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se almacena el comentario y la valoraci&#243;n num&#233;rica del usuario</XPD:ATTR>
 <XPD:REF name="ContainerState">BbOsidEmTE2qiX8/bAvdnwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">m9NuMNSHV0uf7jwCqBgs1AAA</XPD:REF>
@@ -6591,9 +6620,10 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="TVj0f+A1ZUKKPNlJmXaoZgAA">
-<XPD:ATTR name="Name" type="string">Permitir introducción de comentarios</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Permitir introducci&#243;n de comentarios</XPD:ATTR>
 <XPD:REF name="DiagramOwner">3fVslhPeJEixfRyW7FwwVAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="zIYkFnY0V0mOkeSCOR8vrQAA">
+<XPD:REF name="Model">TVj0f+A1ZUKKPNlJmXaoZgAA</XPD:REF>
 <XPD:REF name="Diagram">TVj0f+A1ZUKKPNlJmXaoZgAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">21</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="rQaKwOvDmUyOWOf5fpZh+wAA">
@@ -6615,7 +6645,7 @@
 <XPD:REF name="Model">hImG2wJfBUWxHo8AkOBrbQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="HwZk2RCxnkGpTuark/hXdQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="dpyznvBIKky/Ej3KQKWfVgAA">
-<XPD:ATTR name="Text" type="string">Se recuperan los datos del producto que se quiere reseñar</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se recuperan los datos del producto que se quiere rese&#241;ar</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="oWuW5WH160qJavVRHER7OgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6864,7 +6894,7 @@
 <XPD:REF name="Model">xHgAhSsXCUqeuU9JZUQwAwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="GZ6VrdN45kincITXAKVmbAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="JIbYa+pwekCmThlVV5UATQAA">
-<XPD:ATTR name="Text" type="string">Se almacena la valoración numérica del usuario</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se almacena la valoraci&#243;n num&#233;rica del usuario</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Hc3oPyGXBEefc0QQS2maGAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6885,7 +6915,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="+WpEkKnsMUirIBJfVY93hwAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El usuario envía un comentario vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El usuario env&#237;a un comentario vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">GIlk/BuRvUOrptx5ypLEiwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="2FAT48ynKU+2c1rL5FIJvAAA">
@@ -6947,7 +6977,7 @@
 <XPD:REF name="Model">7mh+Hr8/5ESRhx04QBuvoQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="jDqcalb8cEWsfj6/35aZAgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="vRHUOISFSUOLEovFPfTttwAA">
-<XPD:ATTR name="Text" type="string">Se almacena el comentario y la valoración numérica del usuario</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se almacena el comentario y la valoraci&#243;n num&#233;rica del usuario</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="bo2Zp4Tn6kmTF6bRL70UpwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6967,7 +6997,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="B0unfaYDnkmo0iSgrJycKgAA">
 <XPD:ATTR name="Alpha" type="real">1,57079603267725</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">115</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El usuario envía un comentario con contenido</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El usuario env&#237;a un comentario con contenido</XPD:ATTR>
 <XPD:REF name="Model">JKA9aRVuBEWlP0AhnwMOMAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="Rx7NQVdXoEC2SpdnQsihGwAA">
@@ -7083,7 +7113,7 @@
 <XPD:REF name="Views[3]">wcdApD5i7EWFqDyOMhWCnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[6]" type="UMLTransition" guid="GIlk/BuRvUOrptx5ypLEiwAA">
-<XPD:ATTR name="Name" type="string">El usuario envía un comentario vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El usuario env&#237;a un comentario vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">3fVslhPeJEixfRyW7FwwVAAA</XPD:REF>
 <XPD:REF name="Source">KFMHHRzXn0GpVczKATE9hAAA</XPD:REF>
 <XPD:REF name="Target">xHgAhSsXCUqeuU9JZUQwAwAA</XPD:REF>
@@ -7104,7 +7134,7 @@
 <XPD:REF name="Views[3]">9sXy55uvV0CMtlacBwtK4AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[8]" type="UMLTransition" guid="JKA9aRVuBEWlP0AhnwMOMAAA">
-<XPD:ATTR name="Name" type="string">El usuario envía un comentario con contenido</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El usuario env&#237;a un comentario con contenido</XPD:ATTR>
 <XPD:REF name="StateMachine">3fVslhPeJEixfRyW7FwwVAAA</XPD:REF>
 <XPD:REF name="Source">KFMHHRzXn0GpVczKATE9hAAA</XPD:REF>
 <XPD:REF name="Target">7mh+Hr8/5ESRhx04QBuvoQAA</XPD:REF>
@@ -7162,7 +7192,7 @@
 <XPD:REF name="Incomings[0]">+v5WaWZ410i9rZteKVKizgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="weafNZ2+oEqvhzZBsRJXhQAA">
-<XPD:ATTR name="Name" type="string">Aplicar filtros de ordenación</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Aplicar filtros de ordenaci&#243;n</XPD:ATTR>
 <XPD:REF name="ContainerState">JKSnv7ILS0C3nYNpo08xTQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">QNGsTrdFcEOcc7nslxnACAAA</XPD:REF>
@@ -7257,7 +7287,7 @@
 <XPD:REF name="Model">weafNZ2+oEqvhzZBsRJXhQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="L/0JOJEpUUmrgPBKSE4fFAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="BdpxYshr4U+f7CNTsAOpEAAA">
-<XPD:ATTR name="Text" type="string">Aplicar filtros de ordenación</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Aplicar filtros de ordenaci&#243;n</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="aCUWu0dQGEWjh3GiFw1uUQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -7488,7 +7518,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[13]" type="UMLActivityGraph" guid="BoRRsnhgC0qbW+dOPEneMAAA">
-<XPD:ATTR name="Name" type="string">F14 - Validad nombre/contraseña del usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F14 - Validad nombre/contrase&#241;a del usuario</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="otPbGGEIGUOC1B2z2LcNSgAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -7504,7 +7534,7 @@
 <XPD:REF name="Outgoings[0]">LMTfs9AOwkCeBLM5WHxShwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="+oY+P3wON06eEIkrTkZW5gAA">
-<XPD:ATTR name="Name" type="string">Comprobar que el usuario y la contraseña son válidos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Comprobar que el usuario y la contrase&#241;a son v&#225;lidos</XPD:ATTR>
 <XPD:REF name="ContainerState">otPbGGEIGUOC1B2z2LcNSgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">yBTqNRy300eiygHmKjWEIAAA</XPD:REF>
@@ -7526,7 +7556,7 @@
 <XPD:REF name="Incomings[0]">VGBQqUSWyk6UD0JsFUlHtgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="FVTkCYcysUa6vvh6VrwEJQAA">
-<XPD:ATTR name="Name" type="string">Se muestra la pantalla principal para un usuario estándar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra la pantalla principal para un usuario est&#225;ndar</XPD:ATTR>
 <XPD:REF name="ContainerState">otPbGGEIGUOC1B2z2LcNSgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">xGDKMuUnMEqDg7vgM83EwwAA</XPD:REF>
@@ -7564,9 +7594,10 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="pinFQVpQ10ufHBjI5MpPRgAA">
-<XPD:ATTR name="Name" type="string">Validad nombre/contraseña del usuario</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Validad nombre/contrase&#241;a del usuario</XPD:ATTR>
 <XPD:REF name="DiagramOwner">BoRRsnhgC0qbW+dOPEneMAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="2kqwWSzRgkGWHYPPNLIJJAAA">
+<XPD:REF name="Model">pinFQVpQ10ufHBjI5MpPRgAA</XPD:REF>
 <XPD:REF name="Diagram">pinFQVpQ10ufHBjI5MpPRgAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">15</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="b9SzmMw4CEOp0QMxgty/GgAA">
@@ -7588,7 +7619,7 @@
 <XPD:REF name="Model">+oY+P3wON06eEIkrTkZW5gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="oIYpncL7SkegLTrqc8t8TAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="QtozEEBwskaZdh+RAi+GgQAA">
-<XPD:ATTR name="Text" type="string">Comprobar que el usuario y la contraseña son válidos</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Comprobar que el usuario y la contrase&#241;a son v&#225;lidos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="oIewo6kvcE2w9k/tYPwtjgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -7632,7 +7663,7 @@
 <XPD:ATTR name="Top" type="integer">56</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">226</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">F2 - Validar nombre/contraseña del usuario
+<XPD:ATTR name="Text" type="string">F2 - Validar nombre/contrase&#241;a del usuario
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="up8hes5NJkuaA1C5bujg7gAA">
@@ -7688,7 +7719,7 @@
 <XPD:REF name="Model">FVTkCYcysUa6vvh6VrwEJQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="EXbkuOwUfEecvCA2d1DaSQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="B2OMteUbmUSUi7NYGG/RDQAA">
-<XPD:ATTR name="Text" type="string">Se muestra la pantalla principal para un usuario estándar</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra la pantalla principal para un usuario est&#225;ndar</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="AGHzjs6tt0uk1F1ancDeLwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -7911,7 +7942,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[14]" type="UMLActivityGraph" guid="zyqh9xC7QUG5gIEmmrCuSAAA">
-<XPD:ATTR name="Name" type="string">F15 - Introducción de nuevos CDs y cantidades correspondientes</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F15 - Introducci&#243;n de nuevos CDs y cantidades correspondientes</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="9HllR7+hkUmJrES8GYpA+wAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -7927,7 +7958,7 @@
 <XPD:REF name="Outgoings[0]">q1vWFTyEOU6AMyk6jcN5vwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="7wm+JZjeHUWeECJoJFA50AAA">
-<XPD:ATTR name="Name" type="string">Recoger información del nuevo item</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Recoger informaci&#243;n del nuevo item</XPD:ATTR>
 <XPD:REF name="ContainerState">9HllR7+hkUmJrES8GYpA+wAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">cV6BdICneUewOix7BBi01gAA</XPD:REF>
@@ -7990,7 +8021,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="UaIPph3OCEa9HuvJIT86MQAA">
-<XPD:ATTR name="Name" type="string">Introducción de nuevos CDs y cantidades correspondientes</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Introducci&#243;n de nuevos CDs y cantidades correspondientes</XPD:ATTR>
 <XPD:REF name="DiagramOwner">zyqh9xC7QUG5gIEmmrCuSAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="jRodnFLrH0umDeW3l72NfAAA">
 <XPD:REF name="Model">UaIPph3OCEa9HuvJIT86MQAA</XPD:REF>
@@ -8017,7 +8048,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="KveI6rdjQU2UvnPqRT2ksgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="0oIMG8CBAUy8VSi4DHqH3QAA">
 <XPD:ATTR name="Width" type="integer">119</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Recoger información del nuevo item</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Recoger informaci&#243;n del nuevo item</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="NSGOfbd5N0eJvV71mokWrgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8059,6 +8091,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="KMem878HBEu58+iSJogGNQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Fx/mSKLH+0yoS5XdD/PBAQAA">
 <XPD:ATTR name="Width" type="integer">111</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Introducir en la base de datos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="9BWQFB5fDk6ObWLu82v38wAA">
@@ -8393,7 +8426,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="Behaviors[15]" type="UMLActivityGraph" guid="faSVZL5qR0mBDIXuVMZCrgAA">
-<XPD:ATTR name="Name" type="string">F16 - Visualizar el catálogo de CDs</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">F16 - Visualizar el cat&#225;logo de CDs</XPD:ATTR>
 <XPD:REF name="Context">0imPDhZrMU+b1/kD08CoAQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="1J2nKTQlFEKpw1XA3pKbZQAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -8409,7 +8442,7 @@
 <XPD:REF name="Outgoings[0]">iuqk8k70FEebBM0lFqsg+wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="ypwYqaDYQECh5+4jtGya2QAA">
-<XPD:ATTR name="Name" type="string">Recuperar los datos de catálogo de CD's</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Recuperar los datos de cat&#225;logo de CD's</XPD:ATTR>
 <XPD:REF name="ContainerState">1J2nKTQlFEKpw1XA3pKbZQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">mE9TJR2Tn0m77ww+wExOdAAA</XPD:REF>
@@ -8431,7 +8464,7 @@
 <XPD:REF name="Incomings[0]">cRHtR95rAU63Je2WFhrJwwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[3]" type="UMLActionState" guid="qh2fLpLA7E+jh+wO/79CuAAA">
-<XPD:ATTR name="Name" type="string">Se muestra al administrador una pantalla indicándole que el catálogo está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra al administrador una pantalla indic&#225;ndole que el cat&#225;logo est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="ContainerState">1J2nKTQlFEKpw1XA3pKbZQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">yyEF71Qif0uF0bJXUqN1PwAA</XPD:REF>
@@ -8453,7 +8486,7 @@
 <XPD:REF name="Incomings[0]">hpHQSEZjfkCdcCFmj0y0pgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[5]" type="UMLActionState" guid="WzA52hyAu0i5AFTSmb+gCQAA">
-<XPD:ATTR name="Name" type="string">Se muestra al administrador la lista de ítems del catálogo</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra al administrador la lista de &#237;tems del cat&#225;logo</XPD:ATTR>
 <XPD:REF name="ContainerState">1J2nKTQlFEKpw1XA3pKbZQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">Mx5rQ4tM3EW+wCHT/HMsHgAA</XPD:REF>
@@ -8463,7 +8496,7 @@
 <XPD:REF name="Incomings[0]">uRX5j/SSSUG1MnsV7HK5cwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[6]" type="UMLActionState" guid="41oZsFjjNE+8lW370WRU1QAA">
-<XPD:ATTR name="Name" type="string">Se divide la lista de ítems en varias páginas, de forma que en ninguna se muestren más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se divide la lista de &#237;tems en varias p&#225;ginas, de forma que en ninguna se muestren m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="ContainerState">1J2nKTQlFEKpw1XA3pKbZQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">h5tEAG06kEWhpaeIi/GLowAA</XPD:REF>
@@ -8473,7 +8506,7 @@
 <XPD:REF name="Incomings[0]">S071Ir6/OUKHqyIdV+ODywAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[7]" type="UMLActionState" guid="kUVIUFyelEeKeMx9DJ6FrQAA">
-<XPD:ATTR name="Name" type="string">Se muestra la primera página del catálogo</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra la primera p&#225;gina del cat&#225;logo</XPD:ATTR>
 <XPD:REF name="ContainerState">1J2nKTQlFEKpw1XA3pKbZQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">XxFngbAZ6ESaHSzViBbnuAAA</XPD:REF>
@@ -8509,9 +8542,10 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="vjyxnrtPkkyCmQ/smSRvHwAA">
-<XPD:ATTR name="Name" type="string">Visualizar el catálogo de CDs</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Visualizar el cat&#225;logo de CDs</XPD:ATTR>
 <XPD:REF name="DiagramOwner">faSVZL5qR0mBDIXuVMZCrgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="JPzLCl/1s0GwcqFKp/Dk1AAA">
+<XPD:REF name="Model">vjyxnrtPkkyCmQ/smSRvHwAA</XPD:REF>
 <XPD:REF name="Diagram">vjyxnrtPkkyCmQ/smSRvHwAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">21</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="E1mS+2bI5EKFX9gcQqIpHAAA">
@@ -8533,7 +8567,7 @@
 <XPD:REF name="Model">ypwYqaDYQECh5+4jtGya2QAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="luafPta6EE+zyEl0dqChNgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="nfQdYI2wGkmdN2SyKhF9TAAA">
-<XPD:ATTR name="Text" type="string">Recuperar los datos de catálogo de CD's</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Recuperar los datos de cat&#225;logo de CD's</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="wUpmUJLqakuw01MewWluVgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8618,7 +8652,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Uh6WwVfQHEWyQWZUw9VHSAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="zt/M/j/cq0i/9m8E+hQ/dwAA">
 <XPD:ATTR name="Width" type="integer">254</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se muestra al administrador una pantalla indicándole que el catálogo está vacío</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra al administrador una pantalla indic&#225;ndole que el cat&#225;logo est&#225; vac&#237;o</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="o7q2Kc7gI0+uUdCbTZudNgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8639,7 +8674,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="nLGQ9KfnWEWfQaB36PlaGgAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El catálogo está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El cat&#225;logo est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">EW4EUwSH8k2Pju3htJ1UbQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="lrEOBbYx2EyA87xOs9y6lAAA">
@@ -8674,7 +8709,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="Dc34f7glDUOM4O8HjDbFeQAA">
 <XPD:ATTR name="Alpha" type="real">1,7681915020294</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">71,386273190299</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El catálogo no está vacío</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El cat&#225;logo no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="Model">hpHQSEZjfkCdcCFmj0y0pgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="qI7lKG/IcEaHhP7nz1M0KgAA">
@@ -8700,7 +8735,7 @@
 <XPD:REF name="Model">WzA52hyAu0i5AFTSmb+gCQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="iVHXaEtofkyl5BvWNdbR8QAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="E2YgENIWkkyGl7elAeHOkgAA">
-<XPD:ATTR name="Text" type="string">Se muestra al administrador la lista de ítems del catálogo</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra al administrador la lista de &#237;tems del cat&#225;logo</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="YcCW65IAoUG0i+zGYGIFEAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8721,7 +8756,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="wvJNt7nzU0+GFZUC+tZR5gAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El catálogo tiene menos de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El cat&#225;logo tiene menos de 20 elementos</XPD:ATTR>
 <XPD:REF name="Model">uRX5j/SSSUG1MnsV7HK5cwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="LVkCeKQPL0+GLblyekKZWAAA">
@@ -8749,7 +8784,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="6Wo7o1Zut023m+TmP4ezDAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="vGWOpU6Y7UykC7FjHZhjWwAA">
 <XPD:ATTR name="Width" type="integer">294</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se divide la lista de ítems en varias páginas, de forma que en ninguna se muestren más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se divide la lista de &#237;tems en varias p&#225;ginas, de forma que en ninguna se muestren m&#225;s de 20 elementos</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="hRAPgKSx7kyDcknp4VWl5wAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8770,7 +8806,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="hbk4sEIJdkq+6f/LWr6tdQAA">
 <XPD:ATTR name="Alpha" type="real">1,53747499795328</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">98</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El catálogo tiene más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El cat&#225;logo tiene m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="Model">S071Ir6/OUKHqyIdV+ODywAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="4Kmm8LMLgEaogVAmY4kpTgAA">
@@ -8796,7 +8832,7 @@
 <XPD:REF name="Model">kUVIUFyelEeKeMx9DJ6FrQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="8x2kP3iOX0u7H8Oq1JcxfQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="0m6PClIWQkO67q2aLNiEqQAA">
-<XPD:ATTR name="Text" type="string">Se muestra la primera página del catálogo</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra la primera p&#225;gina del cat&#225;logo</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="glQxsmooqEKYyu/ZMY+fuwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8965,7 +9001,7 @@
 <XPD:REF name="Views[3]">Y1/qsVCR50KHMM1hnlqE1AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[2]" type="UMLTransition" guid="EW4EUwSH8k2Pju3htJ1UbQAA">
-<XPD:ATTR name="Name" type="string">El catálogo está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El cat&#225;logo est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">faSVZL5qR0mBDIXuVMZCrgAA</XPD:REF>
 <XPD:REF name="Source">VVQUAEeAbEWyvbet2OMliwAA</XPD:REF>
 <XPD:REF name="Target">qh2fLpLA7E+jh+wO/79CuAAA</XPD:REF>
@@ -8976,7 +9012,7 @@
 <XPD:REF name="Views[3]">HYfPu0Ifd0uj5r3dHmyQ2gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[3]" type="UMLTransition" guid="hpHQSEZjfkCdcCFmj0y0pgAA">
-<XPD:ATTR name="Name" type="string">El catálogo no está vacío</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El cat&#225;logo no est&#225; vac&#237;o</XPD:ATTR>
 <XPD:REF name="StateMachine">faSVZL5qR0mBDIXuVMZCrgAA</XPD:REF>
 <XPD:REF name="Source">VVQUAEeAbEWyvbet2OMliwAA</XPD:REF>
 <XPD:REF name="Target">ekFQoz/eNk6e9YIZNlYtiAAA</XPD:REF>
@@ -8987,7 +9023,7 @@
 <XPD:REF name="Views[3]">10Xvtw2k2Eyurd025BdKuAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[4]" type="UMLTransition" guid="uRX5j/SSSUG1MnsV7HK5cwAA">
-<XPD:ATTR name="Name" type="string">El catálogo tiene menos de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El cat&#225;logo tiene menos de 20 elementos</XPD:ATTR>
 <XPD:REF name="StateMachine">faSVZL5qR0mBDIXuVMZCrgAA</XPD:REF>
 <XPD:REF name="Source">ekFQoz/eNk6e9YIZNlYtiAAA</XPD:REF>
 <XPD:REF name="Target">WzA52hyAu0i5AFTSmb+gCQAA</XPD:REF>
@@ -8998,7 +9034,7 @@
 <XPD:REF name="Views[3]">YKxydMzBfkmBXgrgsCft8gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[5]" type="UMLTransition" guid="S071Ir6/OUKHqyIdV+ODywAA">
-<XPD:ATTR name="Name" type="string">El catálogo tiene más de 20 elementos</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El cat&#225;logo tiene m&#225;s de 20 elementos</XPD:ATTR>
 <XPD:REF name="StateMachine">faSVZL5qR0mBDIXuVMZCrgAA</XPD:REF>
 <XPD:REF name="Source">ekFQoz/eNk6e9YIZNlYtiAAA</XPD:REF>
 <XPD:REF name="Target">41oZsFjjNE+8lW370WRU1QAA</XPD:REF>
@@ -9473,7 +9509,7 @@
 <XPD:REF name="Outgoings[0]">Z7+wbBbXdUy2lwDFDk+uJQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[1]" type="UMLActionState" guid="uFjYjKZ0hkSC7JnOsRNEQQAA">
-<XPD:ATTR name="Name" type="string">El administrador accede al panel de gestión de usuarios</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador accede al panel de gesti&#243;n de usuarios</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">HftvIB9OcE+p5NxAUrdcFgAA</XPD:REF>
@@ -9506,7 +9542,7 @@
 <XPD:REF name="Incomings[1]">qvIg6sHzIkOLdMw4jZH6ywAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[4]" type="UMLActionState" guid="RSrDKffbMUG1LXi1By0djgAA">
-<XPD:ATTR name="Name" type="string">Se divide la lista de usuarios en páginas de forma que en ninguna haya más de 50</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se divide la lista de usuarios en p&#225;ginas de forma que en ninguna haya m&#225;s de 50</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">Udz/Redjpk++Nge00C2OEQAA</XPD:REF>
@@ -9574,7 +9610,7 @@
 <XPD:REF name="Incomings[0]">OSYB0vUJPkmQb4V/a7mkkgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[11]" type="UMLActionState" guid="i4XmwwMLfUS2d6zBeS/l+AAA">
-<XPD:ATTR name="Name" type="string">El administrador presiona el botón de eliminar</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador presiona el bot&#243;n de eliminar</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">73KT3mFORku9PNk/ebgZtAAA</XPD:REF>
@@ -9591,7 +9627,7 @@
 <XPD:REF name="Incomings[0]">E5YErVgznkiWBCw5xfOf9wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[13]" type="UMLActionState" guid="CCee6mg7H0yOy17WsCGjCgAA">
-<XPD:ATTR name="Name" type="string">El administrador presiona el botón de cambiar contraseña</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador presiona el bot&#243;n de cambiar contrase&#241;a</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">Mh53j1oE20Wceykf0U4RbAAA</XPD:REF>
@@ -9601,7 +9637,7 @@
 <XPD:REF name="Incomings[0]">KSrqWN9sFEatQLMNvr9DKgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[14]" type="UMLActionState" guid="dvuHuXsbsEi+rQJyMONGFgAA">
-<XPD:ATTR name="Name" type="string">Se solicita la nueva contraseña dos veces</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se solicita la nueva contrase&#241;a dos veces</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">SLuEJMC/c0qi8LNFHPlUOwAA</XPD:REF>
@@ -9611,7 +9647,7 @@
 <XPD:REF name="Incomings[0]">ePKhYQBFe0qE5OuxC0ryggAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[15]" type="UMLActionState" guid="I6AhQtT4j0SLZY9wNuVIBwAA">
-<XPD:ATTR name="Name" type="string">Se muestra un diálogo de confirmación antes de ejecutar los cambios</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Se muestra un di&#225;logo de confirmaci&#243;n antes de ejecutar los cambios</XPD:ATTR>
 <XPD:REF name="ContainerState">/Rdo0uJEKU6/f25BT/rrRwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">JM+e25K/J0Crpj3Rga6/WQAA</XPD:REF>
@@ -9657,6 +9693,7 @@
 <XPD:ATTR name="Name" type="string">Administrar los usuarios registrados</XPD:ATTR>
 <XPD:REF name="DiagramOwner">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="xUbQQmfjVEmhAzgLvnnvGAAA">
+<XPD:REF name="Model">Akkpv+Z2dUGdKHQuMhkmcAAA</XPD:REF>
 <XPD:REF name="Diagram">Akkpv+Z2dUGdKHQuMhkmcAAA</XPD:REF>
 <XPD:ATTR name="#OwnedViews" type="integer">35</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLPseudostateView" guid="hm76ihuZuUGdKQ3MW8sQFwAA">
@@ -9678,7 +9715,7 @@
 <XPD:REF name="Model">uFjYjKZ0hkSC7JnOsRNEQQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="8RWocL8FQ0icPaLWVfHTkgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="91kgGu/xfECnnUh1Xya/sQAA">
-<XPD:ATTR name="Text" type="string">El administrador accede al panel de gestión de usuarios</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador accede al panel de gesti&#243;n de usuarios</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="WAqIlOQJHE6pipuduct6lQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -9783,7 +9820,8 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="c3lC1d7f50C+HffHgLu6IAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="FqTIO8zM/USGzyk7HdjAdAAA">
 <XPD:ATTR name="Width" type="integer">230</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Se divide la lista de usuarios en páginas de forma que en ninguna haya más de 50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se divide la lista de usuarios en p&#225;ginas de forma que en ninguna haya m&#225;s de 50</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="dZf6dz7oB0SDdno8XwEjaQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -9804,7 +9842,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="IXy1VeLtu0aGD/wF0P6/DgAA">
 <XPD:ATTR name="Alpha" type="real">-1,5707959857051</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">95</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Hay más de 50 usuarios registrados</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Hay m&#225;s de 50 usuarios registrados</XPD:ATTR>
 <XPD:REF name="Model">4ysQJAa/lkOwqEThAwjZuwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="aV1vPF03DUShpHxXRLyHZwAA">
@@ -9832,6 +9870,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="AHfooMJPY0KzE7Oki6IKsAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="IxxgermfDkm9tm8fW8qzpQAA">
 <XPD:ATTR name="Width" type="integer">221</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Se seleccionan uno o varios usuarios sobre los que se desea realizar la tarea</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Sz5uCfZC5kKPWyK4Fyc/WwAA">
@@ -9961,7 +10000,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="Wp+TkKGjeU6/xNuCHIV00wAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El administrador no desea realizar ninguna tarea más</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador no desea realizar ninguna tarea m&#225;s</XPD:ATTR>
 <XPD:REF name="Model">sJl9jLKb4UeesIYEFs/dZwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="Ai3n4xD2tEOCE22l/uoTtgAA">
@@ -9988,7 +10027,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="VQkp5gJOXk2m/tHxiOQymgAA">
 <XPD:ATTR name="Alpha" type="real">1,59351880689135</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">126</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El administrador desea realizar alguna tarea más</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador desea realizar alguna tarea m&#225;s</XPD:ATTR>
 <XPD:REF name="Model">/SLmg68taU6Rq6tb4opU7QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="2742X6VTd0CNtJZUD255HQAA">
@@ -10050,7 +10089,7 @@
 <XPD:REF name="Model">i4XmwwMLfUS2d6zBeS/l+AAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="PdM/ANYYVkifQLTAXcbmogAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="STOy4qU780CMtZW6btuNAAAA">
-<XPD:ATTR name="Text" type="string">El administrador presiona el botón de eliminar</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador presiona el bot&#243;n de eliminar</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="7JPS0KIlR0icgQtRn+ZQ9QAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -10097,7 +10136,7 @@
 <XPD:REF name="Model">CCee6mg7H0yOy17WsCGjCgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="NgzHXjRX50aam0lztAsoFwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="xsmhNUmrhkaE1bDMqLb2PQAA">
-<XPD:ATTR name="Text" type="string">El administrador presiona el botón de cambiar contraseña</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador presiona el bot&#243;n de cambiar contrase&#241;a</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Nk+lo1aphEKRPoIPXaURZAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -10118,7 +10157,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="yVvMRjf4JUilBhU02RRI5QAA">
 <XPD:ATTR name="Alpha" type="real">-1,9416872641849</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">38,6264158316559</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">El administrador desea cambiar las contraseña(s)</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">El administrador desea cambiar las contrase&#241;a(s)</XPD:ATTR>
 <XPD:REF name="Model">KSrqWN9sFEatQLMNvr9DKgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="0DclpfdypEaL21R0L2HsygAA">
@@ -10144,7 +10183,7 @@
 <XPD:REF name="Model">dvuHuXsbsEi+rQJyMONGFgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="7ItjuBqxeE63KUqNCBQyAAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="0w06lgBuvkeFBOMtX1aywAAA">
-<XPD:ATTR name="Text" type="string">Se solicita la nueva contraseña dos veces</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se solicita la nueva contrase&#241;a dos veces</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="24V6vV+GtEqaIHVfUduNDwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -10191,7 +10230,7 @@
 <XPD:REF name="Model">I6AhQtT4j0SLZY9wNuVIBwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="BsZyt8l6UUKCE6DEngCBKAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="r0Mo8jTh7EGXoEla9lsbOwAA">
-<XPD:ATTR name="Text" type="string">Se muestra un diálogo de confirmación antes de ejecutar los cambios</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Se muestra un di&#225;logo de confirmaci&#243;n antes de ejecutar los cambios</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="rAWVcURHLkqvzBEwhHbKHQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -10425,7 +10464,7 @@
 <XPD:REF name="Views[3]">tjxIorTXKU+H7CKM2PTj0gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[2]" type="UMLTransition" guid="4ysQJAa/lkOwqEThAwjZuwAA">
-<XPD:ATTR name="Name" type="string">Hay más de 50 usuarios registrados</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Hay m&#225;s de 50 usuarios registrados</XPD:ATTR>
 <XPD:REF name="StateMachine">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:REF name="Source">TkzGoTmF1ECpDrrTNAztNQAA</XPD:REF>
 <XPD:REF name="Target">RSrDKffbMUG1LXi1By0djgAA</XPD:REF>
@@ -10467,7 +10506,7 @@
 <XPD:REF name="Views[3]">6X0ukR4mO0609OTBOf42uwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[6]" type="UMLTransition" guid="sJl9jLKb4UeesIYEFs/dZwAA">
-<XPD:ATTR name="Name" type="string">El administrador no desea realizar ninguna tarea más</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador no desea realizar ninguna tarea m&#225;s</XPD:ATTR>
 <XPD:REF name="StateMachine">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:REF name="Source">cI+/F+ho6U6iOMairWU4awAA</XPD:REF>
 <XPD:REF name="Target">kJDocq/hTE2IW0hnsZaUIgAA</XPD:REF>
@@ -10478,13 +10517,13 @@
 <XPD:REF name="Views[3]">D7Uhks/ZiEm1LWmS3F/3nwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[7]" type="UMLTransition" guid="rMsoeIrx9Ea4dI3ct3p39QAA">
-<XPD:ATTR name="Name" type="string">El administrador desea realizar alguna tarea más</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador desea realizar alguna tarea m&#225;s</XPD:ATTR>
 <XPD:REF name="StateMachine">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:REF name="Source">cI+/F+ho6U6iOMairWU4awAA</XPD:REF>
 <XPD:REF name="Target">ZkBww5s/pUSqRIycRa+ZMAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[8]" type="UMLTransition" guid="/SLmg68taU6Rq6tb4opU7QAA">
-<XPD:ATTR name="Name" type="string">El administrador desea realizar alguna tarea más</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador desea realizar alguna tarea m&#225;s</XPD:ATTR>
 <XPD:REF name="StateMachine">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:REF name="Source">cI+/F+ho6U6iOMairWU4awAA</XPD:REF>
 <XPD:REF name="Target">6KA45AK/DUyiXzNYa3XQtwAA</XPD:REF>
@@ -10521,7 +10560,7 @@
 <XPD:REF name="Views[3]">VUOUONseNEimeT4PCUxaNwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Transitions[12]" type="UMLTransition" guid="KSrqWN9sFEatQLMNvr9DKgAA">
-<XPD:ATTR name="Name" type="string">El administrador desea cambiar las contraseña(s)</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">El administrador desea cambiar las contrase&#241;a(s)</XPD:ATTR>
 <XPD:REF name="StateMachine">L3p464RweEOSLkp10hUNTgAA</XPD:REF>
 <XPD:REF name="Source">BSsM/IyL1kKz6RFfWpdOqgAA</XPD:REF>
 <XPD:REF name="Target">CCee6mg7H0yOy17WsCGjCgAA</XPD:REF>
