@@ -11,7 +11,7 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="index.jsp">Logo</a>
         </div>
         <form class="navbar-form navbar-left">
             <div class="input-group">
@@ -24,7 +24,7 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
+            <li><a href="clientAuth.jsp"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito <span class="badge">0</span></a></li>
         </ul>
     </div>
