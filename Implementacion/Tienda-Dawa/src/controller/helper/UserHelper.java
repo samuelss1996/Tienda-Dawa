@@ -1,5 +1,9 @@
 package controller.helper;
 
+import model.dao.DAOFactory;
+import model.dao.OrderDAO;
+import model.dao.UserDAO;
+import model.vo.Client;
 import model.vo.User;
 
 /**
@@ -14,11 +18,12 @@ public class UserHelper {
     }
 
     /**
-     * @param user 
+     * @param client
      * @param password
      */
-    public void registerUser(User user, String password) {
-        // TODO implement here
+    public void registerClient(Client client, String password) {
+        UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
+        userDAO.registerClient(client, password);
     }
 
     /**
@@ -26,7 +31,8 @@ public class UserHelper {
      * @param password
      */
     public void userLogin(String username, String password) {
-        // TODO implement here
+        UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
+        userDAO.clientLogin(username, password);
     }
 
     /**
@@ -35,7 +41,8 @@ public class UserHelper {
      * @param newPassword
      */
     public void changePassword(String username, String oldPassword, String newPassword) {
-        // TODO implement here
+        UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
+        userDAO.changePassword(username, oldPassword, newPassword);
     }
 
 }
