@@ -21,26 +21,26 @@ public class SQLDAOFactory extends DAOFactory {
 
     @Override
     public UserDAO getUserDAO() {
-        return null;
+        return new SQLUserDAO();
     }
 
     @Override
     public StockDAO getStockDAO() {
-        return null;
+        return new SQLStockDAO();
     }
 
     @Override
     public OrderDAO getOrderDAO() {
-        return null;
+        return new SQLOrderDAO();
     }
 
     @Override
     public ProductDAO getProductDAO() {
-        return null;
+        return new SQLProductDAO();
     }
 
     @Override
     public RatingDAO getRatingDAO() {
-        return null;
+        return new SQLRatingDAO();
     }
 }

@@ -11,7 +11,7 @@ public interface UserDAO {
     /**
      * @param client
      */
-    void registerClient(Client client);
+    void registerClient(Client client, String password);
 
     /**
      * @param username 

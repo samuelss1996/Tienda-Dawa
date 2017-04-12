@@ -1,13 +1,20 @@
 package model.dao;
 
+import model.dao.sql.SQLDAOFactory;
+
 public abstract class DAOFactory {
     public static final int SQL = 1;
 
     /**
      * @param whichFactory
      */
-    public static final void getFactory(int whichFactory) {
-        // TODO implement here
+    public static final DAOFactory getFactory(int whichFactory) {
+        switch (whichFactory) {
+            case SQL:
+                return new SQLDAOFactory();
+            default:
+                return null;
+        }
     }
 
     /**
