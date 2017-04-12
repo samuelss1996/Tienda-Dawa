@@ -17,5 +17,5 @@ public interface TaxManager {
     /**
      * @param productList
      */
-    void apply(List<Product> productList);
+    void apply(List<? extends Product> productList);
 }

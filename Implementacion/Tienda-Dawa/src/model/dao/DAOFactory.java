@@ -41,4 +41,9 @@ public abstract class DAOFactory {
      * @return
      */
     public abstract RatingDAO getRatingDAO();
+
+    /**
+     * @return
+     */
+    public abstract AdministrationDAO getAdministrationDAO();
 }

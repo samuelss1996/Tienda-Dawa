@@ -43,4 +43,9 @@ public class SQLDAOFactory extends DAOFactory {
     public RatingDAO getRatingDAO() {
         return new SQLRatingDAO();
     }
+
+    @Override
+    public AdministrationDAO getAdministrationDAO() {
+        return new SQLAdministrationDAO();
+    }
 }

@@ -1,5 +1,9 @@
 package controller.helper;
 
+import model.dao.AdministrationDAO;
+import model.dao.DAOFactory;
+import model.dao.ProductDAO;
+import model.dao.UserDAO;
 import model.filter.ClientFilter;
 import model.vo.*;
 
@@ -21,29 +25,32 @@ public class AdminHelper {
      * @param password
      */
     public void login(String username, String password) {
-        // TODO implement here
+        UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
+        userDAO.adminLogin(username, password);
     }
 
     /**
      * @param cd
      */
     public void insert(CD cd) {
-        // TODO implement here
+        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
+        productDAO.insert(cd);
     }
 
     /**
      * @param cactus
      */
     public void insert(Cactus cactus) {
-        // TODO implement here
+        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
+        productDAO.insert(cactus);
     }
 
     /**
      * @return
      */
     public List<Product> listProducts() {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listProducts(0, 100);
     }
 
     /**
@@ -52,8 +59,8 @@ public class AdminHelper {
      * @return
      */
     public List<Product> listProducts(int from, int to) {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listProducts(from, to);
     }
 
     /**
@@ -61,8 +68,8 @@ public class AdminHelper {
      * @return
      */
     public List<Product> listProducts(EProductType type) {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listProducts(0, 100, type);
     }
 
     /**
@@ -72,8 +79,8 @@ public class AdminHelper {
      * @return
      */
     public List<Product> listProducts(int from, int to, EProductType type) {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listProducts(from, to, type);
     }
 
     /**
@@ -81,8 +88,8 @@ public class AdminHelper {
      * @return
      */
     public List<User> listUserAccounts(ClientFilter filter) {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listUserAccounts(0, 100, filter);
     }
 
     /**
@@ -92,23 +99,25 @@ public class AdminHelper {
      * @return
      */
     public List<User> listUserAccounts(int from, int to, ClientFilter filter) {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        return administrationDAO.listUserAccounts(from, to, filter);
     }
 
     /**
      * @param userList
      */
     public void deleteUserAccounts(List<User> userList) {
-        // TODO implement here
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        administrationDAO.deleteUserAccounts(userList);
     }
 
     /**
-     * @param username 
+     * @param userId
      * @param newPassword
      */
-    public void changePassword(String username, String newPassword) {
-        // TODO implement here
+    public void changePassword(int userId, String newPassword) {
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        administrationDAO.changeUserPassword(userId, newPassword);
     }
 
 }

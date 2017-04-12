@@ -1,8 +1,11 @@
 package controller.helper;
 
+import model.dao.*;
 import model.filter.CDFilter;
 import model.filter.CactusFilter;
 import model.filter.ProductFilter;
+import model.helper.tax.TaxManager;
+import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
 
 import javax.servlet.http.HttpSession;
@@ -23,23 +26,26 @@ public class StockHelper {
      * @param rating
      */
     public void addRating(Rating rating) {
-        // TODO implement here
+        RatingDAO ratingDAO = DAOFactory.getFactory(DAOFactory.SQL).getRatingDAO();
+        ratingDAO.addRating(rating);
     }
 
     /**
      * @return
      */
     public List<Product> listProducts() {
-        // TODO implement here
-        return null;
+        AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
+        //TODO: limits
+        return administrationDAO.listProducts(0, 100);
     }
 
     /**
      * @return
      */
     public List<Product> listAvailableProducts() {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        //TODO: limits
+        return stockDAO.listAvailableProducts(100);
     }
 
     /**
@@ -47,8 +53,8 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts(int limit) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        return stockDAO.listAvailableProducts(limit);
     }
 
     /**
@@ -56,8 +62,9 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts(EProductType type) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        //TODO: limit
+        return stockDAO.listAvailableProducts(type, 100);
     }
 
     /**
@@ -66,8 +73,9 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts(EProductType type, int limit) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        //TODO: limit
+        return stockDAO.listAvailableProducts(type, limit);
     }
 
     /**
@@ -77,8 +85,11 @@ public class StockHelper {
      * @return
      */
     public Product getProductDetails(int productId, EProductType type, HttpSession session) {
-        // TODO implement here
-        return null;
+        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
+        Product product = productDAO.fetchProduct(productId, type);
+        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        taxManager.apply(product);
+        return product;
     }
 
     /**
@@ -87,8 +98,11 @@ public class StockHelper {
      * @return
      */
     public List<Product> searchProducts(ProductFilter filter, HttpSession session) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        List<Product> results = stockDAO.searchProducts(filter);
+        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        taxManager.apply(results);
+        return results;
     }
 
     /**
@@ -97,8 +111,11 @@ public class StockHelper {
      * @return
      */
     public List<CD> searchCDs(CDFilter filter, HttpSession session) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        List<CD> results = stockDAO.searchCDs(filter);
+        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        taxManager.apply(results);
+        return results;
     }
 
     /**
@@ -107,8 +124,11 @@ public class StockHelper {
      * @return
      */
     public List<Cactus> searchCacti(CactusFilter filter, HttpSession session) {
-        // TODO implement here
-        return null;
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        List<Cactus> results = stockDAO.searchCacti(filter);
+        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        taxManager.apply(results);
+        return results;
     }
 
 }

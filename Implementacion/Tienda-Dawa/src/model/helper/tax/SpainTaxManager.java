@@ -15,7 +15,7 @@ public class SpainTaxManager implements TaxManager {
     }
 
     @Override
-    public void apply(List<Product> productList) {
+    public void apply(List<? extends Product> productList) {
 
     }
 }
