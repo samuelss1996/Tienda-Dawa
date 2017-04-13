@@ -68,6 +68,7 @@ public class SQLRatingDAO implements RatingDAO {
                                               resultSet.getFloat("rating.value"),
                                               resultSet.getDate("rating.date"),
                                               new Product(resultSet.getInt("product.id"),
+                                                          resultSet.getString("product.name"),
                                                           resultSet.getFloat("product.price"),
                                                           resultSet.getInt("product.stock"),
                                                           resultSet.getInt("product.type")),

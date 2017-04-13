@@ -8,7 +8,7 @@ public class Cactus extends Product {
     private String origin;
 
     public Cactus(int id, float price, int stock, EProductType type, String species, String origin) {
-        super(id, price, stock, type);
+        super(id, String.format("Cactus %s de %s", species, origin), price, stock, type);
         this.species = species;
         this.origin = origin;
     }
