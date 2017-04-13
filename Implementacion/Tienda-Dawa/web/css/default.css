@@ -26,3 +26,28 @@ html, body {
 .quickAdd {
     margin-top: 50px;
 }
+
+img {
+    width: 100%;
+}
+
+.reviewList {
+    list-style: none;
+}
+
+.reviewList .author {
+    color: #888;
+    font-size: 12px;
+}
+
+.reviewList .content {
+    text-align: justify;
+}
+
+.reviewList h5 {
+    font-weight: bold;
+}
+
+#addRewiew #content {
+    resize: none;
+}

@@ -34,10 +34,10 @@
             <ul class="productList">
                 <li class="well well-lg">
                     <div class="row">
-                        <img class="col-md-2" src="img/dragon.jpg">
+                        <a href="productDetails.jsp"><img class="col-md-2" src="img/dragon.jpg"></a>
 
                         <div class="col-md-8">
-                            <h3>DragonForce - The Power Within</h3>
+                            <h3><a href="productDetails.jsp">DragonForce - The Power Within</a></h3>
                             <p>Detalles específicos</p>
                         </div>
 
