@@ -30,7 +30,7 @@ public interface UserDAO {
     /**
      * @param newClientType
      */
-    void upgradeClient(EClientType newClientType);
+    void upgradeClient(int userID, EClientType newClientType);
 
     /**
      * @param username 

@@ -13,7 +13,7 @@ public class SQLRatingDAO implements RatingDAO {
      * @param rating
      */
     public void addRating(Rating rating) {
-        // TODO implement here
+        
     }
 
     /**
