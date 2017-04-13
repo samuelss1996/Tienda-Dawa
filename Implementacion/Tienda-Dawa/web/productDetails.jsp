@@ -15,12 +15,14 @@
             <h1><span class="label label-primary pull-right">50€</span></h1>
 
             <div class="input-group pull-right" style="margin-top: 25px">
-                <input type="number" class="form-control pull-right" min="1" max="999" value="1" style="width: 75px;">
-                <div class="input-group-btn">
-                    <button class="btn btn-warning" type="submit">
-                        <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
-                    </button>
-                </div>
+                <form>
+                    <input type="number" class="form-control pull-right" min="1" max="999" value="1" style="width: 75px;">
+                    <div class="input-group-btn">
+                        <button class="btn btn-warning" type="submit">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -29,7 +31,7 @@
         <div class="panel-heading">Opinar sobre el producto</div>
         <div class="panel-body">
 
-            <form id="addRewiew">
+            <form id="addReview">
                 <p>Aquí irían las estrellitas</p>
 
                 <div class="checkbox">

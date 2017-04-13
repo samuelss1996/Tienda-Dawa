@@ -48,6 +48,10 @@ img {
     font-weight: bold;
 }
 
-#addRewiew #content {
+#addReview #content {
     resize: none;
+}
+
+#totalPrice {
+    color: #B71C1C;
 }
