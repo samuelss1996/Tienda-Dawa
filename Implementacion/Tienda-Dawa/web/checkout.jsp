@@ -1,16 +1,41 @@
-package Vista;
+<%@include file="include/header.jsp"%>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading"> <i class="glyphicon glyphicon-shopping-cart"></i> Carrito de la compra</div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio por unidad</th>
+                    <th>Cantidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="col-md-2">
+                            <img src="img/dragon.jpg">
+                        </div>
 
-import java.util.*;
+                        <div class="col-md-10">
+                            <h4>DragonForce - The Power Within</h4>
+                            <p>Cosas específicas</p>
+                        </div>
+                    </td>
+                    <td><h4>50 €</h4></td>
+                    <td><h4>1</h4></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-/**
- * 
- */
-public class checkout.jsp {
-
-    /**
-     * Default constructor
-     */
-    public checkout.jsp() {
-    }
-
-}
+    <div class="pull-right">
+        <h4 class="totalPrice">Total: <span class="value">50€</span></h4>
+        <h4 class="totalPrice">Descuento: <span class="value">20%</span></h4>
+        <h2 class="totalPrice">Precio final: <span class="value">40€</span></h2>
+        <a href="checkout.jsp" class="btn btn-success btn-lg pull-right">Pagar y finalizar</a>
+    </div>
+</div>
+<%@include file="include/footer.jsp"%>

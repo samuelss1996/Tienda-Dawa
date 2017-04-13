@@ -52,6 +52,10 @@ img {
     resize: none;
 }
 
-#totalPrice {
+.totalPrice {
+    text-align: right;
+}
+
+.totalPrice .value {
     color: #B71C1C;
 }

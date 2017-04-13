@@ -36,7 +36,7 @@
     </div>
 
     <div class="pull-right">
-        <h2>Total (1 producto): <span id="totalPrice">50€</span></h2>
+        <h2 class="totalPrice">Total (1 producto): <span class="value">50€</span></h2>
         <a href="checkout.jsp" class="btn btn-success btn-lg pull-right">Continuar</a>
     </div>
 </div>
