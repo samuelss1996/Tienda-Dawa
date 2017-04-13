@@ -77,6 +77,8 @@ public class SQLRatingDAO implements RatingDAO {
                                               new Comment(resultSet.getString("comment.title"),
                                                           resultSet.getString("comment.content"))));
                 }
+
+                return ratingList;
             }
         } catch (SQLException e) {
             e.printStackTrace();

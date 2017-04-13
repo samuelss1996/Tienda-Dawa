@@ -15,7 +15,7 @@ public class SQLUserDAO implements UserDAO {
      * @param client
      */
     public void registerClient(Client client, String password) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into user (username, email, password) VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, client.getUsername());
@@ -72,7 +72,7 @@ public class SQLUserDAO implements UserDAO {
      * @param newClientType
      */
     public void upgradeClient(int userID, EClientType newClientType) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
                 statement.executeQuery("UPDATE client SET type = " + newClientType.ordinal() + " WHERE id = " + userID);
             }
@@ -89,7 +89,7 @@ public class SQLUserDAO implements UserDAO {
     public void changePassword(String username, String oldPassword, String newPassword) {
         if (!checkPassword(username, oldPassword)) return;
 
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate("UPDATE user SET password = " + newPassword + " WHERE username = " + username);
             }
@@ -105,7 +105,7 @@ public class SQLUserDAO implements UserDAO {
     public void deleteAccount(String username, String password) {
         if (!checkPassword(username, password)) return;
 
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate("DELETE FROM user WHERE username = " + username);
             }
@@ -115,7 +115,7 @@ public class SQLUserDAO implements UserDAO {
     }
 
     private boolean isUser(int userID) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM client WHERE id = ?")) {
                 preparedStatement.setInt(1, userID);
 
@@ -128,7 +128,7 @@ public class SQLUserDAO implements UserDAO {
     }
 
     private boolean isAdmin(int adminID) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE id = ?")) {
                 preparedStatement.setInt(1, adminID);
 
@@ -145,7 +145,7 @@ public class SQLUserDAO implements UserDAO {
     }
 
     private boolean checkPassword(String username, String password, Integer returnID) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM user WHERE username = ?;", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, username);
 
