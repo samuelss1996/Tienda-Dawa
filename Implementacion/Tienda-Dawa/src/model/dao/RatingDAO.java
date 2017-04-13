@@ -3,6 +3,8 @@ package model.dao;
 import model.vo.Product;
 import model.vo.Rating;
 
+import java.util.List;
+
 /**
  * 
  */
@@ -16,5 +18,5 @@ public interface RatingDAO {
     /**
      * @param product
      */
-    void listRatings(Product product);
+    List<Rating> listRatings(Product product);
 }

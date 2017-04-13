@@ -11,6 +11,13 @@ public abstract class User {
     private String email;
     private Date signupDate;
 
+    public User(int id, String username, String email, Date signupDate) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.signupDate = signupDate;
+    }
+
     public int getId() {
         return id;
     }

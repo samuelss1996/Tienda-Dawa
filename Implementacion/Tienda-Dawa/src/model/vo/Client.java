@@ -1,11 +1,31 @@
 package model.vo;
 
+import java.util.Date;
+
 /**
  * 
  */
 public class Client extends User {
     private EClientType type;
     private float totalExpenses;
+
+    public Client (int id, int type, float totalExpenses) {
+        super(id, "", "", null);
+        this.type = EClientType.valueOf(type);
+        this.totalExpenses = totalExpenses;
+    }
+
+    public Client(int id, String username, String email, Date signupDate, int type, float totalExpenses) {
+        super(id, username, email, signupDate);
+        this.type = EClientType.valueOf(type);
+        this.totalExpenses = totalExpenses;
+    }
+
+    public Client(int id, String username, String email, Date signupDate, EClientType type, float totalExpenses) {
+        super(id, username, email, signupDate);
+        this.type = type;
+        this.totalExpenses = totalExpenses;
+    }
 
     public EClientType getType() {
         return type;

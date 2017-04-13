@@ -5,10 +5,20 @@ package model.vo;
  */
 public abstract class Product {
     private int id;
-    private String productName;
     private float price;
     private int stock;
     private EProductType type;
+
+    public Product(int id, float price, int stock, int type) {
+        Product(id, price, stock, EProductType.valueOf(type));
+    }
+
+    public Product(int id, float price, int stock, EProductType type) {
+        this.id = id;
+        this.price = price;
+        this.stock = stock;
+        this.type = type;
+    }
 
     public int getId() {
         return id;
@@ -16,14 +26,6 @@ public abstract class Product {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public float getPrice() {
