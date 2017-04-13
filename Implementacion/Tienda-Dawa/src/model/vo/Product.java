@@ -3,14 +3,14 @@ package model.vo;
 /**
  * 
  */
-public abstract class Product {
+public class Product {
     private int id;
     private float price;
     private int stock;
     private EProductType type;
 
     public Product(int id, float price, int stock, int type) {
-        Product(id, price, stock, EProductType.valueOf(type));
+        this(id, price, stock, EProductType.valueOf(type));
     }
 
     public Product(int id, float price, int stock, EProductType type) {

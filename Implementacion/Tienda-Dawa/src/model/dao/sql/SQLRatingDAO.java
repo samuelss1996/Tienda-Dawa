@@ -5,11 +5,8 @@ import model.vo.Client;
 import model.vo.Comment;
 import model.vo.Product;
 import model.vo.Rating;
-
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 
 /**
  * 
@@ -20,11 +17,11 @@ public class SQLRatingDAO implements RatingDAO {
      * @param rating
      */
     public void addRating(Rating rating) {
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             try (Statement statement = connection.createStatement()) {
-                String sqlStatement = String.format("INSERT into rating (product, client, value) VALUES ( %d, %d, %f)",
-                                                    rating.getProduct(), rating.getClient(), rating.getValue());
+                String sqlStatement = String.format("INSERT into rating (product, client, value) VALUES (%d, %d, %f)",
+                                                    rating.getProduct().getId(), rating.getClient(), rating.getValue());
                 statement.executeUpdate(sqlStatement, Statement.RETURN_GENERATED_KEYS);
 
 
@@ -57,7 +54,8 @@ public class SQLRatingDAO implements RatingDAO {
      */
     public List<Rating> listRatings(Product product) {
         List<Rating> ratingList = new ArrayList<>();
-        try (Connection connection = new SQLDAOFactory().createConnection()) {
+
+        try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT rating.*, comment.*, product.*, client.* " +
                                                                                         "FROM rating " +
                                                                                         "JOIN comment ON comment.rating = rating.id " +
@@ -83,6 +81,8 @@ public class SQLRatingDAO implements RatingDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return ratingList;
     }
 
 }

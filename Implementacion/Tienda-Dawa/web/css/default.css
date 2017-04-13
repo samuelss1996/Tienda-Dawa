@@ -1,0 +1,28 @@
+html, body {
+    overflow-x: hidden;
+}
+
+#searchSide .form-group, #searchSide .form-control {
+    max-width: 100%;
+}
+
+#searchSide ul {
+    list-style: none;
+    padding: 0;
+}
+
+#applyFilterBtn {
+    margin-top: 10px;
+}
+
+.productList h3 {
+    margin: 0;
+}
+
+.btn.disabled {
+    cursor: default !important;
+}
+
+.quickAdd {
+    margin-top: 50px;
+}

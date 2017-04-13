@@ -12,12 +12,12 @@
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="https://lh5.googleusercontent.com/-cJvgpcbj7lw/AAAAAAAAAAI/AAAAAAAABBY/nk3guhRbhxM/s0-c-k-no-ns/photo.jpg">
+                <img src="img/dragon.jpg">
                 <div class="caption">
                     <h3>DragonForce - Through the Fire and Flames</h3>
                     <p>Cosas específicas jeje</p>
                     <%--TODO meter taglib de atributos--%>
-                    <p style="text-align: right"><a href="#" class="btn btn-default disabled" role="button">50€</a></p>
+                    <p style="text-align: right"><span class="btn btn-primary disabled" role="button">50€</span></p>
                 </div>
             </div>
         </div>
