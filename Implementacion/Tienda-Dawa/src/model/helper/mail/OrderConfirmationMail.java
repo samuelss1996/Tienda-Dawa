@@ -11,7 +11,7 @@ public class OrderConfirmationMail extends Mail {
     /**
      * @param order
      */
-    public void OrderConfirmationMail(Order order) {
+    public OrderConfirmationMail(Order order) {
         // TODO implement here
     }
 

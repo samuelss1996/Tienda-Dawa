@@ -26,12 +26,24 @@ public class Order {
         return lines;
     }
 
+    public float getDiscount() {
+        return discount;
+    }
+
     public void setDiscount(float discount) {
         this.discount = discount;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public float getFinalPrice() {
+        return finalPrice;
     }
 
     public void updateFinalPrice() {
@@ -39,4 +51,5 @@ public class Order {
         for (OrderLine orderLine : lines)
             finalPrice += orderLine.getUnitPrice() * orderLine.getQuantity() * (1 - discount/100.0f);
     }
+
 }
