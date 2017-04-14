@@ -133,7 +133,7 @@ public class SQLStockDAO implements StockDAO {
      * @return
      */
     public List<Product> searchProducts(ProductFilter filter) {
-        String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE " + filter.getProductName().toLowerCase() + "%";
+        String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
         if (filter.getMinPrice() != null)
             queryString = queryString.concat(" AND price > " + filter.getMinPrice());
         if (filter.getMaxPrice() != null)
@@ -165,11 +165,11 @@ public class SQLStockDAO implements StockDAO {
     public List<CD> searchCDs(CDFilter filter) {
         String queryString = "SELECT * FROM product " +
                                  "JOIN cd ON product.id = cd.id " +
-                                 "WHERE LOWER(name) LIKE " + filter.getProductName().toLowerCase() + "%";
+                                 "WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
         if (filter.getTitle() != null)
-            queryString = queryString.concat(" AND LOWER(cd.title) LIKE " + filter.getTitle().toLowerCase() + "%");
+            queryString = queryString.concat(" AND LOWER(cd.title) LIKE %" + filter.getTitle().toLowerCase() + "%");
         if (filter.getAuthor() != null)
-            queryString = queryString.concat(" AND LOWER(cd.author) LIKE " + filter.getAuthor().toLowerCase() + "%");
+            queryString = queryString.concat(" AND LOWER(cd.author) LIKE %" + filter.getAuthor().toLowerCase() + "%");
         if (filter.getMinYear() != null)
             queryString = queryString.concat(" AND cd.year > " + filter.getMinYear());
         if (filter.getMaxYear() != null)
@@ -207,11 +207,11 @@ public class SQLStockDAO implements StockDAO {
     public List<Cactus> searchCacti(CactusFilter filter) {
         String queryString = "SELECT * FROM product " +
                                 "JOIN cactus ON product.id = cactus.id " +
-                                "WHERE LOWER(name) LIKE " + filter.getProductName().toLowerCase() + "%";
+                                "WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
         if (filter.getSpecies() != null)
-            queryString = queryString.concat(" AND LOWER(cactus.species) LIKE " + filter.getSpecies().toLowerCase() + "%");
+            queryString = queryString.concat(" AND LOWER(cactus.species) LIKE %" + filter.getSpecies().toLowerCase() + "%");
         if (filter.getOrigin() != null)
-            queryString = queryString.concat(" AND LOWER(cactus.origin) LIKE " + filter.getOrigin().toLowerCase() + "%");
+            queryString = queryString.concat(" AND LOWER(cactus.origin) LIKE %" + filter.getOrigin().toLowerCase() + "%");
         if (filter.getMinPrice() != null)
             queryString = queryString.concat(" AND price > " + filter.getMinPrice());
         if (filter.getMaxPrice() != null)
