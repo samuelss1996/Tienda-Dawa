@@ -9,6 +9,12 @@ public class Client extends User {
     private EClientType type;
     private float totalExpenses;
 
+    public Client(String username, String email) {
+        super(-1, username, email, null);
+        this.type = EClientType.STANDARD;
+        this.totalExpenses = 0f;
+    }
+
     public Client (int id, int type, float totalExpenses) {
         super(id, "", "", null);
         this.type = EClientType.valueOf(type);

@@ -31,6 +31,7 @@ public class SQLRatingDAO implements RatingDAO {
                         attachComment(rating, generatedKeys.getInt(1), connection);
                 }
 
+                connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
                 connection.rollback();

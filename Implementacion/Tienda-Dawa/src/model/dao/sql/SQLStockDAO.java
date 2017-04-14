@@ -1,10 +1,9 @@
 package model.dao.sql;
 
-import com.sun.scenario.effect.impl.prism.ps.PPSBlend_REDPeer;
+import model.dao.StockDAO;
 import model.filter.CDFilter;
 import model.filter.CactusFilter;
 import model.filter.ProductFilter;
-import model.dao.StockDAO;
 import model.vo.CD;
 import model.vo.Cactus;
 import model.vo.EProductType;
@@ -12,7 +11,8 @@ import model.vo.Product;
 
 import java.sql.*;
 import java.time.Year;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -123,6 +123,8 @@ public class SQLStockDAO implements StockDAO {
                 e.printStackTrace();
                 connection.rollback();
             }
+
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

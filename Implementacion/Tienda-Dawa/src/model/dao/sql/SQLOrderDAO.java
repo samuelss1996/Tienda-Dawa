@@ -55,6 +55,7 @@ public class SQLOrderDAO implements OrderDAO {
                 }
             }
             insertOrder(order, connection);
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

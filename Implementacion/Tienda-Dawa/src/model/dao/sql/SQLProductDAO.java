@@ -6,7 +6,6 @@ import model.vo.Cactus;
 import model.vo.EProductType;
 import model.vo.Product;
 
-import javax.rmi.PortableRemoteObject;
 import java.sql.*;
 import java.time.Year;
 
@@ -42,6 +41,7 @@ public class SQLProductDAO implements ProductDAO {
                     }
                 }
 
+                connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
                 connection.rollback();
@@ -77,6 +77,7 @@ public class SQLProductDAO implements ProductDAO {
                     }
                 }
 
+                connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
                 connection.rollback();

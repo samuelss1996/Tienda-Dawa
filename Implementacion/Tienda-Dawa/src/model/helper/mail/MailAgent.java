@@ -2,7 +2,9 @@ package model.helper.mail;
 
 import model.vo.User;
 
-import java.util.*;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -25,4 +27,10 @@ public class MailAgent {
         // TODO implement here
     }
 
+    public static boolean isValidEmail(String email) {
+        Pattern pattern = Pattern.compile("^.+@.+\\..+$");
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
 }

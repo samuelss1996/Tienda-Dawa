@@ -3,19 +3,26 @@ package model.dao.sql;
 import model.dao.*;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  * 
  */
 public class SQLDAOFactory extends DAOFactory {
-    private static final String DRIVER = ""; // TODO
-    private static final String DB_URL = ""; // TODO
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/dawa";
 
     /**
      * @return
      */
     public static Connection createConnection() {
-        // TODO implement here
+        try {
+            Class.forName(DRIVER).newInstance();
+            return DriverManager.getConnection(DB_URL, "root", "root");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

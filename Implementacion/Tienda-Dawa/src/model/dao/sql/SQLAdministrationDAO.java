@@ -6,8 +6,8 @@ import model.vo.*;
 
 import java.sql.*;
 import java.time.Year;
-import java.util.*;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -26,7 +26,7 @@ public class SQLAdministrationDAO implements AdministrationDAO {
         if (filter.getEmail() != null)
             queryString = queryString.concat(" AND LOWER(email) LIKE %" + filter.getEmail().toLowerCase() + "%");
         if (filter.getType() != null)
-            queryString = queryString.concat(" AND type = " + filter.getType().ordinal());
+            queryString = queryString.concat(" AND type = " + filter.getType().getId());
 
         List<User> userList = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {

@@ -22,12 +22,13 @@ public class SQLUserDAO implements UserDAO {
                 preparedStatement.setString(2, client.getEmail());
                 preparedStatement.setString(3, password);
 
-                preparedStatement.executeQuery();
+                preparedStatement.executeUpdate();
 
                 ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                 if (generatedKeys.first())
                     insertAsClient(client, generatedKeys.getInt(1), connection);
 
+                connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
                 connection.rollback();
@@ -40,7 +41,7 @@ public class SQLUserDAO implements UserDAO {
     private void insertAsClient(Client client, int clientID, Connection connection) throws SQLException {
         try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into client(id, type, totalExpenses) VALUES (?, ?, ?)")) {
             preparedStatement.setInt(1, clientID);
-            preparedStatement.setInt(2, client.getType().ordinal());
+            preparedStatement.setInt(2, client.getType().getId());
             preparedStatement.setFloat(3, client.getTotalExpenses());
 
             preparedStatement.executeUpdate();
@@ -74,7 +75,7 @@ public class SQLUserDAO implements UserDAO {
     public void upgradeClient(int userID, EClientType newClientType) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
-                statement.executeQuery("UPDATE client SET type = " + newClientType.ordinal() + " WHERE id = " + userID);
+                statement.executeQuery("UPDATE client SET type = " + newClientType.getId() + " WHERE id = " + userID);
             }
         } catch (SQLException e) {
             e.printStackTrace();
