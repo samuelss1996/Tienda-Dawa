@@ -8,6 +8,7 @@ import model.vo.Product;
 
 import javax.rmi.PortableRemoteObject;
 import java.sql.*;
+import java.time.Year;
 
 /**
  * 
@@ -91,7 +92,74 @@ public class SQLProductDAO implements ProductDAO {
      * @return
      */
     public Product fetchProduct(int productId, EProductType productType) {
-        // TODO implement here
+        Product product = null;
+        switch (productType) {
+            case CD:
+                product = fetchCD(productId);
+                break;
+            case CACTUS:
+                product = fetchCactus(productId);
+                break;
+            default:
+        }
+        return product;
+    }
+
+    private Product fetchBaseProduct(int productId, Connection connection) throws SQLException {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product WHERE id = ?")) {
+            preparedStatement.setInt(1, productId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return new Product(resultSet.getInt("id"),
+                                    resultSet.getString("name"),
+                                    resultSet.getFloat("price"),
+                                    resultSet.getInt("stock"),
+                                    resultSet.getInt("type"));
+            }
+
+        }
+        return null;
+    }
+
+    private CD fetchCD (int productId) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            Product baseProduct = fetchBaseProduct(productId, connection);
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cd WHERE id = ?")) {
+                preparedStatement.setInt(1, productId);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    return new CD(baseProduct,
+                                  resultSet.getString("title"),
+                                  resultSet.getString("author"),
+                                  Year.of(resultSet.getInt("year")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Cactus fetchCactus (int productId) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            Product baseProduct = fetchBaseProduct(productId, connection);
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cactus WHERE id = ?")) {
+                preparedStatement.setInt(1, productId);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    return new Cactus(baseProduct,
+                                      resultSet.getString("species"),
+                                      resultSet.getString("origin"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

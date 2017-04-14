@@ -10,6 +10,13 @@ public class CD extends Product {
     private String author;
     private Year year;
 
+    public CD (Product product, String title, String author, Year year) {
+        super(product.getId(), product.getProductName(), product.getPrice(), product.getStock(), product.getType());
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
     public CD(int id, float price, int stock, EProductType type, String title, String author, Year year) {
         super(id, String.format("%s - %s (%s)", title, author, year.toString()), price, stock, type);
         this.title = title;
