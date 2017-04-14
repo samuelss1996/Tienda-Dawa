@@ -59,3 +59,19 @@ img {
 .totalPrice .value {
     color: #B71C1C;
 }
+
+.alert {
+    text-align: center;
+}
+
+#clientOrder th, #clientOrder td {
+    width: 33%;
+}
+
+#clientOrder th:nth-child(2), #clientOrder td:nth-child(2) {
+    text-align: center;
+}
+
+#clientOrder th:nth-child(3), #clientOrder td:nth-child(3) {
+    text-align: right;
+}

@@ -33,9 +33,9 @@
 
     <div class="pull-right">
         <h4 class="totalPrice">Total: <span class="value">50€</span></h4>
-        <h4 class="totalPrice">Descuento: <span class="value">20%</span></h4>
+        <h4 class="totalPrice">Descuento (20%): <span class="value">-10€</span></h4>
         <h2 class="totalPrice">Precio final: <span class="value">40€</span></h2>
-        <a href="checkout.jsp" class="btn btn-success btn-lg pull-right">Pagar y finalizar</a>
+        <a href="orderResult.jsp" class="btn btn-success btn-lg pull-right">Pagar y finalizar</a>
     </div>
 </div>
 <%@include file="include/footer.jsp"%>
