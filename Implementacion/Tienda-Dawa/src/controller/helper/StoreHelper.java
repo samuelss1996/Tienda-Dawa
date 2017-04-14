@@ -46,7 +46,7 @@ public class StoreHelper {
     /**
      * @param order
      */
-    public void confirmOrder(Order order) {
+    public void confirmOrder(Order order) throws OutOfStockException {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
         orderDAO.confirmOrder(order);
     }
