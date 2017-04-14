@@ -1,12 +1,11 @@
 <%@include file="../include/headerAdmin.jsp"%>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4" style="margin-top: 100px;">
             <div class="panel panel-default">
                 <div class="panel-heading">Panel de administración</div>
                 <div class="panel-body">
-                    <form>
+                    <form action="listUsers.jsp">
                         <div class="form-group">
                             <label for="login-name">Nombre de usuario:</label>
                             <input type="text" class="form-control" id="login-name">
@@ -23,3 +22,4 @@
         </div>
     </div>
 </div>
+<%@include file="../include/footerAdmin.jsp"%>

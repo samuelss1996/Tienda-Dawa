@@ -31,3 +31,15 @@ html, body {
     border-color: #757575 !important;
     color: white !important;
 }
+
+table.dark {
+    color: #9d9d9d;
+}
+
+table.dark input {
+    background-color: #424242;
+}
+
+table.table-hover.dark tr:hover {
+    background-color: #424242;
+}
