@@ -9,8 +9,20 @@ public class ShopCart {
     private List<OrderLine> lines;
     private float totalPrice;
 
+    public ShopCart() {
+        lines = new ArrayList<>();
+    }
+
+    public List<OrderLine> getLines() {
+        return lines;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
     public void add(Product product, int amount) {
-        OrderLine orderLine = new OrderLine(product, amount, product.getPrice());
+        OrderLine orderLine = new OrderLine(0, product, amount, product.getPrice());
 
         if (lines.contains(orderLine)) {
             OrderLine oldLine = lines.get(lines.indexOf(orderLine));

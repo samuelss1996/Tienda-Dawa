@@ -13,4 +13,30 @@ public class Order {
     private Date date;
     private float discount;
 
+    public Order() {
+        this.lines = new ArrayList<>();
+    }
+
+    public void addLine(OrderLine line) {
+        lines.add(line);
+        finalPrice += line.getUnitPrice() * line.getQuantity() * (1 - discount/100.0f);
+    }
+
+    public List<OrderLine> getLines() {
+        return lines;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void updateFinalPrice() {
+        finalPrice = 0f;
+        for (OrderLine orderLine : lines)
+            finalPrice += orderLine.getUnitPrice() * orderLine.getQuantity() * (1 - discount/100.0f);
+    }
 }

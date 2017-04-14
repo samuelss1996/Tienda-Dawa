@@ -4,6 +4,8 @@ import model.dao.DAOFactory;
 import model.dao.OrderDAO;
 import model.dao.ProductDAO;
 import model.exception.OutOfStockException;
+import model.helper.tax.TaxManager;
+import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
 
 import javax.servlet.http.HttpSession;
@@ -31,9 +33,14 @@ public class StoreHelper {
      * @param shopCart 
      * @return
      */
-    public Order createOrder(Client client, ShopCart shopCart) {
+    public Order createOrder(Client client, ShopCart shopCart) throws OutOfStockException {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
-        return orderDAO.createOrder(client, shopCart);
+        Order order = orderDAO.createOrder(client, shopCart);
+        for(OrderLine orderLine : order.getLines()) {
+            TaxManagerFactory.getTaxManager(session).apply(orderLine.getProduct());
+        }
+        order.updateFinalPrice();
+        return order;
     }
 
     /**

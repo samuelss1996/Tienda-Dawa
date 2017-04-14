@@ -9,7 +9,7 @@ public class OrderLine {
     private int quantity;
     private float unitPrice;
 
-    public OrderLine(Product product, int quantity, float unitPrice) {
+    public OrderLine(int lineNumber, Product product, int quantity, float unitPrice) {
         this.lineNumber = lineNumber;
         this.product = product;
         this.quantity = quantity;
@@ -40,8 +40,9 @@ public class OrderLine {
         this.quantity = quantity;
     }
 
+    //TODO: actualizar el resto del vo para ignorar unitPrice
     public float getUnitPrice() {
-        return unitPrice;
+        return product.getPrice();
     }
 
     public void setUnitPrice(float unitPrice) {

@@ -11,7 +11,7 @@ public class TaxManagerFactory {
      * @param session 
      * @return
      */
-    public TaxManager getTaxManager(HttpSession session) {
+    public static TaxManager getTaxManager(HttpSession session) {
         // TODO implement here
         return null;
     }
