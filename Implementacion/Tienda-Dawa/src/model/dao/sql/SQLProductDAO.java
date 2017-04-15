@@ -18,9 +18,9 @@ public class SQLProductDAO implements ProductDAO {
      * @param cd
      */
     public void insert(CD cd) {
-        //TODO: mirar si existe algún producto con el mismo nombre
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
+            if (existsProduct(cd.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (productName, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, cd.getProductName());
                 preparedStatement.setFloat(2, cd.getPrice());
@@ -51,13 +51,21 @@ public class SQLProductDAO implements ProductDAO {
         }
     }
 
+    private boolean existsProduct(String productName, Connection connection) throws SQLException {
+        try(Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM product WHERE name = " + productName.trim());
+
+            return resultSet.first();
+        }
+    }
+
     /**
      * @param cactus
      */
     public void insert(Cactus cactus) {
-        //TODO: mirar si existe algún producto con el mismo nombre
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
+            if (existsProduct(cactus.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (productName, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, cactus.getProductName());
                 preparedStatement.setFloat(2, cactus.getPrice());
