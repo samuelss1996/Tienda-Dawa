@@ -8,6 +8,7 @@ import model.helper.tax.TaxManager;
 import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -15,11 +16,14 @@ import java.util.*;
  * 
  */
 public class StockHelper {
+    private ServletRequest request;
 
     /**
      * Default constructor
+     * @param request
      */
-    public StockHelper() {
+    public StockHelper(ServletRequest request) {
+        this.request = request;
     }
 
     /**
@@ -43,9 +47,7 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts() {
-        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
-        //TODO: limits
-        return stockDAO.listAvailableProducts(100);
+        return this.listAvailableProducts(null, -1);
     }
 
     /**
@@ -53,8 +55,7 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts(int limit) {
-        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
-        return stockDAO.listAvailableProducts(limit);
+        return this.listAvailableProducts(null, limit);
     }
 
     /**
@@ -62,9 +63,7 @@ public class StockHelper {
      * @return
      */
     public List<Product> listAvailableProducts(EProductType type) {
-        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
-        //TODO: limit
-        return stockDAO.listAvailableProducts(type, 100);
+        return this.listAvailableProducts(type, -1);
     }
 
     /**
@@ -74,8 +73,17 @@ public class StockHelper {
      */
     public List<Product> listAvailableProducts(EProductType type, int limit) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        List<Product> result;
+        limit = (limit == -1)? 100 : limit;
+
+        if(type != null) {
+            result = stockDAO.listAvailableProducts(type, limit);
+        } else {
+            result = stockDAO.listAvailableProducts(limit);
+        }
         //TODO: limit
-        return stockDAO.listAvailableProducts(type, limit);
+        TaxManagerFactory.getTaxManager(this.request).apply(result);
+        return result;
     }
 
     /**
@@ -100,7 +108,7 @@ public class StockHelper {
     public List<Product> searchProducts(ProductFilter filter, HttpSession session) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Product> results = stockDAO.searchProducts(filter);
-        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
         taxManager.apply(results);
         return results;
     }
@@ -113,7 +121,7 @@ public class StockHelper {
     public List<CD> searchCDs(CDFilter filter, HttpSession session) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<CD> results = stockDAO.searchCDs(filter);
-        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
         taxManager.apply(results);
         return results;
     }
@@ -126,7 +134,7 @@ public class StockHelper {
     public List<Cactus> searchCacti(CactusFilter filter, HttpSession session) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Cactus> results = stockDAO.searchCacti(filter);
-        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
         taxManager.apply(results);
         return results;
     }

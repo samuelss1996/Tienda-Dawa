@@ -46,6 +46,10 @@ public class Product {
         this.price = price;
     }
 
+    public String getPriceAsString() {
+        return String.format("%.2f", this.price);
+    }
+
     public int getStock() {
         return stock;
     }

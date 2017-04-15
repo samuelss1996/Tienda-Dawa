@@ -11,19 +11,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet (urlPatterns = "/stock")
+@WebServlet (name = "stock", urlPatterns = "/stock")
 public class StockController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StockHelper helper = new StockHelper();
+        StockHelper helper = new StockHelper(request);
 
-        switch (request.getParameter("action")) {
-            case "details":
-                Product item = helper.getProductDetails(Integer.parseInt(request.getParameter("productId")),
-                                                         EProductType.valueOf(Integer.parseInt(request.getParameter("type"))),
-                                                         request.getSession());
-                request.setAttribute("item", item);
-                this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
+        if(request.getParameter("action") != null) {
+            switch (request.getParameter("action")) {
+                case "details":
+                    Product item = helper.getProductDetails(Integer.parseInt(request.getParameter("productId")),
+                            EProductType.valueOf(Integer.parseInt(request.getParameter("type"))),
+                            request.getSession());
+                    request.setAttribute("item", item);
+                    this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
+                    break;
+            }
+        } else {
+            request.setAttribute("cds", helper.listAvailableProducts(EProductType.CD));
+            request.setAttribute("cacti", helper.listAvailableProducts(EProductType.CACTUS));
+
+            this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
 

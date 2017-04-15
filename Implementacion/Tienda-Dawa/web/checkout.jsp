@@ -15,7 +15,7 @@
                 <tr>
                     <td>
                         <div class="col-md-2">
-                            <img src="img/dragon.jpg">
+                            <img src="img/1.jpg">
                         </div>
 
                         <div class="col-md-10">

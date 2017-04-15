@@ -1,6 +1,6 @@
 package model.helper.tax;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletRequest;
 
 /**
  * 
@@ -8,12 +8,18 @@ import javax.servlet.http.HttpSession;
 public class TaxManagerFactory {
 
     /**
-     * @param session 
+     * @param request
      * @return
      */
-    public static TaxManager getTaxManager(HttpSession session) {
-        // TODO implement here
+    public static TaxManager getTaxManager(ServletRequest request) {
+        switch((String) request.getAttribute("country")) {
+            case "ES":
+                return new SpainTaxManager();
+            case "GB":
+                return new UKTaxManager();
+        }
+
         return null;
-    }
+}
 
 }

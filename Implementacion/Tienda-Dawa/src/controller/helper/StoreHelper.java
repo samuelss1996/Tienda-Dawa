@@ -4,25 +4,26 @@ import model.dao.DAOFactory;
 import model.dao.OrderDAO;
 import model.dao.ProductDAO;
 import model.exception.OutOfStockException;
-import model.helper.tax.TaxManager;
 import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
  * 
  */
 public class StoreHelper {
-
     private static final String SHOPPING_CART = "shoppingCart";
     private final HttpSession session;
+    private final ServletRequest request;
 
     /**
      * Default constructor
      */
-    public StoreHelper(HttpSession session) {
+    public StoreHelper(HttpSession session, ServletRequest request) {
         this.session = session;
+        this.request = request;
 
         if (session.getAttribute(SHOPPING_CART) == null)
             session.setAttribute(SHOPPING_CART, new ShopCart());
@@ -37,7 +38,7 @@ public class StoreHelper {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
         Order order = orderDAO.createOrder(client, shopCart);
         for(OrderLine orderLine : order.getLines()) {
-            TaxManagerFactory.getTaxManager(session).apply(orderLine.getProduct());
+            TaxManagerFactory.getTaxManager(this.request).apply(orderLine.getProduct());
         }
         order.updateFinalPrice();
         return order;

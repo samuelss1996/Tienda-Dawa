@@ -8,11 +8,17 @@
     <tag>
         <name>details</name>
         <tag-class>taglib.products.ProductDetailsTag</tag-class>
+
         <body-content>scriptless</body-content>
         <attribute>
             <name>type</name>
             <required>true</required>
-            <fragment>true</fragment>
+        </attribute>
+        <attribute>
+            <name>product</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>model.vo.Product</type>
         </attribute>
     </tag>
 

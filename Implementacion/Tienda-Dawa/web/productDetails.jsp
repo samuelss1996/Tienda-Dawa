@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row well well-lg">
         <div class="col-md-3">
-            <img src="img/dragon.jpg">
+            <img src="img/1.jpg">
             <p>Valoración media: ****</p>
         </div>
 

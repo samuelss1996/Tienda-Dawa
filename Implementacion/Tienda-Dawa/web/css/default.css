@@ -2,6 +2,10 @@ html, body {
     overflow-x: hidden;
 }
 
+body {
+    padding-bottom: 50px;
+}
+
 #searchSide .form-group, #searchSide .form-control {
     max-width: 100%;
 }

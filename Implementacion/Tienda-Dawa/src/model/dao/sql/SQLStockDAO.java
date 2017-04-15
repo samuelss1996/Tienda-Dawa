@@ -63,7 +63,7 @@ public class SQLStockDAO implements StockDAO {
     private List<Product> listAvailableCati(int limit) {
         List<Product> availableCacti = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT TOP ? * FROM product JOIN cactus ON product.id = cactus.id")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product JOIN cactus ON product.id = cactus.id LIMIT ?")) {
                 preparedStatement.setInt(1, limit);
 
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -85,7 +85,7 @@ public class SQLStockDAO implements StockDAO {
     private List<Product> listAvailableCDs(int limit) {
         List<Product> availableCDs = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT TOP ? * FROM product JOIN cd ON product.id = cd.id")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product JOIN cd ON product.id = cd.id LIMIT ?")) {
                 preparedStatement.setInt(1, limit);
 
                 ResultSet resultSet = preparedStatement.executeQuery();
