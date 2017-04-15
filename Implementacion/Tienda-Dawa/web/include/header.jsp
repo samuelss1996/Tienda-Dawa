@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,14 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="clientAuth.jsp"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
+            <c:choose>
+                <c:when test="${not empty sessionScope.username}">
+                    <li><a href="clientSettings.jsp"><span class="glyphicon glyphicon-user"></span> Hola, ${sessionScope.username}</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="clientAuth.jsp"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
+                </c:otherwise>
+            </c:choose>
             <li><a href="shoppingCart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito <span class="badge">0</span></a></li>
         </ul>
     </div>

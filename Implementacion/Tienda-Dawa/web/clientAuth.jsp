@@ -19,6 +19,10 @@
         </div>
     </c:if>
 
+    <c:if test="${param.error == 'wrongLogin'}">
+        <div class="alert alert-danger">El nombre de usuario/contraseña no es correcto.</div>
+    </c:if>
+
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">

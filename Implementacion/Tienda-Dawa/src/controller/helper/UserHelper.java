@@ -1,10 +1,8 @@
 package controller.helper;
 
 import model.dao.DAOFactory;
-import model.dao.OrderDAO;
 import model.dao.UserDAO;
 import model.vo.Client;
-import model.vo.User;
 
 /**
  * 
@@ -27,12 +25,12 @@ public class UserHelper {
     }
 
     /**
-     * @param username 
+     * @param username
      * @param password
      */
-    public void userLogin(String username, String password) {
+    public boolean userLogin(String username, String password) {
         UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
-        userDAO.clientLogin(username, password);
+        return userDAO.clientLogin(username, password);
     }
 
     /**

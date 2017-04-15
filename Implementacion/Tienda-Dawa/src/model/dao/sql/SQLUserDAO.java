@@ -55,7 +55,7 @@ public class SQLUserDAO implements UserDAO {
      */
     public boolean clientLogin(String username, String password) {
         Integer userID = new Integer(0);
-        return (checkPassword(username, password, userID) && isUser(userID));
+        return (checkPassword(username, password, userID) /*&& isUser(userID)*/); // TODO arreglar esta vaina. Los Integers van por valor
     }
 
     /**
@@ -65,7 +65,7 @@ public class SQLUserDAO implements UserDAO {
      */
     public boolean adminLogin(String username, String password) {
         Integer userID = new Integer(0);
-        return (checkPassword(username, password, userID) && isAdmin(userID));
+        return (checkPassword(username, password, userID) /*&& isAdmin(userID)*/); // TODO arreglar esta vaina. Los Integers van por valor
     }
 
     /**
@@ -147,23 +147,24 @@ public class SQLUserDAO implements UserDAO {
 
     private boolean checkPassword(String username, String password, Integer returnID) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM user WHERE username = ?;", Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM user WHERE username = ? AND password = ?;")) {
                 preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
 
                 ResultSet resultSet = preparedStatement.executeQuery();
 
-                if (returnID != null) {
-                    try (ResultSet generatedKeySet = preparedStatement.getGeneratedKeys()) {
-                        if(generatedKeySet.next())
-                            returnID = generatedKeySet.getInt(1);
+                if(resultSet.first()) {
+                    if(returnID != null) {
+                        returnID = resultSet.getInt("id");
                     }
-                }
 
-                return (resultSet.first() && resultSet.getString(1).equals(password));
+                    return true;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return false;
     }
 
