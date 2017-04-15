@@ -55,8 +55,8 @@ public class SQLUserDAO implements UserDAO {
      * @return
      */
     public boolean clientLogin(String username, String password) {
-        Integer userID = new Integer(0);
-        return (checkPassword(username, password, userID) /*&& isUser(userID)*/); // TODO arreglar esta vaina. Los Integers van por valor
+        int userId = checkPassword(username, password);
+        return (userId != -1 && isUser(userId));
     }
 
     /**
@@ -65,8 +65,8 @@ public class SQLUserDAO implements UserDAO {
      * @return
      */
     public boolean adminLogin(String username, String password) {
-        Integer userID = new Integer(0);
-        return (checkPassword(username, password, userID) /*&& isAdmin(userID)*/); // TODO arreglar esta vaina. Los Integers van por valor
+        int userId = checkPassword(username, password);
+        return (userId != -1 && isAdmin(userId));
     }
 
     /**
@@ -89,7 +89,7 @@ public class SQLUserDAO implements UserDAO {
      * @param newPassword
      */
     public void changePassword(String username, String oldPassword, String newPassword) {
-        if (!checkPassword(username, oldPassword)) return;
+        if (checkPassword(username, oldPassword) == -1) return;
 
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
@@ -105,7 +105,7 @@ public class SQLUserDAO implements UserDAO {
      * @param password
      */
     public void deleteAccount(String username, String password) {
-        if (!checkPassword(username, password)) return;
+        if (checkPassword(username, password) == -1) return;
 
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
@@ -142,11 +142,7 @@ public class SQLUserDAO implements UserDAO {
         return false;
     }
 
-    private boolean checkPassword(String username, String password) {
-        return checkPassword(username, password, null);
-    }
-
-    private boolean checkPassword(String username, String password, Integer returnID) {
+    private int checkPassword(String username, String password) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM user WHERE username = ? AND password = ?;")) {
                 preparedStatement.setString(1, username);
@@ -155,18 +151,16 @@ public class SQLUserDAO implements UserDAO {
                 ResultSet resultSet = preparedStatement.executeQuery();
 
                 if(resultSet.first()) {
-                    if(returnID != null) {
-                        returnID = resultSet.getInt("id");
-                    }
-
-                    return true;
+                    return resultSet.getInt("id");
+                } else {
+                    return -1;
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return false;
+        return -1;
     }
 
 }
