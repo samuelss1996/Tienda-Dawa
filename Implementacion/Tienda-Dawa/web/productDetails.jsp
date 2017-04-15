@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="product" uri="productTagLib" %>
 <%@include file="include/header.jsp"%>
 <div class="container">
     <div class="row well well-lg">
@@ -7,16 +9,16 @@
         </div>
 
         <div class="col-md-6">
-            <h3>DragonForce - The Power Within</h3>
-            <p>Cosas específicas</p>
+            <h3>${item.productName}</h3>
+            <product:details type="${item.type}"/>
         </div>
 
         <div class="col-md-3">
-            <h1><span class="label label-primary pull-right">50€</span></h1>
+            <h1><span class="label label-primary pull-right">${item.price}</span></h1>
 
             <div class="input-group pull-right" style="margin-top: 25px">
                 <form>
-                    <input type="number" class="form-control pull-right" min="1" max="999" value="1" style="width: 75px;">
+                   <input type="number" class="form-control pull-right" min="1" max="999" value="1" style="width: 75px;">
                     <div class="input-group-btn">
                         <button class="btn btn-warning" type="submit">
                             <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito

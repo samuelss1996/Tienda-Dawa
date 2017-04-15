@@ -87,8 +87,8 @@ public class StockHelper {
     public Product getProductDetails(int productId, EProductType type, HttpSession session) {
         ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
         Product product = productDAO.fetchProduct(productId, type);
-        TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
-        taxManager.apply(product);
+        //TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
+        //taxManager.apply(product);
         return product;
     }
 
