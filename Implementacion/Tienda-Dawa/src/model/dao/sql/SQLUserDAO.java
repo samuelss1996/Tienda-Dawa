@@ -1,6 +1,7 @@
 package model.dao.sql;
 
 import model.dao.UserDAO;
+import model.util.CryptUtils;
 import model.vo.Client;
 import model.vo.EClientType;
 
@@ -20,7 +21,7 @@ public class SQLUserDAO implements UserDAO {
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into user (username, email, password) VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, client.getUsername());
                 preparedStatement.setString(2, client.getEmail());
-                preparedStatement.setString(3, password);
+                preparedStatement.setString(3, CryptUtils.sha512Crypt(password));
 
                 preparedStatement.executeUpdate();
 
@@ -92,7 +93,7 @@ public class SQLUserDAO implements UserDAO {
 
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
-                statement.executeUpdate("UPDATE user SET password = " + newPassword + " WHERE username = " + username);
+                statement.executeUpdate("UPDATE user SET password = " + CryptUtils.sha512Crypt(newPassword) + " WHERE username = " + username);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -149,7 +150,7 @@ public class SQLUserDAO implements UserDAO {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM user WHERE username = ? AND password = ?;")) {
                 preparedStatement.setString(1, username);
-                preparedStatement.setString(2, password);
+                preparedStatement.setString(2, CryptUtils.sha512Crypt(password));
 
                 ResultSet resultSet = preparedStatement.executeQuery();
 

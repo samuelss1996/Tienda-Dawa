@@ -2,6 +2,7 @@ package model.dao.sql;
 
 import model.dao.AdministrationDAO;
 import model.filter.ClientFilter;
+import model.util.CryptUtils;
 import model.vo.*;
 
 import java.sql.*;
@@ -163,7 +164,7 @@ public class SQLAdministrationDAO implements AdministrationDAO {
     public void changeUserPassword(int userId, String newPassword) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET password = ? WHERE id = ?")) {
-                preparedStatement.setString(1, newPassword);
+                preparedStatement.setString(1, CryptUtils.sha512Crypt(newPassword));
                 preparedStatement.setInt(2, userId);
 
                 preparedStatement.executeUpdate();
