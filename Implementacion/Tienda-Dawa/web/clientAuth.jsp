@@ -13,6 +13,12 @@
         </div>
     </c:if>
 
+    <c:if test="${param.error == 'login'}">
+        <div class="alert alert-danger">
+            Se ha producido un error. Asegúrese de que ha rellenado todos los campos correctamente.
+        </div>
+    </c:if>
+
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -51,16 +57,17 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Inicio de sesión</div>
                 <div class="panel-body">
-                    <form>
+                    <form method="post" action="user">
                         <div class="form-group">
                             <label for="login-name">Nombre de usuario:</label>
-                            <input type="text" class="form-control" id="login-name">
+                            <input type="text" class="form-control" id="login-name" name="username" required>
                         </div>
                         <div class="form-group">
                             <label for="login-password">Contraseña:</label>
-                            <input type="password" class="form-control" id="login-password">
+                            <input type="password" class="form-control" id="login-password" name="password" required>
                         </div>
 
+                        <input type="hidden" name="action" value="loginUser">
                         <button type="submit" class="btn btn-success pull-right">Iniciar sesión</button>
                     </form>
                 </div>

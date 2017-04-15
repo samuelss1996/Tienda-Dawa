@@ -6,6 +6,7 @@ import model.vo.Client;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +28,20 @@ public class UserController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=register").forward(request, response);
                 }
                 break;
+            case "loginUser":
+                if(this.isValidLoginInput(request)) {
+                    helper.userLogin(request.getParameter("username"), request.getParameter("password"));
+                    response.addCookie(new Cookie("loggedUser", request.getParameter("username")));
+                    this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+                } else {
+                    this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=login").forward(request, response);
+                }
+                break;
         }
+    }
+
+    private boolean isValidLoginInput(HttpServletRequest request) {
+        return  !request.getParameter("password").trim().equals("") && !request.getParameter("username").trim().equals("");
     }
 
     private boolean isValidRegisterInput(HttpServletRequest request) {
