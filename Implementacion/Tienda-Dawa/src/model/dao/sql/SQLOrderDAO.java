@@ -91,7 +91,7 @@ public class SQLOrderDAO implements OrderDAO {
     }
 
     private void insertLine(OrderLine line, int orderId, Connection connection) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into orderline (order, product, quantity, unitPrice)")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orderline (order, product, quantity, unitPrice) VALUES (?, ?, ?, ?)")) {
             preparedStatement.setInt(1, orderId);
             preparedStatement.setInt(2, line.getProduct().getId());
             preparedStatement.setInt(3, line.getQuantity());

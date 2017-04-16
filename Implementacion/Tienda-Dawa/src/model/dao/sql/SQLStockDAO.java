@@ -276,7 +276,7 @@ public class SQLStockDAO implements StockDAO {
 
     private int getUserId(String username) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM user JOIN client ON user.id = client.id WHERE username = ?")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT user.id FROM user JOIN client ON user.id = client.id WHERE username = ?")) {
                 preparedStatement.setString(1, username);
 
                 ResultSet resultSet = preparedStatement.executeQuery();

@@ -31,13 +31,13 @@ public class SQLProductDAO implements ProductDAO {
 
                 ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                 if(generatedKeys.next()) {
-                    try (PreparedStatement preparedStatement1 = connection.prepareStatement("INSERT into cd (id, title, author, year)")) {
-                        preparedStatement.setInt(1, generatedKeys.getInt(1));
-                        preparedStatement.setString(2, cd.getTitle());
-                        preparedStatement.setString(3, cd.getAuthor());
-                        preparedStatement.setInt(4, cd.getYear().getValue()); //TODO: igual no funciona
+                    try (PreparedStatement preparedStatement1 = connection.prepareStatement("INSERT INTO cd (id, title, author, year) VALUES (?, ?, ?, ?)")) {
+                        preparedStatement1.setInt(1, generatedKeys.getInt(1));
+                        preparedStatement1.setString(2, cd.getTitle());
+                        preparedStatement1.setString(3, cd.getAuthor());
+                        preparedStatement1.setInt(4, cd.getYear().getValue()); //TODO: igual no funciona
 
-                        preparedStatement.executeUpdate();
+                        preparedStatement1.executeUpdate();
                     }
                 }
 

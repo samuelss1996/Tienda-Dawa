@@ -45,7 +45,7 @@ table.table-hover.dark tr:hover {
 }
 
 input {
-    color: #EEEEEE;
+    color: #EEEEEE !important;
 }
 
 .well {

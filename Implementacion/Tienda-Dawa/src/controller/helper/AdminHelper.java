@@ -24,9 +24,9 @@ public class AdminHelper {
      * @param username 
      * @param password
      */
-    public void login(String username, String password) {
+    public boolean login(String username, String password) {
         UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
-        userDAO.adminLogin(username, password);
+        return userDAO.adminLogin(username, password);
     }
 
     /**

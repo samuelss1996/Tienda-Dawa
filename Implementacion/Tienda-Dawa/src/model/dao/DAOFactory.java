@@ -1,5 +1,6 @@
 package model.dao;
 
+import com.sun.istack.internal.NotNull;
 import model.dao.sql.SQLDAOFactory;
 
 public abstract class DAOFactory {
@@ -8,6 +9,7 @@ public abstract class DAOFactory {
     /**
      * @param whichFactory
      */
+    @NotNull
     public static final DAOFactory getFactory(int whichFactory) {
         switch (whichFactory) {
             case SQL:

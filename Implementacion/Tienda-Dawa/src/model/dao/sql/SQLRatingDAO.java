@@ -19,7 +19,7 @@ public class SQLRatingDAO implements RatingDAO {
             connection.setAutoCommit(false);
             try (Statement statement = connection.createStatement()) {
                 String sqlStatement = String.format("INSERT into rating (product, client, value) VALUES (%d, %d, %f)",
-                                                    rating.getProduct().getId(), rating.getClient(), rating.getValue());
+                                                    rating.getProduct().getId(), rating.getClient().getId(), rating.getValue());
                 statement.executeUpdate(sqlStatement, Statement.RETURN_GENERATED_KEYS);
 
 
