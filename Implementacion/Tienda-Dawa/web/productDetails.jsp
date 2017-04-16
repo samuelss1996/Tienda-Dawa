@@ -63,13 +63,14 @@
         <div class="panel-heading">Opiniones de clientes</div>
         <div class="panel-body">
             <ul class="reviewList">
-                <li>
-                    <h5>**** Título del comentario</h5>
-                    <p class="author">Por samuel, el 6 de agosto de 2021</p>
-                    <p class="content">El mando definitivo para PC y la razón es simple, el nuevo mando de XBOX con BLUETOOTH es el mando ideal para disfrutar en un PC, Steam Link y como no en tu Xbox One, funciona a la primera y sin problemas (al menos en mi caso con Windows 10 y un adaptador Bluetooth 4.0 o mi Steam Link), Lo primero que hice fue conectarlo al PC mediante USB y actualizar el mando con la aplicación "Accesorios de Xbox (que se encuentra en la tienda de Windows 10)", luego lo desconecto e inicio el enlace Bluetooth y me conecta a la primera y ya puedo empezar a jugar. Tambien en caso de no disponer de conexion Bluetooth puedes usar cualquier cable tipo microUSB para conectar tu mando.
-                        Lo he probado con el Fifa 16 en Origin, múltiples juegos de Steam y el The Witcher 3 en GOG y de momento ningún fallo.</p>
-                </li>
-            </ul>
+                <c:forEach var="rating" items="${ratings}">
+                    <li>
+                        <h5>${rating.comment.title}</h5>
+                        <h7>${rating.value}</h7>
+                        <p class="author">Por ${rating.client.username} el ${rating.date}</p>
+                        <p class="content">${rating.comment.content}</p>
+                    </li>
+                </c:forEach>
         </div>
     </div>
 </div>

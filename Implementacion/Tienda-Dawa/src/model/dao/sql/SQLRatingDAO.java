@@ -1,10 +1,8 @@
 package model.dao.sql;
 
 import model.dao.RatingDAO;
-import model.vo.Client;
-import model.vo.Comment;
-import model.vo.Product;
-import model.vo.Rating;
+import model.vo.*;
+
 import java.sql.*;
 import java.util.*;
 
@@ -73,8 +71,8 @@ public class SQLRatingDAO implements RatingDAO {
                                                           resultSet.getFloat("product.price"),
                                                           resultSet.getInt("product.stock"),
                                                           resultSet.getInt("product.type")),
-                                              new Client(resultSet.getInt("client.id"),
-                                                         resultSet.getInt("client.type"),
+                                              fetchClient(resultSet.getInt("client.id"),
+                                                         Integer.parseInt(resultSet.getString("client.type")),
                                                          resultSet.getFloat("client.totalExpenses")),
                                               new Comment(resultSet.getString("comment.title"),
                                                           resultSet.getString("comment.content"))));
@@ -87,6 +85,23 @@ public class SQLRatingDAO implements RatingDAO {
         }
 
         return ratingList;
+    }
+
+    private Client fetchClient(int userId, int eClientType, float totalExpenses) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE id = " + userId);
+                if (resultSet.next())
+                    return new Client(userId,
+                                        resultSet.getString("username"),
+                                        resultSet.getString("email"),
+                                        resultSet.getDate("signupDate"),
+                                        eClientType, totalExpenses);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

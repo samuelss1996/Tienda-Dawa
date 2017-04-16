@@ -33,6 +33,11 @@ public class StockHelper {
         ratingDAO.addRating(rating);
     }
 
+    public List<Rating> listRatings(Product product) {
+        RatingDAO ratingDAO = DAOFactory.getFactory(DAOFactory.SQL).getRatingDAO();
+        return ratingDAO.listRatings(product);
+    }
+
     /**
      * @return
      */

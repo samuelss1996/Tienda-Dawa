@@ -16,6 +16,7 @@ public class SQLUserDAO implements UserDAO {
      * @param client
      */
     public void registerClient(Client client, String password) {
+        //TODO: check existing username
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into user (username, email, password) VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS)) {

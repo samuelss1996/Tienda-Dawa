@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet (name = "stock", urlPatterns = "/stock")
 public class StockController extends HttpServlet {
@@ -39,7 +40,9 @@ public class StockController extends HttpServlet {
                 case "details":
                     Product item = helper.getProductDetails(Integer.parseInt(request.getParameter("productId")),
                             EProductType.valueOf(request.getParameter("type")));
+                    List<Rating> ratings = helper.listRatings(item);
                     request.setAttribute("item", item);
+                    request.setAttribute("ratings", ratings);
                     this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
                     break;
                 case "addRating":
