@@ -39,4 +39,16 @@ public class ShopCart {
             lines.remove(productOptional.get());
         }
     }
+
+    public int getSize() {
+        int items = 0;
+        for (OrderLine line : lines) {
+            items += line.getQuantity();
+        }
+        return items;
+    }
+
+    public String getTotalPriceAsString() {
+        return String.format("%.2f", this.totalPrice);
+    }
 }

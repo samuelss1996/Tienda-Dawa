@@ -45,7 +45,8 @@
                     <li><a href="clientAuth.jsp"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
                 </c:otherwise>
             </c:choose>
-            <li><a href="shoppingCart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito <span class="badge">0</span></a></li>
+            <li><a href="shoppingCart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span>
+                Carrito <span class="badge">${sessionScope.shoppingCart.size}</span></a></li>
         </ul>
     </div>
 </nav>
