@@ -2,6 +2,10 @@
 
 <%@include file="include/header.jsp"%>
 <div class="container">
+    <c:if test="${param.success == 'closeSession'}">
+        <div class="alert alert-success">La sesión se ha cerrado correctamente.</div>
+    </c:if>
+
     <div class="page-header">
         <div class='btn-toolbar pull-right'>
             <div class='btn-group'>

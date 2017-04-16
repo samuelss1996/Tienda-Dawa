@@ -40,6 +40,23 @@ public class UserController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=login").forward(request, response);
                 }
                 break;
+            case "changePassword":
+                if(this.isValidChangePasswordInput(request)) {
+                    if(helper.userLogin((String) request.getSession().getAttribute("username"), request.getParameter("old-password"))) {
+                        helper.changePassword((String) request.getSession().getAttribute("username"), request.getParameter("old-password"),
+                                request.getParameter("new-password"));
+                        this.getServletContext().getRequestDispatcher("/clientSettings.jsp?success=changePassword").forward(request, response);
+                    } else {
+                        this.getServletContext().getRequestDispatcher("/clientSettings.jsp?error=wrongChangePassword").forward(request, response);
+                    }
+                } else {
+                    this.getServletContext().getRequestDispatcher("/clientSettings.jsp?error=changePassword").forward(request, response);
+                }
+                break;
+            case "closeSession":
+                request.getSession().invalidate();
+                response.sendRedirect("/stock?success=closeSession");
+                break;
         }
     }
 
@@ -51,6 +68,11 @@ public class UserController extends HttpServlet {
         return  request.getParameter("password").equals(request.getParameter("password-again"))
                 && !request.getParameter("password").trim().equals("") && !request.getParameter("username").trim().equals("")
                 && MailAgent.isValidEmail(request.getParameter("email"));
+    }
+
+    private boolean isValidChangePasswordInput(HttpServletRequest request) {
+        return !request.getParameter("old-password").trim().isEmpty() && !request.getParameter("new-password").trim().isEmpty()
+                && request.getParameter("new-password").equals(request.getParameter("new-password-again"));
     }
 
     @Override

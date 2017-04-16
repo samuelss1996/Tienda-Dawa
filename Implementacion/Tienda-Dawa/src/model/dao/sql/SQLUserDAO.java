@@ -93,8 +93,12 @@ public class SQLUserDAO implements UserDAO {
         if (checkPassword(username, oldPassword) == -1) return;
 
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                statement.executeUpdate("UPDATE user SET password = " + CryptUtils.sha512Crypt(newPassword) + " WHERE username = " + username);
+            try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET password = ? WHERE username = ? AND password = ?")) {
+                preparedStatement.setString(1, CryptUtils.sha512Crypt(newPassword));
+                preparedStatement.setString(2, username);
+                preparedStatement.setString(3, CryptUtils.sha512Crypt(oldPassword));
+
+                preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
             e.printStackTrace();
