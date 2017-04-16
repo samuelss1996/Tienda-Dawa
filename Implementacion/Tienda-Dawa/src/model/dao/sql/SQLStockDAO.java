@@ -71,8 +71,7 @@ public class SQLStockDAO implements StockDAO {
                     availableCacti.add(new Cactus(resultSet.getInt("id"),
                                                   resultSet.getFloat("price"),
                                                   resultSet.getInt("stock"),
-                                                  EProductType.valueOf(resultSet.getInt("type")),
-                                                  resultSet.getString("species"),
+                            resultSet.getString("species"),
                                                   resultSet.getString("origin")));
                 }
             }
@@ -93,8 +92,7 @@ public class SQLStockDAO implements StockDAO {
                     availableCDs.add(new CD(resultSet.getInt("id"),
                                             resultSet.getFloat("price"),
                                             resultSet.getInt("stock"),
-                                            EProductType.valueOf(resultSet.getInt("type")),
-                                            resultSet.getString("title"),
+                            resultSet.getString("title"),
                                             resultSet.getString("author"),
                                             Year.of(resultSet.getInt("year"))));
                 }
@@ -200,8 +198,7 @@ public class SQLStockDAO implements StockDAO {
                     searchResults.add(new CD(resultSet.getInt("id"),
                                             resultSet.getFloat("price"),
                                             resultSet.getInt("stock"),
-                                            EProductType.valueOf(resultSet.getInt("type")),
-                                            resultSet.getString("title"),
+                            resultSet.getString("title"),
                                             resultSet.getString("author"),
                                             Year.of(resultSet.getInt("year"))));
                 }
@@ -243,8 +240,7 @@ public class SQLStockDAO implements StockDAO {
                     searchResults.add(new Cactus(resultSet.getInt("id"),
                                                 resultSet.getFloat("price"),
                                                 resultSet.getInt("stock"),
-                                                EProductType.valueOf(resultSet.getInt("type")),
-                                                resultSet.getString("species"),
+                            resultSet.getString("species"),
                                                 resultSet.getString("origin")));
                 }
             }

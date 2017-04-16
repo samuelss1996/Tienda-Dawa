@@ -17,8 +17,8 @@ public class CD extends Product {
         this.year = year;
     }
 
-    public CD(int id, float price, int stock, EProductType type, String title, String author, Year year) {
-        super(id, String.format("%s - %s (%s)", title, author, year.toString()), price, stock, type);
+    public CD(int id, float price, int stock, String title, String author, Year year) {
+        super(id, String.format("%s - %s (%s)", title, author, year.toString()), price, stock, EProductType.CD);
         this.title = title;
         this.author = author;
         this.year = year;

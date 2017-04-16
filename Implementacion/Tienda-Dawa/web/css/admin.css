@@ -55,3 +55,7 @@ input {
 .well * {
     color: #EEEEEE;
 }
+
+.hidden {
+    display: none;
+}

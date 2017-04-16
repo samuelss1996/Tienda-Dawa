@@ -123,7 +123,6 @@ public class SQLAdministrationDAO implements AdministrationDAO {
                     resultList.add(new Cactus(resultSet.getInt("id"),
                                                 resultSet.getFloat("price"),
                                                 resultSet.getInt("stock"),
-                                                EProductType.valueOf(resultSet.getInt("type")),
                                                 resultSet.getString("species"),
                                                 resultSet.getString("origin")));
                 }
@@ -146,8 +145,7 @@ public class SQLAdministrationDAO implements AdministrationDAO {
                     resultList.add(new CD(resultSet.getInt("id"),
                                             resultSet.getFloat("price"),
                                             resultSet.getInt("stock"),
-                                            EProductType.valueOf(resultSet.getInt("type")),
-                                            resultSet.getString("title"),
+                            resultSet.getString("title"),
                                             resultSet.getString("author"),
                                             Year.of(resultSet.getInt("year"))));
                 }

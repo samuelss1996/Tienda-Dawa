@@ -21,6 +21,18 @@ public interface ProductDAO {
     void insert(Cactus cactus);
 
     /**
+     *
+     * @param cd
+     */
+    void update(CD cd);
+
+    /**
+     *
+     * @param cactus
+     */
+    void update(Cactus cactus);
+
+    /**
      * @param productId 
      * @param productType 
      * @return

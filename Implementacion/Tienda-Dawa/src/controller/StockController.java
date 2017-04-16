@@ -18,6 +18,7 @@ import java.util.List;
 public class StockController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         StockHelper helper = new StockHelper(request);
 
         if(request.getParameter("action") != null) {

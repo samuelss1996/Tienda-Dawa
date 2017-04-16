@@ -10,7 +10,7 @@ import java.sql.DriverManager;
  */
 public class SQLDAOFactory extends DAOFactory {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/dawa";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/dawa?useUnicode=true&characterEncoding=UTF-8";
 
     /**
      * @return

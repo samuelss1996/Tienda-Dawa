@@ -46,6 +46,24 @@ public class AdminHelper {
     }
 
     /**
+     *
+     * @param cd
+     */
+    public void update(CD cd) {
+        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
+        productDAO.update(cd);
+    }
+
+    /**
+     *
+     * @param cactus
+     */
+    public void update(Cactus cactus) {
+        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
+        productDAO.update(cactus);
+    }
+
+    /**
      * @return
      */
     public List<Product> listProducts() {

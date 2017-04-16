@@ -15,6 +15,7 @@ import java.io.IOException;
 public class UserController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         UserHelper helper = new UserHelper();
 
         switch(request.getParameter("action")) {

@@ -15,8 +15,8 @@ public class Cactus extends Product {
 
 
 
-    public Cactus(int id, float price, int stock, EProductType type, String species, String origin) {
-        super(id, String.format("Cactus %s de %s", species, origin), price, stock, type);
+    public Cactus(int id, float price, int stock, String species, String origin) {
+        super(id, String.format("Cactus %s de %s", species, origin), price, stock, EProductType.CACTUS);
         this.species = species;
         this.origin = origin;
     }

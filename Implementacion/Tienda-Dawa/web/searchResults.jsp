@@ -32,7 +32,7 @@
                             <input type="number" class="form-control" id="maxPrice" name="maxPrice" value="${param.maxPrice}">
                         </div>
                         <c:if test="${not empty param.type && param.type != 'ALL'}">
-                            <jsp:include page="include/searchFilters.jsp">
+                            <jsp:include page="include/product/searchFilters.jsp">
                                 <jsp:param name="type" value="${param.type}"/>
                             </jsp:include>
                         </c:if>

@@ -48,9 +48,9 @@ public class SearchFilter implements Filter {
      */
     private ProductFilter parseProductFilter(ServletRequest request) {
         Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
         Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
 
         return new ProductFilter(request.getParameter("name"), minPrice, maxPrice);
     }
@@ -61,9 +61,9 @@ public class SearchFilter implements Filter {
      */
     private CDFilter parseCDFilter(ServletRequest request) {
         Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
         Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
         Year minYear = (!this.isNullOrEmpty(request.getParameter("minCDYear")))? Year.parse(request.getParameter("minCDYear")) : null;
         Year maxYear = (!this.isNullOrEmpty(request.getParameter("maxCDYear")))? Year.parse(request.getParameter("maxCDYear")) : null;
 
@@ -77,9 +77,9 @@ public class SearchFilter implements Filter {
      */
     private CactusFilter parseCactusFilter(ServletRequest request) {
         Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
         Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice"))) : null;
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
 
         return new CactusFilter(request.getParameter("name"), minPrice, maxPrice, request.getParameter("cactusSpecies"),
                 request.getParameter("cactusOrigin"));

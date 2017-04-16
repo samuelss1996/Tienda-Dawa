@@ -21,7 +21,7 @@ public class SQLProductDAO implements ProductDAO {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             if (existsProduct(cd.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
-            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (productName, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (name, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, cd.getProductName());
                 preparedStatement.setFloat(2, cd.getPrice());
                 preparedStatement.setInt(3, cd.getStock());
@@ -52,8 +52,9 @@ public class SQLProductDAO implements ProductDAO {
     }
 
     private boolean existsProduct(String productName, Connection connection) throws SQLException {
-        try(Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM product WHERE name = " + productName.trim());
+        try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE name = ?")) {
+            statement.setString(1, productName.trim());
+            ResultSet resultSet = statement.executeQuery();
 
             return resultSet.first();
         }
@@ -66,7 +67,7 @@ public class SQLProductDAO implements ProductDAO {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             if (existsProduct(cactus.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
-            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (productName, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into product (name, price, stock, type) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, cactus.getProductName());
                 preparedStatement.setFloat(2, cactus.getPrice());
                 preparedStatement.setInt(3, cactus.getStock());
@@ -77,11 +78,11 @@ public class SQLProductDAO implements ProductDAO {
                 ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                 if(generatedKeys.next()) {
                     try (PreparedStatement preparedStatement1 = connection.prepareStatement("INSERT into cactus (id, origin, species) VALUES (?, ?, ?)")) {
-                        preparedStatement.setInt(1, generatedKeys.getInt(1));
-                        preparedStatement.setString(2, cactus.getOrigin());
-                        preparedStatement.setString(3, cactus.getSpecies());
+                        preparedStatement1.setInt(1, generatedKeys.getInt(1));
+                        preparedStatement1.setString(2, cactus.getOrigin());
+                        preparedStatement1.setString(3, cactus.getSpecies());
 
-                        preparedStatement.executeUpdate();
+                        preparedStatement1.executeUpdate();
                     }
                 }
 
@@ -92,6 +93,70 @@ public class SQLProductDAO implements ProductDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(CD cd) {
+        try(Connection connection = SQLDAOFactory.createConnection()) {
+            try {
+                connection.setAutoCommit(false);
+                this.update(connection, cd);
+
+                String cdQuery = "UPDATE cd SET title = ?, author = ?, year = ? WHERE id = ?";
+                try (PreparedStatement cdStatement = connection.prepareStatement(cdQuery)) {
+                    cdStatement.setString(1, cd.getTitle());
+                    cdStatement.setString(2, cd.getAuthor());
+                    cdStatement.setInt(3, cd.getYear().getValue());
+                    cdStatement.setInt(4, cd.getId());
+
+                    cdStatement.executeUpdate();
+                    connection.commit();
+                }
+            } catch (SQLException e) {
+                connection.rollback();
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(Cactus cactus) {
+        try(Connection connection = SQLDAOFactory.createConnection()) {
+            try {
+                connection.setAutoCommit(false);
+                this.update(connection, cactus);
+
+                String cactusQuery = "UPDATE cactus SET origin = ?, species = ? WHERE id = ?";
+                try (PreparedStatement cdStatement = connection.prepareStatement(cactusQuery)) {
+                    cdStatement.setString(1, cactus.getOrigin());
+                    cdStatement.setString(2, cactus.getSpecies());
+                    cdStatement.setInt(3, cactus.getId());
+
+                    cdStatement.executeUpdate();
+                    connection.commit();
+                }
+            } catch (SQLException e) {
+                connection.rollback();
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void update(Connection connection, Product product) throws SQLException {
+        String productQuery = "UPDATE product SET name = ?, price = ?, stock = ? WHERE id = ?";
+
+        try(PreparedStatement productStatement = connection.prepareStatement(productQuery)) {
+            productStatement.setString(1, product.getProductName());
+            productStatement.setFloat(2, product.getPrice());
+            productStatement.setInt(3, product.getStock());
+            productStatement.setInt(4, product.getId());
+
+            productStatement.executeUpdate();
         }
     }
 

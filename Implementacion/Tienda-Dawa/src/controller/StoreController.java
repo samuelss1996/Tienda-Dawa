@@ -16,6 +16,7 @@ import java.io.IOException;
 public class StoreController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         StoreHelper helper = new StoreHelper(request.getSession(), request);
 
         switch (request.getParameter("action")) {
@@ -46,7 +47,7 @@ public class StoreController extends HttpServlet {
     private Product parseProduct(HttpServletRequest request) {
         return new Product(Integer.parseInt(request.getParameter("productId")),
                             request.getParameter("productName"),
-                            Float.parseFloat(request.getParameter("productPrice")),
+                            Float.parseFloat(request.getParameter("productPrice").replace(",", ".")),
                             Integer.parseInt(request.getParameter("productStock")),
                             EProductType.valueOf(request.getParameter("productType")));
     }

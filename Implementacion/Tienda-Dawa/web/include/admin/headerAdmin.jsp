@@ -15,7 +15,7 @@
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.jsp">Logo</a>
+            <a class="navbar-brand" href="../index.jsp">Logo</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
