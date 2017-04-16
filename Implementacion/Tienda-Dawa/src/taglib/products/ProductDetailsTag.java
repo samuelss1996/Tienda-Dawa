@@ -25,7 +25,7 @@ public class ProductDetailsTag extends SimpleTagSupport {
         try {
             switch (EProductType.valueOf(this.type)) {
                 case CD:
-                    out.print("<p><strong>Código: </strong>" + ((CD)this.product).getId() + "</p>\n" +
+                    out.print("<p><strong>Código: </strong>" + this.product.getId() + "</p>\n" +
                             "  <p><strong>Título: </strong>" + ((CD)this.product).getTitle() + "</p>\n" +
                             "  <p><strong>Artista: </strong>" + ((CD)this.product).getAuthor() + "</p>\n" +
                             "  <p><strong>Año: </strong>" + ((CD)this.product).getYear() + "</p>");

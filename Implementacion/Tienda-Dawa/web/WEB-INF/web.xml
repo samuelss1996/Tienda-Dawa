@@ -14,4 +14,15 @@
     <welcome-file-list>
         <welcome-file>stock</welcome-file>
     </welcome-file-list>
+
+    <!--Estos dos mappings están aquí para garantizar el orden de los filtros-->
+    <filter-mapping>
+        <filter-name>LocationFilter</filter-name>
+        <url-pattern />
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>SearchFilter</filter-name>
+        <url-pattern />
+    </filter-mapping>
 </web-app>

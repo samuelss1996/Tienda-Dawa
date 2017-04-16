@@ -1,6 +1,6 @@
-<%@include file="../include/headerAdmin.jsp"%>
+<%@include file="../include/admin/headerAdmin.jsp"%>
 <div class="container">
-    <jsp:include page="../include/tableHeaderAdmin.jsp">
+    <jsp:include page="../include/admin/tableHeaderAdmin.jsp">
         <jsp:param name="section" value="users"/>
     </jsp:include>
 
@@ -26,4 +26,4 @@
         </tbody>
     </table>
 </div>
-<%@include file="../include/footerAdmin.jsp"%>
+<%@include file="../include/admin/footerAdmin.jsp"%>

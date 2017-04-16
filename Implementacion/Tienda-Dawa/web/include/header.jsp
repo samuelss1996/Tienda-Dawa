@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>CDProject</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/default.css">
@@ -13,16 +14,21 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.jsp">Logo</a>
+            <a class="navbar-brand" href="stock">Logo</a>
         </div>
-        <form class="navbar-form" style="position: absolute; width: 100%; text-align: center; margin: 8px auto;" action="searchResults.jsp">
+        <form class="navbar-form" style="position: absolute; width: 100%; text-align: center; margin: 8px auto;" action="stock" method="get">
             <div class="input-group">
+                <input type="hidden" name="action" value="search">
+
                 <div class="input-group-btn">
-                    <select class="form-control">
-                        <option>Todos los departamentos</option>
+                    <select class="form-control" name="type">
+                        <option value="ALL">Todos los departamentos</option>
+                        <option value="CD">CD's</option>
+                        <option value="CACTUS">Cactus</option>
                     </select>
                 </div>
-                <input type="text" class="form-control" placeholder="Buscar productos..." style="width: 500px;">
+                <input type="text" name="name" class="form-control" placeholder="Buscar productos..."
+                       <c:if test="${not empty param.name}">value="${param.name}"</c:if> style="width: 500px;">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit">
                         <i class="glyphicon glyphicon-search"></i>

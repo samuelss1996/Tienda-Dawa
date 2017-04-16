@@ -9,8 +9,7 @@ import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.List;
 
 /**
  * 
@@ -88,24 +87,22 @@ public class StockHelper {
 
     /**
      * @param productId 
-     * @param type 
-     * @param session 
+     * @param type
      * @return
      */
-    public Product getProductDetails(int productId, EProductType type, HttpSession session) {
+    public Product getProductDetails(int productId, EProductType type) {
         ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
         Product product = productDAO.fetchProduct(productId, type);
-        //TaxManager taxManager = new TaxManagerFactory().getTaxManager(session);
-        //taxManager.apply(product);
+        TaxManager taxManager = new TaxManagerFactory().getTaxManager(this.request);
+        taxManager.apply(product);
         return product;
     }
 
     /**
-     * @param filter 
-     * @param session 
+     * @param filter
      * @return
      */
-    public List<Product> searchProducts(ProductFilter filter, HttpSession session) {
+    public List<Product> searchProducts(ProductFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Product> results = stockDAO.searchProducts(filter);
         TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
@@ -114,11 +111,10 @@ public class StockHelper {
     }
 
     /**
-     * @param filter 
-     * @param session 
+     * @param filter
      * @return
      */
-    public List<CD> searchCDs(CDFilter filter, HttpSession session) {
+    public List<CD> searchCDs(CDFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<CD> results = stockDAO.searchCDs(filter);
         TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
@@ -127,11 +123,10 @@ public class StockHelper {
     }
 
     /**
-     * @param filter 
-     * @param session 
+     * @param filter
      * @return
      */
-    public List<Cactus> searchCacti(CactusFilter filter, HttpSession session) {
+    public List<Cactus> searchCacti(CactusFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Cactus> results = stockDAO.searchCacti(filter);
         TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);

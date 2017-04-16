@@ -1,25 +1,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="product" uri="productTagLib" %>
+<%@ taglib prefix="p" uri="/WEB-INF/productTagLib.tld" %>
 <%@include file="include/header.jsp"%>
 <div class="container">
     <div class="row well well-lg">
         <div class="col-md-3">
-            <img src="img/1.jpg">
+            <img src="img/${item.id}.jpg">
             <p>Valoración media: ****</p>
         </div>
 
         <div class="col-md-6">
             <h3>${item.productName}</h3>
-            <product:details type="${item.type}"/>
+            <p:details type="${item.type}" product="${item}"/>
         </div>
 
         <div class="col-md-3">
-            <h1><span class="label label-primary pull-right">${item.price}</span></h1>
+            <h1><span class="label label-primary pull-right">${item.priceAsString} €</span></h1>
 
             <div class="input-group pull-right" style="margin-top: 25px">
                 <form>
-                   <input type="number" class="form-control pull-right" min="1" max="999" value="1" style="width: 75px;">
                     <div class="input-group-btn">
+                        <input type="number" class="form-control" min="1" max="999" value="1" style="width: 75px;">
                         <button class="btn btn-warning" type="submit">
                             <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
                         </button>

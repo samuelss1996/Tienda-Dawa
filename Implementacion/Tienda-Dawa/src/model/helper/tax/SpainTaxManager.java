@@ -20,4 +20,11 @@ public class SpainTaxManager implements TaxManager {
             this.apply(product);
         }
     }
+
+    @Override
+    public float revert(float price) {
+        return price / 1.21f;
+    }
+
+
 }

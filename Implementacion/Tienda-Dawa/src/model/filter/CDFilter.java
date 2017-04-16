@@ -1,7 +1,5 @@
 package model.filter;
 
-import model.filter.ProductFilter;
-
 import java.time.Year;
 
 /**
@@ -10,8 +8,16 @@ import java.time.Year;
 public class CDFilter extends ProductFilter {
     private String title;
     private String author;
-    private Year maxYear;
     private Year minYear;
+    private Year maxYear;
+
+    public CDFilter(String productName, Float minPrice, Float maxPrice, String title, String author, Year minYear, Year maxYear) {
+        super(productName, minPrice, maxPrice);
+        this.title = title;
+        this.author = author;
+        this.minYear = minYear;
+        this.maxYear = maxYear;
+    }
 
     public CDFilter(String productName) {
         super(productName);

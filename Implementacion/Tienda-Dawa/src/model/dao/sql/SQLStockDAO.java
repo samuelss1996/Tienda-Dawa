@@ -26,7 +26,7 @@ public class SQLStockDAO implements StockDAO {
     public List<Product> listAvailableProducts(int limit) {
         List<Product> availableProducts = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT TOP ? * FROM product WHERE stock > 0")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product WHERE stock > 0 LIMIT ?")) {
                 preparedStatement.setInt(1, limit);
 
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -135,16 +135,18 @@ public class SQLStockDAO implements StockDAO {
      * @return
      */
     public List<Product> searchProducts(ProductFilter filter) {
-        String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
-        if (filter.getMinPrice() != null)
-            queryString = queryString.concat(" AND price > " + filter.getMinPrice());
-        if (filter.getMaxPrice() != null)
-            queryString = queryString.concat(" AND price < " + filter.getMaxPrice());
+        String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE ? AND (? IS NULL OR price >= ?) AND (? IS NULL OR price <= ?)";
 
         List<Product> searchResults = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery(queryString);
+            try (PreparedStatement preparedStatement = connection.prepareStatement(queryString)) {
+                preparedStatement.setString(1, "%" + filter.getProductName().toLowerCase() + "%");
+                preparedStatement.setObject(2, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(3, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(4, filter.getMaxPrice(), Types.FLOAT);
+                preparedStatement.setObject(5, filter.getMaxPrice(), Types.FLOAT);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
                     searchResults.add(new Product(resultSet.getInt("id"),
@@ -165,26 +167,34 @@ public class SQLStockDAO implements StockDAO {
      * @return
      */
     public List<CD> searchCDs(CDFilter filter) {
-        String queryString = "SELECT * FROM product " +
-                                 "JOIN cd ON product.id = cd.id " +
-                                 "WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
-        if (filter.getTitle() != null)
-            queryString = queryString.concat(" AND LOWER(cd.title) LIKE %" + filter.getTitle().toLowerCase() + "%");
-        if (filter.getAuthor() != null)
-            queryString = queryString.concat(" AND LOWER(cd.author) LIKE %" + filter.getAuthor().toLowerCase() + "%");
-        if (filter.getMinYear() != null)
-            queryString = queryString.concat(" AND cd.year > " + filter.getMinYear());
-        if (filter.getMaxYear() != null)
-            queryString = queryString.concat(" AND cd.year < " + filter.getMaxYear());
-        if (filter.getMinPrice() != null)
-            queryString = queryString.concat(" AND price > " + filter.getMinPrice());
-        if (filter.getMaxPrice() != null)
-            queryString = queryString.concat(" AND price < " + filter.getMaxPrice());
+        String titleFilter = (filter.getTitle() != null)? "%" + filter.getTitle().toLowerCase() + "%" : null;
+        String authorFilter = (filter.getAuthor() != null)? "%" + filter.getAuthor().toLowerCase() + "%" : null;
+        Integer minYearFilter = (filter.getMinYear() != null)? filter.getMinYear().getValue() : null;
+        Integer maxYearFilter = (filter.getMaxYear() != null)? filter.getMaxYear().getValue() : null;
+
+        String queryString = "SELECT * FROM product JOIN cd ON product.id = cd.id WHERE LOWER(name) LIKE ? " +
+                "AND (? IS NULL OR LOWER(cd.title) LIKE ?) AND (? IS NULL OR LOWER(cd.author) LIKE ?) " +
+                "AND (? IS NULL OR cd.year >= ?) AND (? IS NULL OR cd.year <= ?) " +
+                "AND (? IS NULL OR price >= ?) AND (? IS NULL OR price <= ?)";
 
         List<CD> searchResults = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery(queryString);
+            try (PreparedStatement preparedStatement = connection.prepareStatement(queryString)) {
+                preparedStatement.setString(1, "%" + filter.getProductName().toLowerCase() + "%");
+                preparedStatement.setString(2, titleFilter);
+                preparedStatement.setString(3, titleFilter);
+                preparedStatement.setString(4, authorFilter);
+                preparedStatement.setString(5, authorFilter);
+                preparedStatement.setObject(6, minYearFilter);
+                preparedStatement.setObject(7, minYearFilter);
+                preparedStatement.setObject(8, maxYearFilter);
+                preparedStatement.setObject(9, maxYearFilter);
+                preparedStatement.setObject(10, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(11, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(12, filter.getMaxPrice(), Types.FLOAT);
+                preparedStatement.setObject(13, filter.getMaxPrice(), Types.FLOAT);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
                     searchResults.add(new CD(resultSet.getInt("id"),
@@ -207,22 +217,27 @@ public class SQLStockDAO implements StockDAO {
      * @return
      */
     public List<Cactus> searchCacti(CactusFilter filter) {
-        String queryString = "SELECT * FROM product " +
-                                "JOIN cactus ON product.id = cactus.id " +
-                                "WHERE LOWER(name) LIKE %" + filter.getProductName().toLowerCase() + "%";
-        if (filter.getSpecies() != null)
-            queryString = queryString.concat(" AND LOWER(cactus.species) LIKE %" + filter.getSpecies().toLowerCase() + "%");
-        if (filter.getOrigin() != null)
-            queryString = queryString.concat(" AND LOWER(cactus.origin) LIKE %" + filter.getOrigin().toLowerCase() + "%");
-        if (filter.getMinPrice() != null)
-            queryString = queryString.concat(" AND price > " + filter.getMinPrice());
-        if (filter.getMaxPrice() != null)
-            queryString = queryString.concat(" AND price < " + filter.getMaxPrice());
+        String speciesFilter = (filter.getSpecies() != null)? "%" + filter.getSpecies().toLowerCase() + "%" : null;
+        String originFilter = (filter.getOrigin() != null)? "%" + filter.getOrigin().toLowerCase() + "%" : null;
+
+        String queryString = "SELECT * FROM product JOIN cactus ON product.id = cactus.id WHERE LOWER(name) LIKE ? " +
+                "AND (? IS NULL OR LOWER(cactus.species) LIKE ?) AND (? IS NULL OR LOWER(cactus.origin) LIKE ?) " +
+                "AND (? IS NULL OR price >= ?) AND (? IS NULL OR price <= ?)";
 
         List<Cactus> searchResults = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery(queryString);
+            try (PreparedStatement preparedStatement = connection.prepareStatement(queryString)) {
+                preparedStatement.setString(1, "%" + filter.getProductName().toLowerCase() + "%");
+                preparedStatement.setString(2, speciesFilter);
+                preparedStatement.setString(3, speciesFilter);
+                preparedStatement.setString(4, originFilter);
+                preparedStatement.setString(5, originFilter);
+                preparedStatement.setObject(6, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(7, filter.getMinPrice(), Types.FLOAT);
+                preparedStatement.setObject(8, filter.getMaxPrice(), Types.FLOAT);
+                preparedStatement.setObject(9, filter.getMaxPrice(), Types.FLOAT);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
                     searchResults.add(new Cactus(resultSet.getInt("id"),

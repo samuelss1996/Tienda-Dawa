@@ -1,6 +1,9 @@
 package controller;
 
 import controller.helper.StockHelper;
+import model.filter.CDFilter;
+import model.filter.CactusFilter;
+import model.filter.ProductFilter;
 import model.vo.EProductType;
 import model.vo.Product;
 
@@ -19,10 +22,24 @@ public class StockController extends HttpServlet {
 
         if(request.getParameter("action") != null) {
             switch (request.getParameter("action")) {
+                case "search":
+                    switch(request.getParameter("type")) {
+                        case "ALL":
+                            request.setAttribute("results", helper.searchProducts((ProductFilter) request.getAttribute("filter")));
+                            break;
+                        case "CD":
+                            request.setAttribute("results", helper.searchCDs((CDFilter) request.getAttribute("filter")));
+                            break;
+                        case "CACTUS":
+                            request.setAttribute("results", helper.searchCacti((CactusFilter) request.getAttribute("filter")));
+                            break;
+                    }
+
+                    this.getServletContext().getRequestDispatcher("/searchResults.jsp").forward(request, response);
+                    break;
                 case "details":
                     Product item = helper.getProductDetails(Integer.parseInt(request.getParameter("productId")),
-                            EProductType.valueOf(Integer.parseInt(request.getParameter("type"))),
-                            request.getSession());
+                            EProductType.valueOf(request.getParameter("type")));
                     request.setAttribute("item", item);
                     this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
                     break;

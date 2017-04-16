@@ -20,4 +20,9 @@ public class UKTaxManager implements TaxManager {
             this.apply(product);
         }
     }
+
+    @Override
+    public float revert(float price) {
+        return price / 1.2f;
+    }
 }

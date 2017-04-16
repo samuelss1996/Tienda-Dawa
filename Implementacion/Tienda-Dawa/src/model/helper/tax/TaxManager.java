@@ -18,4 +18,9 @@ public interface TaxManager {
      * @param productList
      */
     void apply(List<? extends Product> productList);
+
+    /**
+     * @param price
+     */
+    float revert(float price);
 }

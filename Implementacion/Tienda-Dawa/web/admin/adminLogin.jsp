@@ -1,4 +1,4 @@
-<%@include file="../include/headerAdmin.jsp"%>
+<%@include file="../include/admin/headerAdmin.jsp"%>
 <div class="container">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4" style="margin-top: 100px;">
@@ -22,4 +22,4 @@
         </div>
     </div>
 </div>
-<%@include file="../include/footerAdmin.jsp"%>
+<%@include file="../include/admin/footerAdmin.jsp"%>

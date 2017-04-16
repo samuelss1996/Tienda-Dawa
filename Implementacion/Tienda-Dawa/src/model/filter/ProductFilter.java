@@ -12,6 +12,12 @@ public class ProductFilter {
         this.productName = productName;
     }
 
+    public ProductFilter(String productName, Float minPrice, Float maxPrice) {
+        this.productName = productName;
+        this.minPrice = minPrice;
+        this.maxPrice = maxPrice;
+    }
+
     public String getProductName() {
         return productName;
     }
