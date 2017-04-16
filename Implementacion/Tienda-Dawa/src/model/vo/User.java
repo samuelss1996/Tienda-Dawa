@@ -11,6 +11,10 @@ public abstract class User {
     private String email;
     private Date signupDate;
 
+    public User(String username) {
+        this.username = username;
+    }
+
     public User(int id, String username, String email, Date signupDate) {
         this.id = id;
         this.username = username;

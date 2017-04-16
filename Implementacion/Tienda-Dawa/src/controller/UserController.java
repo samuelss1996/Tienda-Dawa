@@ -31,7 +31,7 @@ public class UserController extends HttpServlet {
                 if(this.isValidLoginInput(request)) {
                     if(helper.userLogin(request.getParameter("username"), request.getParameter("password"))) {
                         request.getSession().setAttribute("username", request.getParameter("username"));
-                        this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+                        this.getServletContext().getRequestDispatcher("/stock").forward(request, response);
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=wrongLogin").forward(request, response);
                     }

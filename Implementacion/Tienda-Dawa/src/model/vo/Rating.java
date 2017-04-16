@@ -22,6 +22,13 @@ public class Rating {
         this.comment = comment;
     }
 
+    public Rating(float value, Product product, Client client, Comment comment) {
+        this.value = value;
+        this.product = product;
+        this.client = client;
+        this.comment = comment;
+    }
+
     public int getId() {
         return id;
     }

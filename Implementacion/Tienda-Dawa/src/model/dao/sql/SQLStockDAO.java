@@ -253,4 +253,42 @@ public class SQLStockDAO implements StockDAO {
         }
         return searchResults;
     }
+
+    @Override
+    public boolean isOwner(String username, int productId) {
+        int userId = getUserId(username);
+        if (userId == -1) return false;
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(
+                                                "SELECT * FROM order JOIN orderline ON order.id = orderline.order" +
+                                                " WHERE orderline.product = ? AND order.client = ?")) {
+                preparedStatement.setInt(1, productId);
+                preparedStatement.setInt(2, userId);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                return resultSet.first();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private int getUserId(String username) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM user JOIN client ON user.id = client.id WHERE username = ?")) {
+                preparedStatement.setString(1, username);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    return resultSet.getInt("id");
+                } else {
+                    return -1;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

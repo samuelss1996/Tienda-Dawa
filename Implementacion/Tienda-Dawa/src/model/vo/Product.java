@@ -10,6 +10,10 @@ public class Product {
     private int stock;
     private EProductType type;
 
+    public Product(int id) {
+        this.id = id;
+    }
+
     public Product(int id, String productName, float price, int stock, int type) {
         this(id, productName, price, stock, EProductType.valueOf(type));
     }

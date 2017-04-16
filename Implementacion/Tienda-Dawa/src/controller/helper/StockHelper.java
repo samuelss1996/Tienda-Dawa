@@ -134,4 +134,8 @@ public class StockHelper {
         return results;
     }
 
+    public boolean isOwner(String username, int itemId) {
+        StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
+        return stockDAO.isOwner(username, itemId);
+    }
 }

@@ -34,6 +34,7 @@
         <div class="panel-body">
 
             <form id="addReview">
+                <input type="number" class="form-control" min="0" max="5" value="5" name="ratingValue"/>
                 <p>Aquí irían las estrellitas</p>
 
                 <div class="checkbox">
@@ -43,14 +44,16 @@
                 <div class="collapse">
                     <div class="form-group">
                         <label for="title">Título:</label>
-                        <input type="text" class="form-control" id="title">
+                        <input type="text" class="form-control" id="title" name="ratingTitle" required>
                     </div>
                     <div class="form-group">
                         <label for="content">Comentario:</label>
-                        <textarea class="form-control" id="content" rows="20"></textarea>
+                        <textarea class="form-control" id="content" name="ratingContent" rows="20" required></textarea>
                     </div>
                 </div>
 
+                <input type="hidden" name="itemId" value="${item.id}"/>
+                <input type="hidden" name="action" value="addRating" />
                 <button type="submit" class="btn btn-success">Enviar valoración</button>
             </form>
         </div>

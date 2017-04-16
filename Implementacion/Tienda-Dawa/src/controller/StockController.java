@@ -4,8 +4,7 @@ import controller.helper.StockHelper;
 import model.filter.CDFilter;
 import model.filter.CactusFilter;
 import model.filter.ProductFilter;
-import model.vo.EProductType;
-import model.vo.Product;
+import model.vo.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,6 +42,18 @@ public class StockController extends HttpServlet {
                     request.setAttribute("item", item);
                     this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
                     break;
+                case "addRating":
+                    String username = (String) request.getSession().getAttribute("username");
+                    int itemId = Integer.parseInt(request.getParameter("itemId"));
+                    if(username != null && helper.isOwner(username, itemId)) {
+                        Comment comment = new Comment(request.getParameter("ratingTitle"),
+                                request.getParameter("ratingContent"));
+                        Rating rating = new Rating(Integer.parseInt(request.getParameter("ratingValue")),
+                                new Product(itemId), new Client(username), comment);
+                        helper.addRating(rating);
+                    } else {
+                        this.getServletContext().getRequestDispatcher("/clientAuth.jsp").forward(request, response);
+                    }
             }
         } else {
             request.setAttribute("cds", helper.listAvailableProducts(EProductType.CD));

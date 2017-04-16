@@ -50,4 +50,6 @@ public interface StockDAO {
      * @return
      */
     List<Cactus> searchCacti(CactusFilter filter);
+
+    boolean isOwner(String username, int productId);
 }

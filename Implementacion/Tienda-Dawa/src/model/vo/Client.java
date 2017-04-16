@@ -9,6 +9,10 @@ public class Client extends User {
     private EClientType type;
     private float totalExpenses;
 
+    public Client(String username) {
+        super(username);
+    }
+
     public Client(String username, String email) {
         super(-1, username, email, null);
         this.type = EClientType.STANDARD;
