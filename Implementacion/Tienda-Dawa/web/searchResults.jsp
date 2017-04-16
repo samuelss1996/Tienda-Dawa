@@ -48,7 +48,7 @@
                 <c:forEach var="result" items="${requestScope.results}">
                     <li class="well well-lg">
                         <div class="row">
-                            <a href="stock?action=details&productId=${result.id}&type=${result.type}"><img class="col-md-2" src="img/${result.id}.jpg"></a>
+                            <a href="stock?action=details&productId=${result.id}&type=${result.type}"><img class="col-md-2" src="img/${result.id}.jpg" onerror="this.src='img/${result.type}.png;'"></a>
 
                             <div class="col-md-8">
                                 <h3><a href="stock?action=details&productId=${result.id}&type=${result.type}">${result.productName}</a></h3>

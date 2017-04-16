@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row well well-lg">
         <div class="col-md-3">
-            <img src="img/${item.id}.jpg">
+            <img src="img/${item.id}.jpg" onerror="this.src='img/${item.type}.png;'">
             <p>Valoración media: ****</p>
         </div>
 
