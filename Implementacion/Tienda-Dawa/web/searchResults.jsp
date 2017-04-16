@@ -59,8 +59,17 @@
 
                             <div class="col-md-2">
                                 <p class="btn btn-primary disabled pull-right" role="button">${result.priceAsString} €</p>
-                                <%--TODO implementar el añadir ya--%>
-                                <button type="button" class="btn btn-warning pull-right quickAdd"><i class="glyphicon glyphicon-shopping-cart"></i> Añadir ya</button>
+                                <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
+                                <form method="post" action="store">
+                                    <input type="hidden" value="${result.id}"           name="productId"/>
+                                    <input type="hidden" value="${result.productName}"  name="productName"/>
+                                    <input type="hidden" value="${result.price}"        name="productPrice"/>
+                                    <input type="hidden" value="${result.stock}"        name="productStock"/>
+                                    <input type="hidden" value="${result.type}"         name="productType"/>
+                                    <input type="hidden" value="1" name="quantity" />
+                                    <input type="hidden" value="addToCart" name="action" />
+                                    <button type="submit" class="btn btn-warning pull-right quickAdd"><i class="glyphicon glyphicon-shopping-cart"></i> Añadir ya</button>
+                                </form>
                             </div>
                         </div>
                     </li>

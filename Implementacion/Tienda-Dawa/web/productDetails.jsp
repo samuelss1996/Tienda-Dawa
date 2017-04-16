@@ -17,9 +17,16 @@
             <h1><span class="label label-primary pull-right">${item.priceAsString} €</span></h1>
 
             <div class="input-group pull-right" style="margin-top: 25px">
-                <form>
+                <form method="post" action="store">
                     <div class="input-group-btn">
-                        <input type="number" class="form-control" min="1" max="999" value="1" style="width: 75px;">
+                        <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
+                        <input type="number" class="form-control" min="1" max="${item.stock}" value="1" style="width: 75px;" name="quantity">
+                        <input type="hidden" value="${item.id}"           name="productId"/>
+                        <input type="hidden" value="${item.productName}"  name="productName"/>
+                        <input type="hidden" value="${item.price}"        name="productPrice"/>
+                        <input type="hidden" value="${item.stock}"        name="productStock"/>
+                        <input type="hidden" value="${item.type}"         name="productType"/>
+                        <input type="hidden" value="addToCart" name="action" />
                         <button class="btn btn-warning" type="submit">
                             <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
                         </button>
