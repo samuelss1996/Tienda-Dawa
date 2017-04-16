@@ -21,9 +21,9 @@ public interface AdministrationDAO {
     List<User> listUserAccounts(int from, int to, ClientFilter filter);
 
     /**
-     * @param userList
+     * @param userId
      */
-    void deleteUserAccounts(List<User> userList);
+    void deleteUserAccounts(int userId);
 
     /**
      * @param from 

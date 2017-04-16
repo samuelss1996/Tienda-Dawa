@@ -13,6 +13,10 @@ public class ClientFilter {
     private Date signupDate;
     private EClientType type;
 
+    public ClientFilter() {
+        this.name = "";
+    }
+
     public String getName() {
         return name;
     }

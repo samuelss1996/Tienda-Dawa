@@ -22,17 +22,22 @@ public class SQLAdministrationDAO implements AdministrationDAO {
      * @return
      */
     public List<User> listUserAccounts(int from, int to, ClientFilter filter) {
-        //TODO: solo lista clientes, lo de administración yo diría que se encargue otro
-        String queryString = "SELECT * FROM user JOIN client ON client.id = user.id WHERE LOWER(username) LIKE %" + filter.getName().toLowerCase() + "%";
-        if (filter.getEmail() != null)
-            queryString = queryString.concat(" AND LOWER(email) LIKE %" + filter.getEmail().toLowerCase() + "%");
-        if (filter.getType() != null)
-            queryString = queryString.concat(" AND type = " + filter.getType().getId());
+        String emailFilter = (filter.getEmail() != null)? filter.getEmail().toLowerCase() : null;
+        Integer typeFilter = (filter.getType() != null)? filter.getType().getId() : null;
+
+        String queryString = "SELECT * FROM user JOIN client ON client.id = user.id WHERE LOWER(username) LIKE ? " +
+                "AND (? IS NULL OR LOWER(email) LIKE ?) AND (? IS NULL OR type = ?)";
 
         List<User> userList = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery(queryString);
+            try (PreparedStatement preparedStatement = connection.prepareStatement(queryString)) {
+                preparedStatement.setString(1, "%" + filter.getName().toLowerCase() + "%");
+                preparedStatement.setString(2, emailFilter);
+                preparedStatement.setString(3, "%" + emailFilter + "%");
+                preparedStatement.setObject(4, typeFilter, Types.INTEGER);
+                preparedStatement.setObject(5, typeFilter, Types.INTEGER);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
                     userList.add(new Client(resultSet.getInt("id"),
@@ -50,17 +55,13 @@ public class SQLAdministrationDAO implements AdministrationDAO {
     }
 
     /**
-     * @param userList
+     * @param userId
      */
-    public void deleteUserAccounts(List<User> userList) {
+    public void deleteUserAccounts(int userId) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM user WHERE id=?")) {
-                for (User user : userList) {
-                    preparedStatement.setInt(1, user.getId());
-
-                    preparedStatement.addBatch();
-                }
-                preparedStatement.executeBatch();
+                preparedStatement.setInt(1, userId);
+                preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -104,11 +104,11 @@ public class AdminHelper {
     }
 
     /**
-     * @param userList
+     * @param userId
      */
-    public void deleteUserAccounts(List<User> userList) {
+    public void deleteUserAccounts(int userId) {
         AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
-        administrationDAO.deleteUserAccounts(userList);
+        administrationDAO.deleteUserAccounts(userId);
     }
 
     /**
