@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="include/header.jsp"%>
 <div class="container">
     <div class="panel panel-default">
@@ -12,29 +13,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        <div class="col-md-2">
-                            <img src="img/1.jpg">
-                        </div>
+                    <c:forEach var="orderLine" items="${order.lines}">
+                        <tr>
+                            <td>
+                                <div class="col-md-2">
+                                    <img src="img/${orderLine.product.id}.jpg">
+                                </div>
 
-                        <div class="col-md-10">
-                            <h4>DragonForce - The Power Within</h4>
-                            <p>Cosas específicas</p>
-                        </div>
-                    </td>
-                    <td><h4>50 €</h4></td>
-                    <td><h4>1</h4></td>
-                </tr>
+                                <div class="col-md-10">
+                                    <h4>${orderLine.product.productName}</h4>
+                                </div>
+                            </td>
+                            <td><h4>${orderLine.product.priceAsString}</h4></td>
+                            <td><h4>${orderLine.quantity}</h4></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 
     <div class="pull-right">
-        <h4 class="totalPrice">Total: <span class="value">50€</span></h4>
-        <h4 class="totalPrice">Descuento (20%): <span class="value">-10€</span></h4>
-        <h2 class="totalPrice">Precio final: <span class="value">40€</span></h2>
+        <h4 class="totalPrice">Total: <span class="value">${order.basePriceAsString}€</span></h4>
+        <h4 class="totalPrice">Descuento (${order.discount}%): <span class="value">-${order.fullDiscountAsString}€</span></h4>
+        <h2 class="totalPrice">Precio final: <span class="value">${order.finalPrice}€</span></h2>
         <a href="orderResult.jsp" class="btn btn-success btn-lg pull-right">Pagar y finalizar</a>
     </div>
 </div>

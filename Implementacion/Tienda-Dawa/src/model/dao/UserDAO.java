@@ -44,4 +44,6 @@ public interface UserDAO {
      * @param password
      */
     void deleteAccount(String username, String password);
+
+    Client fetchClient(String username);
 }

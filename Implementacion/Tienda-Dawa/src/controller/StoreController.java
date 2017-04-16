@@ -2,14 +2,14 @@ package controller;
 
 import controller.helper.StoreHelper;
 import model.exception.OutOfStockException;
-import model.vo.EProductType;
-import model.vo.Product;
+import model.vo.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "store", urlPatterns = "/store")
@@ -23,7 +23,20 @@ public class StoreController extends HttpServlet {
                 try {
                     Product product = parseProduct(request);
                     helper.addToCart(product, Integer.parseInt(request.getParameter("quantity")));
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                     //TODO: volver a la pagina que lo llamo
+                } catch (OutOfStockException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "createOrder":
+                try {
+                    HttpSession session = request.getSession();
+                    ShopCart shopCart = (ShopCart) session.getAttribute(StoreHelper.SHOPPING_CART);
+                    Client client = helper.getClientInfo((String)session.getAttribute("username"));
+                    Order order = helper.createOrder(client, shopCart);
+                    request.setAttribute("order", order);
+                    this.getServletContext().getRequestDispatcher("/checkout.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
                     e.printStackTrace();
                 }

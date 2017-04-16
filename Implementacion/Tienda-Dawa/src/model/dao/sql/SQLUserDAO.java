@@ -164,4 +164,25 @@ public class SQLUserDAO implements UserDAO {
         return -1;
     }
 
+    @Override
+    public Client fetchClient(String username) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user JOIN client ON user.id = client.id WHERE username = ?")) {
+                preparedStatement.setString(1, username);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    return new Client(resultSet.getInt("id"),
+                                        resultSet.getString("username"),
+                                        resultSet.getString("email"),
+                                        resultSet.getDate("signupDate"),
+                                        resultSet.getInt("type"),
+                                        resultSet.getFloat("totalExpenses"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

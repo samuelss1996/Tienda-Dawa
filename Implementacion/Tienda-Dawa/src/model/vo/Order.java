@@ -46,10 +46,20 @@ public class Order {
         return finalPrice;
     }
 
+    public float getBasePrice() { return this.finalPrice * (1 + discount/100.0f); }
+
+    public String getBasePriceAsString() { return String.format("%.2f", this.getBasePrice()); }
+
+    public String getFinalPriceAsString() { return String.format("%.2f", this.finalPrice); }
+
     public void updateFinalPrice() {
         finalPrice = 0f;
         for (OrderLine orderLine : lines)
             finalPrice += orderLine.getUnitPrice() * orderLine.getQuantity() * (1 - discount/100.0f);
     }
+
+    public float getFullDiscount() { return this.getBasePrice() - this.finalPrice; }
+
+    public String getFullDiscountAsString() { return String.format("%.2f", this.getFullDiscount()); }
 
 }

@@ -3,6 +3,7 @@ package controller.helper;
 import model.dao.DAOFactory;
 import model.dao.OrderDAO;
 import model.dao.ProductDAO;
+import model.dao.UserDAO;
 import model.exception.OutOfStockException;
 import model.helper.tax.TaxManagerFactory;
 import model.vo.*;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * 
  */
 public class StoreHelper {
-    private static final String SHOPPING_CART = "shoppingCart";
+    public static final String SHOPPING_CART = "shoppingCart";
     private final HttpSession session;
     private final ServletRequest request;
 
@@ -77,5 +78,10 @@ public class StoreHelper {
     private void updateProductDetails(Product product) {
         ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
         product = productDAO.fetchProduct(product.getId(), product.getType());
+    }
+
+    public Client getClientInfo(String username) {
+        UserDAO userDAO = DAOFactory.getFactory(DAOFactory.SQL).getUserDAO();
+        return userDAO.fetchClient(username);
     }
 }

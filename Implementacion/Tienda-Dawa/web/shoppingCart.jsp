@@ -45,7 +45,10 @@
 
     <div class="pull-right">
         <h2 class="totalPrice">Total (${sessionScope.shoppingCart.size} producto/s): <span class="value">${sessionScope.shoppingCart.totalPriceAsString}€</span></h2>
-        <a href="checkout.jsp" class="btn btn-success btn-lg pull-right">Continuar</a>
+        <form method="post" action="store">
+            <input type="hidden" name="action" value="createOrder"/>
+            <button type="submit" class="btn btn-success btn-lg pull-right">Continuar</button>
+        </form>
     </div>
 </div>
 <%@include file="include/footer.jsp"%>
