@@ -55,6 +55,7 @@ public class SQLOrderDAO implements OrderDAO {
                 }
             }
             insertOrder(order, connection);
+            upgradeClient(order.getClient(), order.getFinalPrice(), connection);
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,13 +64,35 @@ public class SQLOrderDAO implements OrderDAO {
         sendConfirmationEmail(order);
     }
 
+    private void upgradeClient(Client client, float newExpense, Connection connection) throws SQLException {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT totalExpenses FROM client WHERE id = ?")) {
+            preparedStatement.setInt(1, client.getId());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                float totalExpenses = resultSet.getFloat(1);
+                float updatedExpenses = totalExpenses + newExpense;
+                String update = "";
+                if (updatedExpenses > 100) {
+                    update = "SET totalExpenses = " + updatedExpenses + ", type = " + 2;
+                } else {
+                    update = "SET totalExpenses = " + updatedExpenses;
+                }
+                try (Statement statement = connection.createStatement()) {
+                    System.out.println("UPDATE client " + update + " WHERE id = " + client.getId());
+                    statement.executeUpdate("UPDATE client " + update + " WHERE id = " + client.getId());
+                }
+            }
+        }
+    }
+
     private void sendConfirmationEmail(Order order) {
         Mail mail = new OrderConfirmationMail(order);
         new MailAgent().sendMail(order.getClient(), mail);
     }
 
     private void insertOrder(Order order, Connection connection) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into order (finalPrice, discount, client) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into `order` (finalPrice, discount, client) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setFloat(1, order.getFinalPrice());
             preparedStatement.setFloat(2, order.getDiscount());
             preparedStatement.setInt(3, order.getClient().getId());
@@ -78,8 +101,11 @@ public class SQLOrderDAO implements OrderDAO {
 
             ResultSet generatedKeySet = preparedStatement.getGeneratedKeys();
             if (generatedKeySet.next()) {
-                for (OrderLine line : order.getLines())
+                int lineNumber = 0;
+                for (OrderLine line : order.getLines()) {
+                    line.setLineNumber(lineNumber); lineNumber++;
                     insertLine(line, generatedKeySet.getInt(1), connection);
+                }
             } else {
                 throw new SQLException();
             }
@@ -91,11 +117,12 @@ public class SQLOrderDAO implements OrderDAO {
     }
 
     private void insertLine(OrderLine line, int orderId, Connection connection) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orderline (order, product, quantity, unitPrice) VALUES (?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orderline (`order`, lineNumber, product, quantity, unitPrice) VALUES (?, ?, ?, ?, ?)")) {
             preparedStatement.setInt(1, orderId);
-            preparedStatement.setInt(2, line.getProduct().getId());
-            preparedStatement.setInt(3, line.getQuantity());
-            preparedStatement.setFloat(4, line.getUnitPrice());
+            preparedStatement.setInt(2, line.getLineNumber());
+            preparedStatement.setInt(3, line.getProduct().getId());
+            preparedStatement.setInt(4, line.getQuantity());
+            preparedStatement.setFloat(5, line.getUnitPrice());
 
             preparedStatement.executeUpdate();
         }

@@ -6,7 +6,7 @@
         <div class="panel-heading"> <i class="glyphicon glyphicon-shopping-cart"></i> Carrito de la compra</div>
         <div class="panel-body">
             <table class="table table-hover">
-                <c:choose><c:when test="${empty sessionScope.shoppingCart}">
+                <c:choose><c:when test="${empty sessionScope.shoppingCart or sessionScope.shoppingCart.size eq 0}">
                     <div class="alert alert-danger">El carrito está vacío.</div>
                 </c:when>
                 <c:otherwise>
@@ -23,7 +23,7 @@
                             <tr>
                                 <td>
                                     <div class="col-md-2">
-                                        <img src="img/${orderLine.product.id}.pg"  onerror="this.src='img/${orderLine.product.type}.png;'">
+                                        <img src="img/${orderLine.product.id}.png"  onerror="this.src='img/${orderLine.product.type}.png;'">
                                     </div>
 
                                     <div class="col-md-10">

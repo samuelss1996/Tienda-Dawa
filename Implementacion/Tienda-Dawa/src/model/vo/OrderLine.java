@@ -49,6 +49,10 @@ public class OrderLine {
         this.unitPrice = unitPrice;
     }
 
+    public float getLinePrice() { return this.product.getPrice() * this.quantity;}
+
+    public String getLinePriceAsString() { return String.format("%.2f", this.getLinePrice()); }
+
     @Override
     public boolean equals(Object obj) {
         if (!super.equals(obj)) return false;

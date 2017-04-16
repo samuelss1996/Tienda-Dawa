@@ -36,8 +36,11 @@
     <div class="pull-right">
         <h4 class="totalPrice">Total: <span class="value">${order.basePriceAsString}€</span></h4>
         <h4 class="totalPrice">Descuento (${order.discount}%): <span class="value">-${order.fullDiscountAsString}€</span></h4>
-        <h2 class="totalPrice">Precio final: <span class="value">${order.finalPrice}€</span></h2>
-        <a href="orderResult.jsp" class="btn btn-success btn-lg pull-right">Pagar y finalizar</a>
+        <h2 class="totalPrice">Precio final: <span class="value">${order.finalPriceAsString}€</span></h2>
+        <form method="post" action="store">
+            <input type="hidden" name="action" value="confirmOrder"/>
+            <button type="submit" class="btn btn-success btn-lg pull-right">Pagar y finalizar</button>
+        </form>
     </div>
 </div>
 <%@include file="include/footer.jsp"%>

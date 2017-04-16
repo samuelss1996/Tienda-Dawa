@@ -58,6 +58,30 @@ public class Order {
             finalPrice += orderLine.getUnitPrice() * orderLine.getQuantity() * (1 - discount/100.0f);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLines(List<OrderLine> lines) {
+        this.lines = lines;
+    }
+
+    public void setFinalPrice(float finalPrice) {
+        this.finalPrice = finalPrice;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public float getFullDiscount() { return this.getBasePrice() - this.finalPrice; }
 
     public String getFullDiscountAsString() { return String.format("%.2f", this.getFullDiscount()); }

@@ -59,6 +59,7 @@
                     </div>
                 </div>
 
+                <%-- TODO: controlar error si no lo ha comprado --%>
                 <input type="hidden" name="itemId" value="${item.id}"/>
                 <input type="hidden" name="action" value="addRating" />
                 <button type="submit" class="btn btn-success">Enviar valoración</button>
