@@ -52,7 +52,7 @@ public class StoreController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/checkout.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
                     session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
-                    this.getServletContext().getRequestDispatcher("/shopCart.jsp?error=outOfStockDuringProcess").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockDuringProcess").forward(request, response);
                 }
                 break;
             case "confirmOrder":
@@ -67,7 +67,7 @@ public class StoreController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher(urlToShow).forward(request, response);
                 } catch (OutOfStockException e) {
                     session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
-                    this.getServletContext().getRequestDispatcher("/shopCart.jsp?error=outOfStockDuringProcess").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockDuringProcess").forward(request, response);
                 }
                 break;
 
