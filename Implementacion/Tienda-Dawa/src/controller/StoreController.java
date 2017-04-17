@@ -18,6 +18,7 @@ public class StoreController extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         StoreHelper helper = new StoreHelper(request.getSession(), request);
+        HttpSession session = request.getSession();
 
         switch (request.getParameter("action")) {
             case "addToCart":
@@ -27,7 +28,7 @@ public class StoreController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                     //TODO: volver a la pagina que lo llamo
                 } catch (OutOfStockException e) {
-                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStock").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockWhenAddToCart").forward(request, response);
                 }
                 break;
             case "deleteFromCart":
@@ -39,12 +40,11 @@ public class StoreController extends HttpServlet {
                     helper.updateShopCartQuantity(Integer.valueOf(request.getParameter("lineNumber")), Integer.valueOf(request.getParameter("quantity")));
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
-                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStock").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockWhenAddToCart").forward(request, response);
                 }
                 break;
             case "createOrder":
                 try {
-                    HttpSession session = request.getSession();
                     ShopCart shopCart = (ShopCart) session.getAttribute(StoreHelper.SHOPPING_CART);
                     Client client = helper.getClientInfo((String)session.getAttribute("username"));
                     Order order = helper.createOrder(client, shopCart);
@@ -52,12 +52,12 @@ public class StoreController extends HttpServlet {
 
                     this.getServletContext().getRequestDispatcher("/checkout.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
-                    e.printStackTrace();
+                    session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
+                    this.getServletContext().getRequestDispatcher("/shopCart.jsp?error=outOfStockDuringProcess").forward(request, response);
                 }
                 break;
             case "confirmOrder":
                 try {
-                    HttpSession session = request.getSession();
                     Client client = helper.getClientInfo((String)session.getAttribute("username")); // TODO que verga hace esto aquí
                     Order order = (Order) session.getAttribute("order");
                     helper.confirmOrder(order);
@@ -67,7 +67,8 @@ public class StoreController extends HttpServlet {
 
                     this.getServletContext().getRequestDispatcher("/orderResult.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
-                    e.printStackTrace();
+                    session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
+                    this.getServletContext().getRequestDispatcher("/shopCart.jsp?error=outOfStockDuringProcess").forward(request, response);
                 }
                 break;
 

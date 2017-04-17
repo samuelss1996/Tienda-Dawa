@@ -31,6 +31,7 @@ public interface StockDAO {
     /**
      * @param productList
      */
+    // TODO a lo mejor este método sobra un poco
     void updateProductsStock(List<Product> productList);
 
     /**

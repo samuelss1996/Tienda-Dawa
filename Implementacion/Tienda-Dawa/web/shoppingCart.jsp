@@ -2,9 +2,15 @@
 <%@ taglib prefix="p" uri="productTagLib" %>
 <%@include file="include/header.jsp"%>
 <div class="container">
-    <c:if test="${param.error == 'outOfStock'}">
+    <c:if test="${param.error == 'outOfStockWhenAddToCart'}">
         <div class="alert alert-danger">
             No se ha podido añadir el producto o productos al carrito por falta de stock.
+        </div>
+    </c:if>
+    <c:if test="${param.error == 'outOfStockDuringProcess'}">
+        <div class="alert alert-danger">
+            No se ha podido continuar con el proceso de compra porque el stock de uno o varios productos ha cambiado,
+            y actualmente no es suficiente para satisfacer su compra.
         </div>
     </c:if>
 

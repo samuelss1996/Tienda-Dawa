@@ -49,7 +49,7 @@ public class SQLOrderDAO implements OrderDAO {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             for (OrderLine line : order.getLines()) {
-                if (outOfSTock(line.getProduct(), line.getQuantity(), connection)) {
+                if (outOfStock(line.getProduct(), line.getQuantity(), connection)) {
                     connection.rollback();
                     throw new OutOfStockException();
                 }
@@ -104,6 +104,7 @@ public class SQLOrderDAO implements OrderDAO {
                 for (OrderLine line : order.getLines()) {
                     line.setLineNumber(lineNumber); lineNumber++;
                     insertLine(line, generatedKeySet.getInt(1), connection);
+                    updateProductStock(line.getProduct().getId(), line.getProduct().getStock() - line.getQuantity(), connection);
                 }
             } else {
                 throw new SQLException();
@@ -127,7 +128,16 @@ public class SQLOrderDAO implements OrderDAO {
         }
     }
 
-    private boolean outOfSTock(Product product, int quantity, Connection connection) throws SQLException {
+    private void updateProductStock(int productId, int newStock, Connection connection) throws SQLException {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE product SET stock = ? WHERE id = ?")) {
+            preparedStatement.setInt(1, newStock);
+            preparedStatement.setInt(2, productId);
+
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    private boolean outOfStock(Product product, int quantity, Connection connection) throws SQLException {
         try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product WHERE id = ? AND stock < ?")) {
             preparedStatement.setInt(1, product.getId());
             preparedStatement.setInt(2, product.getStock()); // TODO aquí se te fue la olla?
