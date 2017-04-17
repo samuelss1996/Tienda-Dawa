@@ -72,7 +72,7 @@ public class SQLOrderDAO implements OrderDAO {
                     newType = 2;
                     upgraded = true;
                 } else {
-                    newType = 2;
+                    newType = 1;
                 }
                 try (CallableStatement statement = connection.prepareCall("{call updateClientExpenses(?, ?, ?)}")) {
                     statement.setInt(1, client.getId());

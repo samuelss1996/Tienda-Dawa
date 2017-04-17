@@ -36,7 +36,7 @@ public class UserController extends HttpServlet {
                 if(this.isValidLoginInput(request)) {
                     if(helper.userLogin(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "password"))) {
                         request.getSession().setAttribute("username", UTFUtils.getParameter(request, "username"));
-                        response.sendRedirect("/stock");
+                        response.sendRedirect("stock");
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=wrongLogin").forward(request, response);
                     }
@@ -59,7 +59,7 @@ public class UserController extends HttpServlet {
                 break;
             case "closeSession":
                 request.getSession().invalidate();
-                response.sendRedirect("/stock?success=closeSession");
+                response.sendRedirect("stock?success=closeSession");
                 break;
         }
     }

@@ -24,11 +24,12 @@ public class AdminController extends HttpServlet {
         switch(UTFUtils.getParameter(request, "action")) {
             case "login":
                 if(helper.login(request.getParameter("login-name"), request.getParameter("login-password"))) {
+                    request.getSession().invalidate();
                     request.setAttribute("clientsList", helper.listUserAccounts(new ClientFilter()));
                     request.getSession().setAttribute("adminName", request.getParameter("login-name"));
-                    this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/adminListUsers.jsp").forward(request, response);
                 } else {
-                    this.getServletContext().getRequestDispatcher("/admin/adminLogin.jsp?error=wrongLogin").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/adminLogin.jsp?error=wrongLogin").forward(request, response);
                 }
                 break;
             case "changePassword":
@@ -37,22 +38,22 @@ public class AdminController extends HttpServlet {
 
                     if(!UTFUtils.getParameter(request, "password").trim().isEmpty() && UTFUtils.getParameter(request, "password").equals(request.getParameter("password-again"))) {
                         helper.changePassword(Integer.valueOf(UTFUtils.getParameter(request, "clientId")), UTFUtils.getParameter(request, "password"));
-                        this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?success=changePassword").forward(request, response);
+                        this.getServletContext().getRequestDispatcher("/adminListUsers.jsp?success=changePassword").forward(request, response);
                     } else {
-                        this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?error=changePassword").forward(request, response);
+                        this.getServletContext().getRequestDispatcher("/adminListUsers.jsp?error=changePassword").forward(request, response);
                     }
                 }
                 break;
             case "deleteAccount":
                 if(request.getSession().getAttribute("adminName") != null) {
                     helper.deleteUserAccounts(Integer.valueOf(UTFUtils.getParameter(request, "clientId")));
-                    this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?success=deleteAccount").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/adminListUsers.jsp?success=deleteAccount").forward(request, response);
                 }
                 break;
             case "listUsers":
                 if(request.getSession().getAttribute("adminName") != null) {
                     request.setAttribute("clientsList", helper.listUserAccounts(new ClientFilter()));
-                    this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/adminListUsers.jsp").forward(request, response);
                 }
                 break;
             case "listProducts":
@@ -61,7 +62,7 @@ public class AdminController extends HttpServlet {
 
                     request.setAttribute("type", listType);
                     request.setAttribute("productsList", helper.listProducts(listType));
-                    this.getServletContext().getRequestDispatcher("/admin/listProducts.jsp").forward(request, response);
+                    this.getServletContext().getRequestDispatcher("/adminListProducts.jsp").forward(request, response);
                 }
                 break;
             case "addProduct":
@@ -79,9 +80,9 @@ public class AdminController extends HttpServlet {
                             break;
                     }
 
-                    response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
+                    response.sendRedirect(String.format("administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
                 } catch (IllegalArgumentException e) {
-                    response.sendRedirect(String.format("/admin/listProducts.jsp?error=insertError", UTFUtils.getParameter(request, "type")));
+                    response.sendRedirect(String.format("adminListProducts.jsp?error=insertError", UTFUtils.getParameter(request, "type")));
                 }
                 break;
             case "editProduct":
@@ -97,7 +98,7 @@ public class AdminController extends HttpServlet {
                                 UTFUtils.getParameter(request, "cactusSpecies"), UTFUtils.getParameter(request, "cactusOrigin")));
                         break;
                 }
-                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
+                response.sendRedirect(String.format("administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
                 break;
         }
     }

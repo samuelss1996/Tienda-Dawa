@@ -1,4 +1,4 @@
-<%@include file="../include/admin/headerAdmin.jsp"%>
+<%@include file="include/admin/headerAdmin.jsp"%>
 <div class="container">
     <c:if test="${param.error == 'wrongLogin'}">
         <div class="alert alert-danger">El nombre de usuario/contraseña no es correcto.</div>
@@ -9,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Panel de administración</div>
                 <div class="panel-body">
-                    <form action="../administration" method="post">
+                    <form action="administration" method="post">
                         <input type="hidden" name="action" value="login">
 
                         <div class="form-group">
@@ -28,4 +28,4 @@
         </div>
     </div>
 </div>
-<%@include file="../include/admin/footerAdmin.jsp"%>
+<%@include file="include/admin/footerAdmin.jsp"%>

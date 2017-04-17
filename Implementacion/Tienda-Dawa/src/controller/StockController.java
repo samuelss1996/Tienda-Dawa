@@ -64,7 +64,7 @@ public class StockController extends HttpServlet {
                         boolean success = helper.addRating(rating);
 
                         String status = success? "success=rating" : "error=alreadyRated";
-                        response.sendRedirect(String.format("/stock?action=details&productId=%d&type=%s&%s", itemId,
+                        response.sendRedirect(String.format("stock?action=details&productId=%d&type=%s&%s", itemId,
                                 UTFUtils.getParameter(request, "itemType"), status));
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp").forward(request, response);

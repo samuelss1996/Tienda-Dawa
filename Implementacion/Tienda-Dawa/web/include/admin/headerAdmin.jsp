@@ -7,7 +7,7 @@
     <title>CDProject - Administración</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="css/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -15,7 +15,10 @@
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="../stock">Logo</a>
+            <a class="navbar-brand" href="stock">
+                <img src="img/logo.png" style="width: 50px">
+                <span style="position: absolute;top: 0;line-height: 50px;display: block;z-index: 100;opacity: 0;">click aa</span>
+            </a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
