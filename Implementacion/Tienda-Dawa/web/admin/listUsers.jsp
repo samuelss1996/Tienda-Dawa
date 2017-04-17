@@ -11,7 +11,6 @@
         <div class="alert alert-danger">Las contraseña estaba vacía o no coincidía con la confirmación.</div>
     </c:if>
 
-
     <jsp:include page="../include/admin/tableHeaderAdmin.jsp">
         <jsp:param name="section" value="users"/>
     </jsp:include>

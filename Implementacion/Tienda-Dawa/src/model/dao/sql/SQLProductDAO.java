@@ -9,14 +9,8 @@ import model.vo.Product;
 import java.sql.*;
 import java.time.Year;
 
-/**
- * 
- */
 public class SQLProductDAO implements ProductDAO {
 
-    /**
-     * @param cd
-     */
     public void insert(CD cd) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
@@ -60,9 +54,6 @@ public class SQLProductDAO implements ProductDAO {
         }
     }
 
-    /**
-     * @param cactus
-     */
     public void insert(Cactus cactus) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
@@ -160,11 +151,6 @@ public class SQLProductDAO implements ProductDAO {
         }
     }
 
-    /**
-     * @param productId 
-     * @param productType 
-     * @return
-     */
     public Product fetchProduct(int productId, EProductType productType) {
         Product product = null;
         switch (productType) {
@@ -184,7 +170,7 @@ public class SQLProductDAO implements ProductDAO {
             preparedStatement.setInt(1, productId);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            if(resultSet.next()) {
                 return new Product(resultSet.getInt("id"),
                                     resultSet.getString("name"),
                                     resultSet.getFloat("price"),
@@ -204,7 +190,7 @@ public class SQLProductDAO implements ProductDAO {
 
                 ResultSet resultSet = preparedStatement.executeQuery();
 
-                while (resultSet.next()) {
+                if(resultSet.next()) {
                     return new CD(baseProduct,
                                   resultSet.getString("title"),
                                   resultSet.getString("author"),
@@ -225,7 +211,7 @@ public class SQLProductDAO implements ProductDAO {
 
                 ResultSet resultSet = preparedStatement.executeQuery();
 
-                while (resultSet.next()) {
+                if(resultSet.next()) {
                     return new Cactus(baseProduct,
                                       resultSet.getString("species"),
                                       resultSet.getString("origin"));

@@ -6,14 +6,8 @@ import model.vo.*;
 import java.sql.*;
 import java.util.*;
 
-/**
- * 
- */
 public class SQLRatingDAO implements RatingDAO {
 
-    /**
-     * @param rating
-     */
     public void addRating(Rating rating) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
@@ -53,9 +47,6 @@ public class SQLRatingDAO implements RatingDAO {
         }
     }
 
-    /**
-     * @param product
-     */
     public List<Rating> listRatings(Product product) {
         List<Rating> ratingList = new ArrayList<>();
 

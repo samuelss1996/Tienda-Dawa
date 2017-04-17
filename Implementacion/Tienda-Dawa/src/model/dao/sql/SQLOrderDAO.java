@@ -12,16 +12,8 @@ import model.vo.*;
 
 import java.sql.*;
 
-/**
- * 
- */
 public class SQLOrderDAO implements OrderDAO {
 
-    /**
-     * @param client 
-     * @param shopCart 
-     * @return
-     */
     public Order createOrder(Client client, ShopCart shopCart) throws OutOfStockException {
         Order order = new Order();
         int lineNumber = 0;
@@ -42,9 +34,6 @@ public class SQLOrderDAO implements OrderDAO {
         return order;
     }
 
-    /**
-     * @param order
-     */
     public boolean confirmOrder(Order order) throws OutOfStockException {
         boolean upgraded = false;
 

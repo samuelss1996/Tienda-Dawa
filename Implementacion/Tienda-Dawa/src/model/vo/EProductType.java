@@ -1,13 +1,10 @@
 package model.vo;
 
-/**
- * 
- */
 public enum EProductType {
     CD(1),
     CACTUS(2);
 
-    private int id;
+    private final int id;
 
     EProductType(int id) {
         this.id = id;

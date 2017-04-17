@@ -4,9 +4,6 @@ import model.vo.Product;
 
 import java.util.List;
 
-/**
- * 
- */
 public class UKTaxManager implements TaxManager {
 
     @Override

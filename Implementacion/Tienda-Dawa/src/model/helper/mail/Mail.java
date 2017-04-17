@@ -1,11 +1,8 @@
 package model.helper.mail;
 
-/**
- * 
- */
 public class Mail {
-    private String subject;
-    private String content;
+    private final String subject;
+    private final String content;
 
     public Mail(String subject, String content) {
         this.subject = subject;

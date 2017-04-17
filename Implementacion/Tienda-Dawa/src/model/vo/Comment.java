@@ -1,8 +1,5 @@
 package model.vo;
 
-/**
- * 
- */
 public class Comment {
     private String title;
     private String content;
@@ -27,6 +24,5 @@ public class Comment {
     public void setContent(String content) {
         this.content = content;
     }
-
 
 }

@@ -11,23 +11,13 @@ import model.vo.*;
 import javax.servlet.ServletRequest;
 import java.util.List;
 
-/**
- * 
- */
 public class StockHelper {
-    private ServletRequest request;
+    private final ServletRequest request;
 
-    /**
-     * Default constructor
-     * @param request
-     */
     public StockHelper(ServletRequest request) {
         this.request = request;
     }
 
-    /**
-     * @param rating
-     */
     public void addRating(Rating rating) {
         RatingDAO ratingDAO = DAOFactory.getFactory(DAOFactory.SQL).getRatingDAO();
         ratingDAO.addRating(rating);
@@ -43,43 +33,24 @@ public class StockHelper {
         return ratingDAO.calculateAverageRating(product);
     }
 
-    /**
-     * @return
-     */
     public List<Product> listProducts() {
         AdministrationDAO administrationDAO = DAOFactory.getFactory(DAOFactory.SQL).getAdministrationDAO();
         //TODO: limits
         return administrationDAO.listProducts(0, 100);
     }
 
-    /**
-     * @return
-     */
     public List<Product> listAvailableProducts() {
         return this.listAvailableProducts(null, -1);
     }
 
-    /**
-     * @param limit 
-     * @return
-     */
     public List<Product> listAvailableProducts(int limit) {
         return this.listAvailableProducts(null, limit);
     }
 
-    /**
-     * @param type 
-     * @return
-     */
     public List<Product> listAvailableProducts(EProductType type) {
         return this.listAvailableProducts(type, -1);
     }
 
-    /**
-     * @param type 
-     * @param limit 
-     * @return
-     */
     public List<Product> listAvailableProducts(EProductType type, int limit) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Product> result;
@@ -95,23 +66,14 @@ public class StockHelper {
         return result;
     }
 
-    /**
-     * @param productId 
-     * @param type
-     * @return
-     */
     public Product getProductDetails(int productId, EProductType type) {
         ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
         Product product = productDAO.fetchProduct(productId, type);
-        TaxManager taxManager = new TaxManagerFactory().getTaxManager(this.request);
+        TaxManager taxManager = TaxManagerFactory.getTaxManager(this.request);
         taxManager.apply(product);
         return product;
     }
 
-    /**
-     * @param filter
-     * @return
-     */
     public List<Product> searchProducts(ProductFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Product> results = stockDAO.searchProducts(filter);
@@ -120,10 +82,6 @@ public class StockHelper {
         return results;
     }
 
-    /**
-     * @param filter
-     * @return
-     */
     public List<CD> searchCDs(CDFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<CD> results = stockDAO.searchCDs(filter);
@@ -132,10 +90,6 @@ public class StockHelper {
         return results;
     }
 
-    /**
-     * @param filter
-     * @return
-     */
     public List<Cactus> searchCacti(CactusFilter filter) {
         StockDAO stockDAO = DAOFactory.getFactory(DAOFactory.SQL).getStockDAO();
         List<Cactus> results = stockDAO.searchCacti(filter);

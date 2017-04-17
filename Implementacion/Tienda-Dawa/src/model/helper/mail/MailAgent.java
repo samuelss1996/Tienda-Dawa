@@ -10,16 +10,8 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-/**
- * 
- */
 public class MailAgent {
 
-    /**
-     * @param user 
-     * @param mail
-     */
     public void sendMail(User user, Mail mail) {
         String from = "tienda.dawa.cs@gmail.com";
         String password = "cristofer.samuel";
@@ -51,10 +43,6 @@ public class MailAgent {
         }
     }
 
-    /**
-     * @param users 
-     * @param mail
-     */
     public void sendMail(List<User> users, Mail mail) {
         for(User user : users) {
             this.sendMail(user, mail);

@@ -10,17 +10,8 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- */
 public class SQLAdministrationDAO implements AdministrationDAO {
 
-    /**
-     * @param from 
-     * @param to 
-     * @param filter 
-     * @return
-     */
     public List<User> listUserAccounts(int from, int to, ClientFilter filter) {
         String emailFilter = (filter.getEmail() != null)? filter.getEmail().toLowerCase() : null;
         Integer typeFilter = (filter.getType() != null)? filter.getType().getId() : null;
@@ -54,9 +45,6 @@ public class SQLAdministrationDAO implements AdministrationDAO {
         return userList;
     }
 
-    /**
-     * @param userId
-     */
     public void deleteUserAccounts(int userId) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM user WHERE id=?")) {
@@ -68,11 +56,6 @@ public class SQLAdministrationDAO implements AdministrationDAO {
         }
     }
 
-    /**
-     * @param from 
-     * @param to 
-     * @return
-     */
     public List<Product> listProducts(int from, int to) {
         List<Product> resultList = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
@@ -95,12 +78,6 @@ public class SQLAdministrationDAO implements AdministrationDAO {
         return resultList;
     }
 
-    /**
-     * @param from 
-     * @param to 
-     * @param type 
-     * @return
-     */
     public List<Product> listProducts(int from, int to, EProductType type) {
         switch (type) {
             case CD:
@@ -156,10 +133,6 @@ public class SQLAdministrationDAO implements AdministrationDAO {
         return resultList;
     }
 
-    /**
-     * @param userId 
-     * @param newPassword
-     */
     public void changeUserPassword(int userId, String newPassword) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET password = ? WHERE id = ?")) {

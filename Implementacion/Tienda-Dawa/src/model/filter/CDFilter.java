@@ -2,9 +2,6 @@ package model.filter;
 
 import java.time.Year;
 
-/**
- * 
- */
 public class CDFilter extends ProductFilter {
     private String title;
     private String author;

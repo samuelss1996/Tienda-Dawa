@@ -1,8 +1,5 @@
 package model.vo;
 
-/**
- * 
- */
 public class Cactus extends Product {
     private String species;
     private String origin;
@@ -12,8 +9,6 @@ public class Cactus extends Product {
         this.species = species;
         this.origin = origin;
     }
-
-
 
     public Cactus(int id, float price, int stock, String species, String origin) {
         super(id, String.format("Cactus %s de %s", species, origin), price, stock, EProductType.CACTUS);

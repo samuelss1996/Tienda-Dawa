@@ -2,9 +2,6 @@ package model.vo;
 
 import java.util.*;
 
-/**
- * 
- */
 public abstract class User {
     private int id;
     private String username;
@@ -53,6 +50,5 @@ public abstract class User {
     public void setSignupDate(Date signupDate) {
         this.signupDate = signupDate;
     }
-
 
 }

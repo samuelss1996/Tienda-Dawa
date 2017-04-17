@@ -1,13 +1,10 @@
 package model.vo;
 
-/**
- * 
- */
 public enum EClientType {
     STANDARD(1),
     VIP(2);
 
-    private int id;
+    private final int id;
 
     EClientType(int id) {
         this.id = id;

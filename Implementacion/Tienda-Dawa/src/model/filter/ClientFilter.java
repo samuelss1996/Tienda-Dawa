@@ -4,9 +4,6 @@ import model.vo.EClientType;
 
 import java.util.*;
 
-/**
- * 
- */
 public class ClientFilter {
     private String name;
     private String email;

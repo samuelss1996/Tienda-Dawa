@@ -14,15 +14,8 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- */
 public class SQLStockDAO implements StockDAO {
 
-    /**
-     * @param limit 
-     * @return
-     */
     public List<Product> listAvailableProducts(int limit) {
         List<Product> availableProducts = new ArrayList<>();
         try (Connection connection = SQLDAOFactory.createConnection()) {
@@ -45,11 +38,6 @@ public class SQLStockDAO implements StockDAO {
         return availableProducts;
     }
 
-    /**
-     * @param type 
-     * @param limit 
-     * @return
-     */
     public List<Product> listAvailableProducts(EProductType type, int limit) {
         switch (type) {
             case CD:
@@ -103,9 +91,6 @@ public class SQLStockDAO implements StockDAO {
         return availableCDs;
     }
 
-    /**
-     * @param productList
-     */
     public void updateProductsStock(List<Product> productList) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
@@ -128,10 +113,6 @@ public class SQLStockDAO implements StockDAO {
         }
     }
 
-    /**
-     * @param filter 
-     * @return
-     */
     public List<Product> searchProducts(ProductFilter filter) {
         String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE ? AND (? IS NULL OR price >= ?) AND (? IS NULL OR price <= ?)";
 
@@ -160,10 +141,6 @@ public class SQLStockDAO implements StockDAO {
         return searchResults;
     }
 
-    /**
-     * @param filter 
-     * @return
-     */
     public List<CD> searchCDs(CDFilter filter) {
         String titleFilter = (filter.getTitle() != null)? "%" + filter.getTitle().toLowerCase() + "%" : null;
         String authorFilter = (filter.getAuthor() != null)? "%" + filter.getAuthor().toLowerCase() + "%" : null;
@@ -209,10 +186,6 @@ public class SQLStockDAO implements StockDAO {
         return searchResults;
     }
 
-    /**
-     * @param filter 
-     * @return
-     */
     public List<Cactus> searchCacti(CactusFilter filter) {
         String speciesFilter = (filter.getSpecies() != null)? "%" + filter.getSpecies().toLowerCase() + "%" : null;
         String originFilter = (filter.getOrigin() != null)? "%" + filter.getOrigin().toLowerCase() + "%" : null;

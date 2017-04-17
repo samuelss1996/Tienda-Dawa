@@ -12,17 +12,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
-/**
- * 
- */
 public class StoreHelper {
     public static final String SHOPPING_CART = "shoppingCart";
     private final HttpSession session;
     private final ServletRequest request;
 
-    /**
-     * Default constructor
-     */
     public StoreHelper(HttpSession session, ServletRequest request) {
         this.session = session;
         this.request = request;
@@ -31,11 +25,6 @@ public class StoreHelper {
             session.setAttribute(SHOPPING_CART, new ShopCart());
     }
 
-    /**
-     * @param client 
-     * @param shopCart 
-     * @return
-     */
     public Order createOrder(Client client, ShopCart shopCart) throws OutOfStockException {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
         Order order = orderDAO.createOrder(client, shopCart);
@@ -46,9 +35,6 @@ public class StoreHelper {
         return order;
     }
 
-    /**
-     * @param order
-     */
     public boolean confirmOrder(Order order) throws OutOfStockException {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
         boolean upgraded = orderDAO.confirmOrder(order);
@@ -59,15 +45,11 @@ public class StoreHelper {
         return upgraded;
     }
 
-    /**
-     * @param product
-     */
     public void addToCart(Product product, int amount) throws OutOfStockException {
         ShopCart shopCart = (ShopCart) session.getAttribute(SHOPPING_CART);
 
 //        if (amount > product.getStock()) {
-//            /*updateProductDetails(product);
-//            if (amount > product.getStock()) TODO debatir la existencia de esto*/
+//
 //                throw new OutOfStockException();
 //        }
 
@@ -79,9 +61,6 @@ public class StoreHelper {
         }
     }
 
-    /**
-     * @param lineNumber
-     */
     public void removeFromCart(int lineNumber) {
         ShopCart shopCart = (ShopCart) session.getAttribute(SHOPPING_CART);
         shopCart.remove(lineNumber);

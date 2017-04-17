@@ -2,9 +2,6 @@ package model.vo;
 
 import java.util.Date;
 
-/**
- * 
- */
 public class Client extends User {
     private EClientType type;
     private float totalExpenses;
@@ -52,6 +49,5 @@ public class Client extends User {
     public void setTotalExpenses(float totalExpenses) {
         this.totalExpenses = totalExpenses;
     }
-
 
 }

@@ -6,11 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class CryptUtils {
 
-    /**
-     * Método para encriptar una cadena de texto en SHA-512 (http://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java)
-     * @param string Cadena de texto a encriptar
-     * @return Cadena de texto encriptada
-     */
     public static String sha512Crypt(String string) {
         String cryptedString = null;
 

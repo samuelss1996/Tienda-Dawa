@@ -7,14 +7,8 @@ import model.vo.EClientType;
 
 import java.sql.*;
 
-/**
- * 
- */
 public class SQLUserDAO implements UserDAO {
 
-    /**
-     * @param client
-     */
     public void registerClient(Client client, String password) {
         if (existsUser(client.getUsername(), client.getEmail())) throw new IllegalArgumentException("Ya existe un usuario con ese nombre");
         try (Connection connection = SQLDAOFactory.createConnection()) {
@@ -67,30 +61,16 @@ public class SQLUserDAO implements UserDAO {
         }
     }
 
-    /**
-     * @param username 
-     * @param password 
-     * @return
-     */
     public boolean clientLogin(String username, String password) {
         int userId = checkPassword(username, password);
         return (userId != -1 && isUser(userId));
     }
 
-    /**
-     * @param username 
-     * @param password 
-     * @return
-     */
     public boolean adminLogin(String username, String password) {
         int userId = checkPassword(username, password);
         return (userId != -1 && isAdmin(userId));
     }
 
-    /**
-     * @param userID
-     * @param newClientType
-     */
     public void upgradeClient(int userID, EClientType newClientType) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (Statement statement = connection.createStatement()) {
@@ -101,11 +81,6 @@ public class SQLUserDAO implements UserDAO {
         }
     }
 
-    /**
-     * @param username 
-     * @param oldPassword 
-     * @param newPassword
-     */
     public void changePassword(String username, String oldPassword, String newPassword) {
         if (checkPassword(username, oldPassword) == -1) return;
 
@@ -122,10 +97,6 @@ public class SQLUserDAO implements UserDAO {
         }
     }
 
-    /**
-     * @param username 
-     * @param password
-     */
     public void deleteAccount(String username, String password) {
         if (checkPassword(username, password) == -1) return;
 

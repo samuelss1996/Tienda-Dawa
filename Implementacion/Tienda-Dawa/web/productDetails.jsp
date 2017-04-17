@@ -94,7 +94,7 @@
                 <c:forEach var="rating" items="${ratings}">
                     <li>
                         <h5>${rating.comment.title}</h5>
-                        <h7>${rating.value}</h7>
+                        <h6>${rating.value}</h6>
                         <p class="author">Por ${rating.client.username} el ${rating.date}</p>
                         <p class="content">${rating.comment.content}</p>
                     </li>

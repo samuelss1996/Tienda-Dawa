@@ -11,9 +11,6 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import java.io.IOException;
 
-/**
- * Created by Cristofer Canosa Domínguez on 15/04/2017.
- */
 public class ProductDetailsTag extends SimpleTagSupport {
     private String type;
     private Product product;
