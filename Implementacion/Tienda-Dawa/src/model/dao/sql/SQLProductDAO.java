@@ -17,7 +17,7 @@ public class SQLProductDAO implements ProductDAO {
     /**
      * @param cd
      */
-    public void insert(CD cd) {
+    public void insert(CD cd) throws IllegalArgumentException{
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             if (existsProduct(cd.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
@@ -48,12 +48,15 @@ public class SQLProductDAO implements ProductDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IllegalArgumentException ex) {
+            throw ex;
         }
+
     }
 
     private boolean existsProduct(String productName, Connection connection) throws SQLException {
-        try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE name = ?")) {
-            statement.setString(1, productName.trim());
+        try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE LOWER(name) = ?")) {
+            statement.setString(1, productName.trim().toLowerCase());
             ResultSet resultSet = statement.executeQuery();
 
             return resultSet.first();

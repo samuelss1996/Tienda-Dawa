@@ -33,6 +33,12 @@
             </div>
         </div>
 
+        <c:if test="${param.error == 'insertError'}">
+            <div class="alert alert-danger">
+                El elemento insertado ya existe en la base de datos.
+            </div>
+        </c:if>
+
         <c:forEach var="product" items="${requestScope.productsList}">
             <div class="col-md-4">
                 <div class="well" style="padding-bottom: 50px;">

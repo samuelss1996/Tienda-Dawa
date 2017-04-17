@@ -65,20 +65,24 @@ public class AdminController extends HttpServlet {
                 }
                 break;
             case "addProduct":
-                switch(UTFUtils.getParameter(request, "type")) {
-                    case "CD":
-                        helper.insert(new CD(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
-                                Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cdTitle"),
-                                UTFUtils.getParameter(request, "cdAuthor"), Year.parse(UTFUtils.getParameter(request, "cdYear"))));
-                        break;
-                    case "CACTUS":
-                        helper.insert(new Cactus(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
-                                Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cactusSpecies"),
-                                UTFUtils.getParameter(request, "cactusOrigin")));
-                        break;
-                }
+                try {
+                    switch (UTFUtils.getParameter(request, "type")) {
+                        case "CD":
+                            helper.insert(new CD(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
+                                    Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cdTitle"),
+                                    UTFUtils.getParameter(request, "cdAuthor"), Year.parse(UTFUtils.getParameter(request, "cdYear"))));
+                            break;
+                        case "CACTUS":
+                            helper.insert(new Cactus(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
+                                    Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cactusSpecies"),
+                                    UTFUtils.getParameter(request, "cactusOrigin")));
+                            break;
+                    }
 
-                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
+                    response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
+                } catch (IllegalArgumentException e) {
+                    response.sendRedirect(String.format("/admin/listProducts.jsp?error=insertError", UTFUtils.getParameter(request, "type")));
+                }
                 break;
             case "editProduct":
                 switch(UTFUtils.getParameter(request, "type")) {
