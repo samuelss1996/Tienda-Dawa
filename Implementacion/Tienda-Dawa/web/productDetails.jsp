@@ -24,7 +24,6 @@
                     <div class="input-group pull-right" style="margin-top: 25px">
                         <form method="post" action="store">
                             <div class="input-group-btn">
-                                    <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
                                 <input type="number" class="form-control" min="1" max="${item.stock}" value="1"
                                        style="width: 75px;" name="quantity">
                                 <input type="hidden" value="${item.id}" name="productId"/>

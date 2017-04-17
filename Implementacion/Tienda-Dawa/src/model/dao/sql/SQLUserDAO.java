@@ -16,7 +16,7 @@ public class SQLUserDAO implements UserDAO {
      * @param client
      */
     public void registerClient(Client client, String password) {
-        //TODO: check existing username
+        if (existsUser(client.getUsername(), client.getEmail())) throw new IllegalArgumentException("Ya existe un usuario con ese nombre");
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT into user (username, email, password) VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS)) {
@@ -38,6 +38,23 @@ public class SQLUserDAO implements UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean existsUser(String username, String email) {
+        try (Connection connection = SQLDAOFactory.createConnection()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE username = ? OR email = ?")) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, email);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                return resultSet.first();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     private void insertAsClient(Client client, int clientID, Connection connection) throws SQLException {

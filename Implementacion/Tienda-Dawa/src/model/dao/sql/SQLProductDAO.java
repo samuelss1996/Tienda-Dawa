@@ -17,7 +17,7 @@ public class SQLProductDAO implements ProductDAO {
     /**
      * @param cd
      */
-    public void insert(CD cd) throws IllegalArgumentException{
+    public void insert(CD cd) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             if (existsProduct(cd.getProductName(), connection)) throw new IllegalArgumentException("Ya existe un producto con ese nombre");
@@ -35,7 +35,7 @@ public class SQLProductDAO implements ProductDAO {
                         preparedStatement1.setInt(1, generatedKeys.getInt(1));
                         preparedStatement1.setString(2, cd.getTitle());
                         preparedStatement1.setString(3, cd.getAuthor());
-                        preparedStatement1.setInt(4, cd.getYear().getValue()); //TODO: igual no funciona
+                        preparedStatement1.setInt(4, cd.getYear().getValue());
 
                         preparedStatement1.executeUpdate();
                     }
@@ -48,10 +48,7 @@ public class SQLProductDAO implements ProductDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (IllegalArgumentException ex) {
-            throw ex;
         }
-
     }
 
     private boolean existsProduct(String productName, Connection connection) throws SQLException {

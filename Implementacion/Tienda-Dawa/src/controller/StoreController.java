@@ -26,7 +26,6 @@ public class StoreController extends HttpServlet {
                     Product product = parseProduct(request);
                     helper.addToCart(product, Integer.parseInt(UTFUtils.getParameter(request, "quantity")));
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
-                    //TODO: volver a la pagina que lo llamo
                 } catch (OutOfStockException e) {
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockWhenAddToCart").forward(request, response);
                 }
@@ -58,7 +57,6 @@ public class StoreController extends HttpServlet {
                 break;
             case "confirmOrder":
                 try {
-                    Client client = helper.getClientInfo((String)session.getAttribute("username")); // TODO que verga hace esto aquí
                     Order order = (Order) session.getAttribute("order");
                     helper.confirmOrder(order);
                     session.setAttribute("order", null);

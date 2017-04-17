@@ -13,6 +13,10 @@
         </div>
     </c:if>
 
+    <c:if test="${param.error == 'registerExistingUsername'}">
+        <div class="alert alert-danger">El nombre de usuario ya existe</div>
+    </c:if>
+
     <c:if test="${param.error == 'login'}">
         <div class="alert alert-danger">
             Se ha producido un error. Asegúrese de que ha rellenado todos los campos correctamente.

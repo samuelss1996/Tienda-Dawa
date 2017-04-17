@@ -21,9 +21,13 @@ public class UserController extends HttpServlet {
         switch(UTFUtils.getParameter(request, "action")) {
             case "registerClient":
                 if(this.isValidRegisterInput(request)) {
-                    helper.registerClient(new Client(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "email")),
-                            UTFUtils.getParameter(request, "password"));
-                    this.getServletContext().getRequestDispatcher("/clientAuth.jsp?success=register").forward(request, response);
+                    try {
+                        helper.registerClient(new Client(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "email")),
+                                UTFUtils.getParameter(request, "password"));
+                        this.getServletContext().getRequestDispatcher("/clientAuth.jsp?success=register").forward(request, response);
+                    } catch (IllegalArgumentException e) {
+                        this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=registerExistingUsername").forward(request, response);
+                    }
                 } else {
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=register").forward(request, response);
                 }

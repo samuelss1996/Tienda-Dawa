@@ -32,7 +32,7 @@ public class AdminHelper {
     /**
      * @param cd
      */
-    public void insert(CD cd) throws IllegalArgumentException{
+    public void insert(CD cd) {
         ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
         productDAO.insert(cd);
     }

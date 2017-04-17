@@ -64,7 +64,6 @@
                                 <p class="btn btn-primary disabled pull-right" role="button">${result.priceAsString} €</p>
                                 <c:choose>
                                     <c:when test="${result.stock > 0}">
-                                        <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
                                         <form method="post" action="store">
                                             <input type="hidden" value="${result.id}"           name="productId"/>
                                             <input type="hidden" value="${result.productName}"  name="productName"/>
