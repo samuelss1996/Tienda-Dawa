@@ -88,6 +88,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">Opiniones de clientes</div>
         <div class="panel-body">
+            <c:if test="${empty ratings}">
+                <div class="alert alert-info">Sé el primero en opinar sobre este producto.</div>
+            </c:if>
             <ul class="reviewList">
                 <c:forEach var="rating" items="${ratings}">
                     <li>

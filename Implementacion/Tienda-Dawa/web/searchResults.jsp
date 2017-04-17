@@ -45,6 +45,9 @@
 
         <div class="col-md-10">
             <ul class="productList">
+                <c:if test="${empty requestScope.results}">
+                    <div class="alert alert-danger">No se han encontrado resultados.</div>
+                </c:if>
                 <c:forEach var="result" items="${requestScope.results}">
                     <li class="well well-lg">
                         <div class="row">

@@ -64,7 +64,10 @@ public class SQLRatingDAO implements RatingDAO {
                                                                                         "FROM rating " +
                                                                                         "JOIN comment ON comment.rating = rating.id " +
                                                                                         "JOIN product ON product.id = rating.product " +
-                                                                                        "JOIN client ON client.id = rating.client")) {
+                                                                                        "JOIN client ON client.id = rating.client " +
+                                                                                        "WHERE product.id = ?")) {
+                preparedStatement.setInt(1, product.getId());
+
                 ResultSet resultSet = preparedStatement.executeQuery();
 
                 while(resultSet.next()) {
