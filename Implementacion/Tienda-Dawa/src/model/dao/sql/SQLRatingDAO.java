@@ -8,32 +8,38 @@ import java.util.*;
 
 public class SQLRatingDAO implements RatingDAO {
 
-    public void addRating(Rating rating) {
+    public boolean addRating(Rating rating) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
 
-            String sqlStatement = "INSERT INTO rating(product, value, client) VALUES (?, ?, (SELECT id FROM user WHERE username = ?))";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS)) {
-                preparedStatement.setInt(1, rating.getProduct().getId());
-                preparedStatement.setFloat(2, rating.getValue());
-                preparedStatement.setString(3, rating.getClient().getUsername());
+            if(!this.hasAlreadyRated(rating.getClient().getUsername(), rating.getProduct().getId(), connection)) {
+                String sqlStatement = "INSERT INTO rating(product, value, client) VALUES (?, ?, (SELECT id FROM user WHERE username = ?))";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS)) {
+                    preparedStatement.setInt(1, rating.getProduct().getId());
+                    preparedStatement.setFloat(2, rating.getValue());
+                    preparedStatement.setString(3, rating.getClient().getUsername());
 
-                preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
 
-                if (rating.getComment() != null) {
-                    ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-                    if (generatedKeys.first())
-                        attachComment(rating, generatedKeys.getInt(1), connection);
+                    if (rating.getComment() != null) {
+                        ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                        if (generatedKeys.first())
+                            attachComment(rating, generatedKeys.getInt(1), connection);
+                    }
+
+                    connection.commit();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    connection.rollback();
                 }
-
-                connection.commit();
-            } catch (SQLException e) {
-                e.printStackTrace();
-                connection.rollback();
+            } else {
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return true;
     }
 
     private void attachComment(Rating rating, int ratingID, Connection connection) throws SQLException {
@@ -124,4 +130,14 @@ public class SQLRatingDAO implements RatingDAO {
         return null;
     }
 
+    private boolean hasAlreadyRated(String username, int productId, Connection connection) throws SQLException {
+        String sqlQuery = "SELECT * FROM rating WHERE product = ? AND client = (SELECT id FROM user WHERE username = ?)";
+
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            preparedStatement.setInt(1, productId);
+            preparedStatement.setString(2, username);
+
+            return preparedStatement.executeQuery().first();
+        }
+    }
 }

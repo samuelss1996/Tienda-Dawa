@@ -61,10 +61,11 @@ public class StockController extends HttpServlet {
                                 new Comment(UTFUtils.getParameter(request, "ratingTitle"), UTFUtils.getParameter(request, "ratingContent")) : null;
                         Rating rating = new Rating(Integer.parseInt(UTFUtils.getParameter(request, "ratingValue")),
                                 new Product(itemId), new Client(username), comment);
-                        helper.addRating(rating);
+                        boolean success = helper.addRating(rating);
 
-                        response.sendRedirect(String.format("/stock?action=details&productId=%d&type=%s&success=rating", itemId,
-                                UTFUtils.getParameter(request, "itemType")));
+                        String status = success? "success=rating" : "error=alreadyRated";
+                        response.sendRedirect(String.format("/stock?action=details&productId=%d&type=%s&%s", itemId,
+                                UTFUtils.getParameter(request, "itemType"), status));
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp").forward(request, response);
                     }

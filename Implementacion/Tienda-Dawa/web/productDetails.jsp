@@ -6,6 +6,10 @@
         <div class="alert alert-success">Tu valoración ha sido añadida correctamente.</div>
     </c:if>
 
+    <c:if test="${param.error == 'alreadyRated'}">
+        <div class="alert alert-danger">No puedes valorar dos veces un mismo producto.</div>
+    </c:if>
+
     <div class="row well well-lg">
         <div class="col-md-3">
             <img src="img/products/${item.id}.jpg" onerror="this.src='img/products/default/${item.type}.png;'">

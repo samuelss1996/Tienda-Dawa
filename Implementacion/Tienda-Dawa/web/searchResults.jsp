@@ -8,9 +8,9 @@
                 <div class="panel-heading">Departamentos</div>
                 <div class="panel-body">
                     <ul>
-                        <li><a href="stock?action=search&name=${param.name}&type=ALL">Todos</a></li>
-                        <li><a href="stock?action=search&name=${param.name}&type=CD">CD's</a></li>
-                        <li><a href="stock?action=search&name=${param.name}&type=CACTUS">Cactus</a></li>
+                        <li><a href="stock?action=search&name=<%= UTFUtils.getParameter(request, "name") %>&type=ALL">Todos</a></li>
+                        <li><a href="stock?action=search&name=<%= UTFUtils.getParameter(request, "name") %>&type=CD">CD's</a></li>
+                        <li><a href="stock?action=search&name=<%= UTFUtils.getParameter(request, "name") %>&type=CACTUS">Cactus</a></li>
                     </ul>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     <form class="form-inline" method="get" action="stock">
                         <input type="hidden" name="action" value="search">
-                        <input type="hidden" name="name" value="${param.name}">
+                        <input type="hidden" name="name" value="<%= UTFUtils.getParameter(request, "name") %>">
                         <input type="hidden" name="type" value="${param.type}">
 
                         <div class="form-group">

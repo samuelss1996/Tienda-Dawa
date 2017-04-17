@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RatingDAO {
 
-    void addRating(Rating rating);
+    boolean addRating(Rating rating);
 
     List<Rating> listRatings(Product product);
 

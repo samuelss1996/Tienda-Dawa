@@ -18,9 +18,9 @@ public class StockHelper {
         this.request = request;
     }
 
-    public void addRating(Rating rating) {
+    public boolean addRating(Rating rating) {
         RatingDAO ratingDAO = DAOFactory.getFactory(DAOFactory.SQL).getRatingDAO();
-        ratingDAO.addRating(rating);
+        return ratingDAO.addRating(rating);
     }
 
     public List<Rating> listRatings(Product product) {
