@@ -12,7 +12,7 @@ public class SQLDAOFactory extends DAOFactory {
     public static Connection createConnection() {
         try {
             Class.forName(DRIVER).newInstance();
-            return DriverManager.getConnection(DB_URL, "root", "root");
+            return DriverManager.getConnection(DB_URL, "dawa", "dawa");
         } catch (Exception e) {
             e.printStackTrace();
         }
