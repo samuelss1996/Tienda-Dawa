@@ -16,9 +16,6 @@ public interface StockDAO {
 
     List<Product> listAvailableProducts(EProductType type, int limit);
 
-    // TODO a lo mejor este método sobra un poco, || eso parece
-    void updateProductsStock(List<Product> productList);
-
     List<Product> searchProducts(ProductFilter filter);
 
     List<CD> searchCDs(CDFilter filter);

@@ -91,28 +91,6 @@ public class SQLStockDAO implements StockDAO {
         return availableCDs;
     }
 
-    public void updateProductsStock(List<Product> productList) {
-        try (Connection connection = SQLDAOFactory.createConnection()) {
-            connection.setAutoCommit(false);
-            try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE product SET stock = ? WHERE id = ?")) {
-                for(Product product : productList) {
-                    preparedStatement.setInt(1, product.getStock());
-                    preparedStatement.setInt(2, product.getId());
-
-                    preparedStatement.addBatch();
-                }
-                preparedStatement.executeBatch();
-            } catch (SQLException e) {
-                e.printStackTrace();
-                connection.rollback();
-            }
-
-            connection.commit();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public List<Product> searchProducts(ProductFilter filter) {
         String queryString = "SELECT * FROM product WHERE LOWER(name) LIKE ? AND (? IS NULL OR price >= ?) AND (? IS NULL OR price <= ?)";
 

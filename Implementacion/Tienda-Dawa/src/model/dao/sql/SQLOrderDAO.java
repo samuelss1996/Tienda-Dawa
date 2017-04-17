@@ -67,15 +67,19 @@ public class SQLOrderDAO implements OrderDAO {
             if (resultSet.next()) {
                 float totalExpenses = resultSet.getFloat(1);
                 float updatedExpenses = totalExpenses + newExpense;
-                String update = "";
+                int newType;
                 if (updatedExpenses > 100) {
-                    update = "SET totalExpenses = " + updatedExpenses + ", type = " + 2;
+                    newType = 2;
                     upgraded = true;
                 } else {
-                    update = "SET totalExpenses = " + updatedExpenses;
+                    newType = 2;
                 }
-                try (Statement statement = connection.createStatement()) {
-                    statement.executeUpdate("UPDATE client " + update + " WHERE id = " + client.getId());
+                try (CallableStatement statement = connection.prepareCall("{call updateClientExpenses(?, ?, ?)}")) {
+                    statement.setInt(1, client.getId());
+                    statement.setFloat(2, updatedExpenses);
+                    statement.setInt(3, newType);
+
+                    statement.executeUpdate();
                 }
             }
         }

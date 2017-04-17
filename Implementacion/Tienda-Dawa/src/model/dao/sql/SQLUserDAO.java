@@ -63,7 +63,7 @@ public class SQLUserDAO implements UserDAO {
 
     public boolean clientLogin(String username, String password) {
         int userId = checkPassword(username, password);
-        return (userId != -1 && isUser(userId));
+        return (userId != -1 && isClient(userId));
     }
 
     public boolean adminLogin(String username, String password) {
@@ -71,45 +71,23 @@ public class SQLUserDAO implements UserDAO {
         return (userId != -1 && isAdmin(userId));
     }
 
-    public void upgradeClient(int userID, EClientType newClientType) {
-        try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                statement.executeQuery("UPDATE client SET type = " + newClientType.getId() + " WHERE id = " + userID);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void changePassword(String username, String oldPassword, String newPassword) {
         if (checkPassword(username, oldPassword) == -1) return;
 
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET password = ? WHERE username = ? AND password = ?")) {
-                preparedStatement.setString(1, CryptUtils.sha512Crypt(newPassword));
-                preparedStatement.setString(2, username);
-                preparedStatement.setString(3, CryptUtils.sha512Crypt(oldPassword));
+            try (CallableStatement callableStatement= connection.prepareCall("{call changePassword(?, ?, ?)}")) {
+                callableStatement.setString(1, newPassword);
+                callableStatement.setString(2, username);
+                callableStatement.setString(3, oldPassword);
 
-                preparedStatement.executeUpdate();
+                callableStatement.executeUpdate();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void deleteAccount(String username, String password) {
-        if (checkPassword(username, password) == -1) return;
-
-        try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                statement.executeUpdate("DELETE FROM user WHERE username = " + username);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private boolean isUser(int userID) {
+    private boolean isClient(int userID) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM client WHERE id = ?")) {
                 preparedStatement.setInt(1, userID);

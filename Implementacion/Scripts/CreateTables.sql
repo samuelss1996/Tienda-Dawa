@@ -100,3 +100,23 @@ CREATE TABLE comment (
 	FOREIGN KEY(rating) REFERENCES rating(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+DELIMITER '$';
+
+CREATE PROCEDURE changePassword (IN password CHAR(128), IN username VARCHAR(100), IN oldPassword CHAR(128))
+BEGIN
+    UPDATE user SET password = SHA2(password, 512) WHERE username = username AND password = SHA2(oldPassword, 512);
+END$
+
+CREATE PROCEDURE fetchUser(IN userID INTEGER)
+BEGIN
+    SELECT * FROM user WHERE id = userID;
+END$
+
+CREATE PROCEDURE updateClientExpenses(IN userID INTEGER, IN totalExpenses FLOAT, IN type INTEGER)
+BEGIN
+    UPDATE client SET totalExpenses = totalExpenses, type = type WHERE id = userID;
+END$
+
+DELIMITER ';'$

@@ -47,12 +47,6 @@ public class StoreHelper {
 
     public void addToCart(Product product, int amount) throws OutOfStockException {
         ShopCart shopCart = (ShopCart) session.getAttribute(SHOPPING_CART);
-
-//        if (amount > product.getStock()) {
-//
-//                throw new OutOfStockException();
-//        }
-
         int newLineNumber = shopCart.add(product, amount);
 
         if(shopCart.getLines().get(newLineNumber).getQuantity() > product.getStock()) {
@@ -75,11 +69,6 @@ public class StoreHelper {
         } else if(oldQuantity > newQuantity) {
             shopCart.reduceQuantity(lineNumber, oldQuantity - newQuantity);
         }
-    }
-
-    private void updateProductDetails(Product product) {
-        ProductDAO productDAO = DAOFactory.getFactory(DAOFactory.SQL).getProductDAO();
-        product = productDAO.fetchProduct(product.getId(), product.getType());
     }
 
     public Client getClientInfo(String username) {

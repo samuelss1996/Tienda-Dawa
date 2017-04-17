@@ -115,8 +115,9 @@ public class SQLRatingDAO implements RatingDAO {
 
     private Client fetchClient(int userId, int eClientType, float totalExpenses) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE id = " + userId);
+            try (CallableStatement statement = connection.prepareCall("{call fetchUser(?)}")) {
+                statement.setInt(1, userId);
+                ResultSet resultSet = statement.executeQuery();
                 if (resultSet.next())
                     return new Client(userId,
                                         resultSet.getString("username"),
