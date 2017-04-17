@@ -79,7 +79,6 @@ public class SQLOrderDAO implements OrderDAO {
                     update = "SET totalExpenses = " + updatedExpenses;
                 }
                 try (Statement statement = connection.createStatement()) {
-                    System.out.println("UPDATE client " + update + " WHERE id = " + client.getId());
                     statement.executeUpdate("UPDATE client " + update + " WHERE id = " + client.getId());
                 }
             }
