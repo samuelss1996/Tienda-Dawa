@@ -20,7 +20,6 @@
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <a href="stock?action=details&productId=${cd.id}&type=CD"><img src="img/${cd.id}.jpg" onerror="this.src='img/CD.png'"></a>
-                    <%--TODO enlace al producto--%>
                     <div class="caption">
                         <a href="stock?action=details&productId=${cd.id}&type=CD"><h3>${cd.productName}</h3></a>
                         <p:details type="CD" product="${cd}"/>

@@ -28,7 +28,7 @@ public class UserController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=register").forward(request, response);
                 }
                 break;
-            case "loginUser": // TODO comprobar si ya tenía el carrito con ítems antes de hacer el login
+            case "loginUser":
                 if(this.isValidLoginInput(request)) {
                     if(helper.userLogin(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "password"))) {
                         request.getSession().setAttribute("username", UTFUtils.getParameter(request, "username"));
