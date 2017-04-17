@@ -8,7 +8,7 @@
 
     <div class="row well well-lg">
         <div class="col-md-3">
-            <img src="img/${item.id}.jpg" onerror="this.src='img/${item.type}.png;'">
+            <img src="img/products/${item.id}.jpg" onerror="this.src='img/products/default/${item.type}.png;'">
             <h3><span class="label label-success">Valoración media: ${requestScope.averageRating}/5,0</span></h3>
         </div>
 
@@ -19,24 +19,32 @@
 
         <div class="col-md-3">
             <h1><span class="label label-primary pull-right">${item.priceAsString} €</span></h1>
-
-            <div class="input-group pull-right" style="margin-top: 25px">
-                <form method="post" action="store">
-                    <div class="input-group-btn">
-                        <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
-                        <input type="number" class="form-control" min="1" max="${item.stock}" value="1" style="width: 75px;" name="quantity">
-                        <input type="hidden" value="${item.id}"           name="productId"/>
-                        <input type="hidden" value="${item.productName}"  name="productName"/>
-                        <input type="hidden" value="${item.price}"        name="productPrice"/>
-                        <input type="hidden" value="${item.stock}"        name="productStock"/>
-                        <input type="hidden" value="${item.type}"         name="productType"/>
-                        <input type="hidden" value="addToCart" name="action" />
-                        <button class="btn btn-warning" type="submit">
-                            <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
-                        </button>
+            <c:choose>
+                <c:when test="${item.stock > 0}">
+                    <div class="input-group pull-right" style="margin-top: 25px">
+                        <form method="post" action="store">
+                            <div class="input-group-btn">
+                                    <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
+                                <input type="number" class="form-control" min="1" max="${item.stock}" value="1"
+                                       style="width: 75px;" name="quantity">
+                                <input type="hidden" value="${item.id}" name="productId"/>
+                                <input type="hidden" value="${item.productName}" name="productName"/>
+                                <input type="hidden" value="${item.price}" name="productPrice"/>
+                                <input type="hidden" value="${item.stock}" name="productStock"/>
+                                <input type="hidden" value="${item.type}" name="productType"/>
+                                <input type="hidden" value="addToCart" name="action"/>
+                                <button class="btn btn-warning" type="submit">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i> Añadir al carrito
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
+                </c:when>
+                <c:otherwise>
+                    <h3 style="margin-top: 25px"><span class="label label-default">Sin stock</span></h3>
+                </c:otherwise>
+            </c:choose>
+
         </div>
     </div>
 

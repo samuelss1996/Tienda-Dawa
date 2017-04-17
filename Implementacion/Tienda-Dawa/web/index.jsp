@@ -19,7 +19,7 @@
         <c:forEach var="cd" items="${requestScope.cds}">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="stock?action=details&productId=${cd.id}&type=CD"><img src="img/${cd.id}.jpg" onerror="this.src='img/CD.png'"></a>
+                    <a href="stock?action=details&productId=${cd.id}&type=CD"><img src="img/products/${cd.id}.jpg" onerror="this.src='img/products/default/CD.png;'"></a>
                     <div class="caption">
                         <a href="stock?action=details&productId=${cd.id}&type=CD"><h3>${cd.productName}</h3></a>
                         <p:details type="CD" product="${cd}"/>
@@ -43,7 +43,7 @@
         <c:forEach var="cactus" items="${requestScope.cacti}">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="stock?action=details&productId=${cactus.id}&type=CACTUS"><img src="img/${cactus.id}.jpg" onerror="this.src='img/CACTUS.png'"></a>
+                    <a href="stock?action=details&productId=${cactus.id}&type=CACTUS"><img src="img/products/${cactus.id}.jpg" onerror="this.src='img/products/default/CACTUS.png;'"></a>
                     <div class="caption">
                         <a href="stock?action=details&productId=${cactus.id}&type=CACTUS"><h3>${cactus.productName}</h3></a>
                         <p:details type="CACTUS" product="${cactus}"/>

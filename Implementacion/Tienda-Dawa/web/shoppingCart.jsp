@@ -36,7 +36,7 @@
                                 <tr>
                                     <td>
                                         <div class="col-md-2">
-                                            <img src="img/${orderLine.product.id}.jpg" onerror="this.src='img/${orderLine.product.type}.png;'">
+                                            <img src="img/products/${orderLine.product.id}.jpg" onerror="this.src='img/products/default/${orderLine.product.type}.png;'">
                                         </div>
 
                                         <div class="col-md-10">

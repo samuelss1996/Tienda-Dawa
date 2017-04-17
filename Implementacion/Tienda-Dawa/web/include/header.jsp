@@ -24,8 +24,8 @@
                 <div class="input-group-btn">
                     <select class="form-control" name="type">
                         <option value="ALL">Todos los departamentos</option>
-                        <option value="CD">CD's</option>
-                        <option value="CACTUS">Cactus</option>
+                        <option value="CD" <c:if test="${param.type == 'CD'}">selected</c:if>>CD's</option>
+                        <option value="CACTUS" <c:if test="${param.type == 'CACTUS'}">selected</c:if>>Cactus</option>
                     </select>
                 </div>
                 <input type="text" name="name" class="form-control" placeholder="Buscar productos..."

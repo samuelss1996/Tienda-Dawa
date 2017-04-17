@@ -48,7 +48,7 @@
                 <c:forEach var="result" items="${requestScope.results}">
                     <li class="well well-lg">
                         <div class="row">
-                            <a href="stock?action=details&productId=${result.id}&type=${result.type}"><img class="col-md-2" src="img/${result.id}.jpg" onerror="this.src='img/${result.type}.png;'"></a>
+                            <a href="stock?action=details&productId=${result.id}&type=${result.type}"><img class="col-md-2" src="img/products/${result.id}.jpg" onerror="this.src='img/products/default/${result.type}.png;'"></a>
 
                             <div class="col-md-8">
                                 <h3><a href="stock?action=details&productId=${result.id}&type=${result.type}">${result.productName}</a></h3>
@@ -59,17 +59,24 @@
 
                             <div class="col-md-2">
                                 <p class="btn btn-primary disabled pull-right" role="button">${result.priceAsString} €</p>
-                                <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
-                                <form method="post" action="store">
-                                    <input type="hidden" value="${result.id}"           name="productId"/>
-                                    <input type="hidden" value="${result.productName}"  name="productName"/>
-                                    <input type="hidden" value="${result.price}"        name="productPrice"/>
-                                    <input type="hidden" value="${result.stock}"        name="productStock"/>
-                                    <input type="hidden" value="${result.type}"         name="productType"/>
-                                    <input type="hidden" value="1" name="quantity" />
-                                    <input type="hidden" value="addToCart" name="action" />
-                                    <button type="submit" class="btn btn-warning pull-right quickAdd"><i class="glyphicon glyphicon-shopping-cart"></i> Añadir ya</button>
-                                </form>
+                                <c:choose>
+                                    <c:when test="${result.stock > 0}">
+                                        <%--TODO controlar el login y la falta de stock y hacer algo con la redirección, ajax si eso --%>
+                                        <form method="post" action="store">
+                                            <input type="hidden" value="${result.id}"           name="productId"/>
+                                            <input type="hidden" value="${result.productName}"  name="productName"/>
+                                            <input type="hidden" value="${result.price}"        name="productPrice"/>
+                                            <input type="hidden" value="${result.stock}"        name="productStock"/>
+                                            <input type="hidden" value="${result.type}"         name="productType"/>
+                                            <input type="hidden" value="1" name="quantity" />
+                                            <input type="hidden" value="addToCart" name="action" />
+                                            <button type="submit" class="btn btn-warning pull-right quickAdd"><i class="glyphicon glyphicon-shopping-cart"></i> Añadir ya</button>
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <h3 class="quickAdd"><span class="label label-default pull-right">Sin stock</span></h3>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </li>
