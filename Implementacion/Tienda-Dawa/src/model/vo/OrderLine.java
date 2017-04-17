@@ -54,8 +54,17 @@ public class OrderLine {
     public String getLinePriceAsString() { return String.format("%.2f", this.getLinePrice()); }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!super.equals(obj)) return false;
-        return (obj instanceof OrderLine && ((OrderLine) obj).product.getId() == this.product.getId());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrderLine orderLine = (OrderLine) o;
+
+        return product != null ? product.equals(orderLine.product) : orderLine.product == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return product != null ? product.hashCode() : 0;
     }
 }

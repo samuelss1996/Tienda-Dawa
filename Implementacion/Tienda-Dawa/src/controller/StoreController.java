@@ -27,7 +27,19 @@ public class StoreController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                     //TODO: volver a la pagina que lo llamo
                 } catch (OutOfStockException e) {
-                    e.printStackTrace();
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStock").forward(request, response);
+                }
+                break;
+            case "deleteFromCart":
+                helper.removeFromCart(Integer.valueOf(request.getParameter("lineNumber")));
+                this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
+                break;
+            case "changeShopCartQuantity":
+                try {
+                    helper.updateShopCartQuantity(Integer.valueOf(request.getParameter("lineNumber")), Integer.valueOf(request.getParameter("quantity")));
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
+                } catch (OutOfStockException e) {
+                    this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStock").forward(request, response);
                 }
                 break;
             case "createOrder":

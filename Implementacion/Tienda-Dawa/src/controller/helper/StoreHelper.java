@@ -58,21 +58,38 @@ public class StoreHelper {
      */
     public void addToCart(Product product, int amount) throws OutOfStockException {
         ShopCart shopCart = (ShopCart) session.getAttribute(SHOPPING_CART);
-        //TODO: lineNumber
-        if (amount > product.getStock()) {
-            updateProductDetails(product);
-            if (amount > product.getStock())
-                throw new OutOfStockException();
+
+//        if (amount > product.getStock()) {
+//            /*updateProductDetails(product);
+//            if (amount > product.getStock()) TODO debatir la existencia de esto*/
+//                throw new OutOfStockException();
+//        }
+
+        int newLineNumber = shopCart.add(product, amount);
+
+        if(shopCart.getLines().get(newLineNumber).getQuantity() > product.getStock()) {
+            shopCart.reduceQuantity(newLineNumber, amount);
+            throw new OutOfStockException();
         }
-        shopCart.add(product, amount);
     }
 
     /**
-     * @param product
+     * @param lineNumber
      */
-    public void removeFromCart(Product product) {
+    public void removeFromCart(int lineNumber) {
         ShopCart shopCart = (ShopCart) session.getAttribute(SHOPPING_CART);
-        shopCart.remove(product);
+        shopCart.remove(lineNumber);
+    }
+
+    public void updateShopCartQuantity(int lineNumber, int newQuantity) throws OutOfStockException {
+        ShopCart shopCart = (ShopCart) this.session.getAttribute(SHOPPING_CART);
+        int oldQuantity = shopCart.getLines().get(lineNumber).getQuantity();
+
+        if(newQuantity > oldQuantity) {
+            this.addToCart(shopCart.getLines().get(lineNumber).getProduct(), newQuantity - oldQuantity);
+        } else if(oldQuantity > newQuantity) {
+            shopCart.reduceQuantity(lineNumber, oldQuantity - newQuantity);
+        }
     }
 
     private void updateProductDetails(Product product) {
