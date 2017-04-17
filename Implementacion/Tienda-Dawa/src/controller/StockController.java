@@ -4,6 +4,7 @@ import controller.helper.StockHelper;
 import model.filter.CDFilter;
 import model.filter.CactusFilter;
 import model.filter.ProductFilter;
+import model.util.UTFUtils;
 import model.vo.*;
 
 import javax.servlet.ServletException;
@@ -18,13 +19,12 @@ import java.util.List;
 public class StockController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         StockHelper helper = new StockHelper(request);
 
-        if(request.getParameter("action") != null) {
-            switch (request.getParameter("action")) {
+        if(UTFUtils.getParameter(request, "action") != null) {
+            switch (UTFUtils.getParameter(request, "action")) {
                 case "search":
-                    switch(request.getParameter("type")) {
+                    switch(UTFUtils.getParameter(request, "type")) {
                         case "ALL":
                             request.setAttribute("results", helper.searchProducts((ProductFilter) request.getAttribute("filter")));
                             break;
@@ -39,22 +39,32 @@ public class StockController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/searchResults.jsp").forward(request, response);
                     break;
                 case "details":
-                    Product item = helper.getProductDetails(Integer.parseInt(request.getParameter("productId")),
-                            EProductType.valueOf(request.getParameter("type")));
+                    Product item = helper.getProductDetails(Integer.parseInt(UTFUtils.getParameter(request, "productId")),
+                            EProductType.valueOf(UTFUtils.getParameter(request, "type")));
                     List<Rating> ratings = helper.listRatings(item);
+                    float averageRating = helper.calculateAverageRating(item);
+                    boolean isOwner = request.getSession().getAttribute("username") != null
+                            && helper.isOwner((String) request.getSession().getAttribute("username"), item.getId());
+
                     request.setAttribute("item", item);
+                    request.setAttribute("averageRating", String.format("%.1f", averageRating));
                     request.setAttribute("ratings", ratings);
+                    request.setAttribute("isOwner", isOwner);
+
                     this.getServletContext().getRequestDispatcher("/productDetails.jsp").forward(request, response);
                     break;
                 case "addRating":
                     String username = (String) request.getSession().getAttribute("username");
-                    int itemId = Integer.parseInt(request.getParameter("itemId"));
+                    int itemId = Integer.parseInt(UTFUtils.getParameter(request, "itemId"));
                     if(username != null && helper.isOwner(username, itemId)) {
-                        Comment comment = new Comment(request.getParameter("ratingTitle"),
-                                request.getParameter("ratingContent"));
-                        Rating rating = new Rating(Integer.parseInt(request.getParameter("ratingValue")),
+                        Comment comment = (!UTFUtils.getParameter(request, "ratingTitle").trim().isEmpty() && !UTFUtils.getParameter(request, "ratingContent").trim().isEmpty())?
+                                new Comment(UTFUtils.getParameter(request, "ratingTitle"), UTFUtils.getParameter(request, "ratingContent")) : null;
+                        Rating rating = new Rating(Integer.parseInt(UTFUtils.getParameter(request, "ratingValue")),
                                 new Product(itemId), new Client(username), comment);
                         helper.addRating(rating);
+
+                        response.sendRedirect(String.format("/stock?action=details&productId=%d&type=%s&success=rating", itemId,
+                                UTFUtils.getParameter(request, "itemType")));
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp").forward(request, response);
                     }

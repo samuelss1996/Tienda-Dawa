@@ -2,6 +2,7 @@ package controller;
 
 import controller.helper.UserHelper;
 import model.helper.mail.MailAgent;
+import model.util.UTFUtils;
 import model.vo.Client;
 
 import javax.servlet.ServletException;
@@ -15,14 +16,13 @@ import java.io.IOException;
 public class UserController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         UserHelper helper = new UserHelper();
 
-        switch(request.getParameter("action")) {
+        switch(UTFUtils.getParameter(request, "action")) {
             case "registerClient":
                 if(this.isValidRegisterInput(request)) {
-                    helper.registerClient(new Client(request.getParameter("username"), request.getParameter("email")),
-                            request.getParameter("password"));
+                    helper.registerClient(new Client(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "email")),
+                            UTFUtils.getParameter(request, "password"));
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?success=register").forward(request, response);
                 } else {
                     this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=register").forward(request, response);
@@ -30,8 +30,8 @@ public class UserController extends HttpServlet {
                 break;
             case "loginUser": // TODO comprobar si ya tenía el carrito con ítems antes de hacer el login
                 if(this.isValidLoginInput(request)) {
-                    if(helper.userLogin(request.getParameter("username"), request.getParameter("password"))) {
-                        request.getSession().setAttribute("username", request.getParameter("username"));
+                    if(helper.userLogin(UTFUtils.getParameter(request, "username"), UTFUtils.getParameter(request, "password"))) {
+                        request.getSession().setAttribute("username", UTFUtils.getParameter(request, "username"));
                         response.sendRedirect("/stock");
                     } else {
                         this.getServletContext().getRequestDispatcher("/clientAuth.jsp?error=wrongLogin").forward(request, response);
@@ -61,13 +61,13 @@ public class UserController extends HttpServlet {
     }
 
     private boolean isValidLoginInput(HttpServletRequest request) {
-        return  !request.getParameter("password").trim().equals("") && !request.getParameter("username").trim().equals("");
+        return  !UTFUtils.getParameter(request, "password").trim().equals("") && !UTFUtils.getParameter(request, "username").trim().equals("");
     }
 
     private boolean isValidRegisterInput(HttpServletRequest request) {
-        return  request.getParameter("password").equals(request.getParameter("password-again"))
-                && !request.getParameter("password").trim().equals("") && !request.getParameter("username").trim().equals("")
-                && MailAgent.isValidEmail(request.getParameter("email"));
+        return  UTFUtils.getParameter(request, "password").equals(request.getParameter("password-again"))
+                && !UTFUtils.getParameter(request, "password").trim().equals("") && !UTFUtils.getParameter(request, "username").trim().equals("")
+                && MailAgent.isValidEmail(UTFUtils.getParameter(request, "email"));
     }
 
     private boolean isValidChangePasswordInput(HttpServletRequest request) {

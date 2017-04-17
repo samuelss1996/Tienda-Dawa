@@ -2,6 +2,7 @@ package controller;
 
 import controller.helper.AdminHelper;
 import model.filter.ClientFilter;
+import model.util.UTFUtils;
 import model.vo.CD;
 import model.vo.Cactus;
 import model.vo.EProductType;
@@ -18,10 +19,9 @@ import java.time.Year;
 public class AdminController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         AdminHelper helper = new AdminHelper();
 
-        switch(request.getParameter("action")) {
+        switch(UTFUtils.getParameter(request, "action")) {
             case "login":
                 if(helper.login(request.getParameter("login-name"), request.getParameter("login-password"))) {
                     request.setAttribute("clientsList", helper.listUserAccounts(new ClientFilter()));
@@ -35,8 +35,8 @@ public class AdminController extends HttpServlet {
                 if(request.getSession().getAttribute("adminName") != null) {
                     request.setAttribute("clientsList", helper.listUserAccounts(new ClientFilter()));
 
-                    if(!request.getParameter("password").trim().isEmpty() && request.getParameter("password").equals(request.getParameter("password-again"))) {
-                        helper.changePassword(Integer.valueOf(request.getParameter("clientId")), request.getParameter("password"));
+                    if(!UTFUtils.getParameter(request, "password").trim().isEmpty() && UTFUtils.getParameter(request, "password").equals(request.getParameter("password-again"))) {
+                        helper.changePassword(Integer.valueOf(UTFUtils.getParameter(request, "clientId")), UTFUtils.getParameter(request, "password"));
                         this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?success=changePassword").forward(request, response);
                     } else {
                         this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?error=changePassword").forward(request, response);
@@ -45,7 +45,7 @@ public class AdminController extends HttpServlet {
                 break;
             case "deleteAccount":
                 if(request.getSession().getAttribute("adminName") != null) {
-                    helper.deleteUserAccounts(Integer.valueOf(request.getParameter("clientId")));
+                    helper.deleteUserAccounts(Integer.valueOf(UTFUtils.getParameter(request, "clientId")));
                     this.getServletContext().getRequestDispatcher("/admin/listUsers.jsp?success=deleteAccount").forward(request, response);
                 }
                 break;
@@ -57,7 +57,7 @@ public class AdminController extends HttpServlet {
                 break;
             case "listProducts":
                 if(request.getSession().getAttribute("adminName") != null) {
-                    EProductType listType = EProductType.valueOf(request.getParameter("type"));
+                    EProductType listType = EProductType.valueOf(UTFUtils.getParameter(request, "type"));
 
                     request.setAttribute("type", listType);
                     request.setAttribute("productsList", helper.listProducts(listType));
@@ -65,35 +65,35 @@ public class AdminController extends HttpServlet {
                 }
                 break;
             case "addProduct":
-                switch(request.getParameter("type")) {
+                switch(UTFUtils.getParameter(request, "type")) {
                     case "CD":
-                        helper.insert(new CD(-1, Float.valueOf(request.getParameter("price").replace(",", ".")),
-                                Integer.valueOf(request.getParameter("stock")), request.getParameter("cdTitle"),
-                                request.getParameter("cdAuthor"), Year.parse(request.getParameter("cdYear"))));
+                        helper.insert(new CD(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
+                                Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cdTitle"),
+                                UTFUtils.getParameter(request, "cdAuthor"), Year.parse(UTFUtils.getParameter(request, "cdYear"))));
                         break;
                     case "CACTUS":
-                        helper.insert(new Cactus(-1, Float.valueOf(request.getParameter("price").replace(",", ".")),
-                                Integer.valueOf(request.getParameter("stock")), request.getParameter("cactusSpecies"),
-                                request.getParameter("cactusOrigin")));
+                        helper.insert(new Cactus(-1, Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
+                                Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cactusSpecies"),
+                                UTFUtils.getParameter(request, "cactusOrigin")));
                         break;
                 }
 
-                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", request.getParameter("type")));
+                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
                 break;
             case "editProduct":
-                switch(request.getParameter("type")) {
+                switch(UTFUtils.getParameter(request, "type")) {
                     case "CD":
-                        helper.update(new CD(Integer.valueOf(request.getParameter("productId")), Float.valueOf(request.getParameter("price").replace(",", ".")),
-                                Integer.valueOf(request.getParameter("stock")), request.getParameter("cdTitle"),
-                                request.getParameter("cdAuthor"), Year.parse(request.getParameter("cdYear"))));
+                        helper.update(new CD(Integer.valueOf(UTFUtils.getParameter(request, "productId")), Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")),
+                                Integer.valueOf(UTFUtils.getParameter(request, "stock")), UTFUtils.getParameter(request, "cdTitle"),
+                                UTFUtils.getParameter(request, "cdAuthor"), Year.parse(UTFUtils.getParameter(request, "cdYear"))));
                         break;
                     case "CACTUS":
-                        helper.update(new Cactus(Integer.valueOf(request.getParameter("productId")),
-                                Float.valueOf(request.getParameter("price").replace(",", ".")), Integer.valueOf(request.getParameter("stock")),
-                                request.getParameter("cactusSpecies"), request.getParameter("cactusOrigin")));
+                        helper.update(new Cactus(Integer.valueOf(UTFUtils.getParameter(request, "productId")),
+                                Float.valueOf(UTFUtils.getParameter(request, "price").replace(",", ".")), Integer.valueOf(UTFUtils.getParameter(request, "stock")),
+                                UTFUtils.getParameter(request, "cactusSpecies"), UTFUtils.getParameter(request, "cactusOrigin")));
                         break;
                 }
-                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", request.getParameter("type")));
+                response.sendRedirect(String.format("/administration?action=listProducts&type=%s", UTFUtils.getParameter(request, "type")));
                 break;
         }
     }

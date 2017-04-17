@@ -38,6 +38,11 @@ public class StockHelper {
         return ratingDAO.listRatings(product);
     }
 
+    public float calculateAverageRating(Product product) {
+        RatingDAO ratingDAO = DAOFactory.getFactory(DAOFactory.SQL).getRatingDAO();
+        return ratingDAO.calculateAverageRating(product);
+    }
+
     /**
      * @return
      */

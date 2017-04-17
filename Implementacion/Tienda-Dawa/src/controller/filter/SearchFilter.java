@@ -4,6 +4,7 @@ import model.filter.CDFilter;
 import model.filter.CactusFilter;
 import model.filter.ProductFilter;
 import model.helper.tax.TaxManagerFactory;
+import model.util.UTFUtils;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -20,8 +21,8 @@ public class SearchFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        if(servletRequest.getParameter("type") != null) {
-            switch(servletRequest.getParameter("type")) {
+        if(UTFUtils.getParameter(servletRequest, "type") != null) {
+            switch(UTFUtils.getParameter(servletRequest, "type")) {
                 case "ALL":
                     servletRequest.setAttribute("filter", this.parseProductFilter(servletRequest));
                     break;
@@ -47,12 +48,12 @@ public class SearchFilter implements Filter {
      * @return
      */
     private ProductFilter parseProductFilter(ServletRequest request) {
-        Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
-        Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
+        Float minPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "minPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "minPrice").replace(",", "."))) : null;
+        Float maxPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "maxPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "maxPrice").replace(",", "."))) : null;
 
-        return new ProductFilter(request.getParameter("name"), minPrice, maxPrice);
+        return new ProductFilter(UTFUtils.getParameter(request, "name"), minPrice, maxPrice);
     }
 
     /**
@@ -60,14 +61,14 @@ public class SearchFilter implements Filter {
      * @return
      */
     private CDFilter parseCDFilter(ServletRequest request) {
-        Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
-        Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
-        Year minYear = (!this.isNullOrEmpty(request.getParameter("minCDYear")))? Year.parse(request.getParameter("minCDYear")) : null;
-        Year maxYear = (!this.isNullOrEmpty(request.getParameter("maxCDYear")))? Year.parse(request.getParameter("maxCDYear")) : null;
+        Float minPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "minPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "minPrice").replace(",", "."))) : null;
+        Float maxPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "maxPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "maxPrice").replace(",", "."))) : null;
+        Year minYear = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "minCDYear")))? Year.parse(UTFUtils.getParameter(request, "minCDYear")) : null;
+        Year maxYear = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "maxCDYear")))? Year.parse(UTFUtils.getParameter(request, "maxCDYear")) : null;
 
-        return new CDFilter(request.getParameter("name"), minPrice, maxPrice, request.getParameter("cdTitle"), request.getParameter("cdAuthor"),
+        return new CDFilter(UTFUtils.getParameter(request, "name"), minPrice, maxPrice, UTFUtils.getParameter(request, "cdTitle"), UTFUtils.getParameter(request, "cdAuthor"),
                 minYear, maxYear);
     }
 
@@ -76,13 +77,13 @@ public class SearchFilter implements Filter {
      * @return
      */
     private CactusFilter parseCactusFilter(ServletRequest request) {
-        Float minPrice = (!this.isNullOrEmpty(request.getParameter("minPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("minPrice").replace(",", "."))) : null;
-        Float maxPrice = (!this.isNullOrEmpty(request.getParameter("maxPrice")))?
-                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(request.getParameter("maxPrice").replace(",", "."))) : null;
+        Float minPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "minPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "minPrice").replace(",", "."))) : null;
+        Float maxPrice = (!this.isNullOrEmpty(UTFUtils.getParameter(request, "maxPrice")))?
+                TaxManagerFactory.getTaxManager(request).revert(Float.valueOf(UTFUtils.getParameter(request, "maxPrice").replace(",", "."))) : null;
 
-        return new CactusFilter(request.getParameter("name"), minPrice, maxPrice, request.getParameter("cactusSpecies"),
-                request.getParameter("cactusOrigin"));
+        return new CactusFilter(UTFUtils.getParameter(request, "name"), minPrice, maxPrice, UTFUtils.getParameter(request, "cactusSpecies"),
+                UTFUtils.getParameter(request, "cactusOrigin"));
     }
 
     private boolean isNullOrEmpty(String string) {

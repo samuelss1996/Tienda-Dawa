@@ -17,14 +17,17 @@ public class SQLRatingDAO implements RatingDAO {
     public void addRating(Rating rating) {
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
-            try (Statement statement = connection.createStatement()) {
-                String sqlStatement = String.format("INSERT into rating (product, client, value) VALUES (%d, %d, %f)",
-                                                    rating.getProduct().getId(), rating.getClient().getId(), rating.getValue());
-                statement.executeUpdate(sqlStatement, Statement.RETURN_GENERATED_KEYS);
 
+            String sqlStatement = "INSERT INTO rating(product, value, client) VALUES (?, ?, (SELECT id FROM user WHERE username = ?))";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatement.setInt(1, rating.getProduct().getId());
+                preparedStatement.setFloat(2, rating.getValue());
+                preparedStatement.setString(3, rating.getClient().getUsername());
+
+                preparedStatement.executeUpdate();
 
                 if (rating.getComment() != null) {
-                    ResultSet generatedKeys = statement.getGeneratedKeys();
+                    ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                     if (generatedKeys.first())
                         attachComment(rating, generatedKeys.getInt(1), connection);
                 }
@@ -40,11 +43,13 @@ public class SQLRatingDAO implements RatingDAO {
     }
 
     private void attachComment(Rating rating, int ratingID, Connection connection) throws SQLException {
-        try (Statement statement = connection.createStatement()) {
-            String sqlStatement = String.format("INSERT into COMMENT (rating, title, content) values ( %d, %s, %s)",
-                                            ratingID, rating.getComment().getTitle(), rating.getComment().getContent());
+        String sqlStatement = "INSERT INTO comment(rating, title, content) values (?, ?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement)) {
+            preparedStatement.setInt(1, ratingID);
+            preparedStatement.setString(2, rating.getComment().getTitle());
+            preparedStatement.setString(3, rating.getComment().getContent());
 
-            statement.executeUpdate(sqlStatement);
+            preparedStatement.executeUpdate();
         }
     }
 
@@ -85,6 +90,27 @@ public class SQLRatingDAO implements RatingDAO {
         }
 
         return ratingList;
+    }
+
+    @Override
+    public float calculateAverageRating(Product product) {
+        try(Connection connection = SQLDAOFactory.createConnection()) {
+            String sqlQuery = "SELECT COALESCE(AVG(value), 0) FROM rating WHERE product = ?";
+
+            try(PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+                preparedStatement.setInt(1, product.getId());
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                if(resultSet.first()) {
+                    return resultSet.getFloat(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0f;
     }
 
     private Client fetchClient(int userId, int eClientType, float totalExpenses) {

@@ -1,3 +1,4 @@
+<%@ page import="model.util.UTFUtils" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@
                     </select>
                 </div>
                 <input type="text" name="name" class="form-control" placeholder="Buscar productos..."
-                       <c:if test="${not empty param.name}">value="${param.name}"</c:if> style="width: 500px;">
+                       <c:if test="${not empty param.name}">value="<%= UTFUtils.getParameter(request, "name") %>"</c:if> style="width: 500px;">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit">
                         <i class="glyphicon glyphicon-search"></i>

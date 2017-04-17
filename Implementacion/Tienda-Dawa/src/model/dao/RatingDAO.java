@@ -19,4 +19,11 @@ public interface RatingDAO {
      * @param product
      */
     List<Rating> listRatings(Product product);
+
+    /**
+     *
+     * @param product
+     * @return
+     */
+    float calculateAverageRating(Product product);
 }

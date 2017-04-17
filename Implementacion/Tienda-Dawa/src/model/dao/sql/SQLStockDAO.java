@@ -256,8 +256,8 @@ public class SQLStockDAO implements StockDAO {
         if (userId == -1) return false;
         try (Connection connection = SQLDAOFactory.createConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(
-                                                "SELECT * FROM order JOIN orderline ON order.id = orderline.order" +
-                                                " WHERE orderline.product = ? AND order.client = ?")) {
+                                                "SELECT * FROM `order` JOIN orderline ON `order`.id = orderline.order" +
+                                                " WHERE orderline.product = ? AND `order`.client = ?")) {
                 preparedStatement.setInt(1, productId);
                 preparedStatement.setInt(2, userId);
 

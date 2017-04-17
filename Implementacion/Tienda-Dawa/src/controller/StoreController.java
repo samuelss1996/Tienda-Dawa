@@ -2,6 +2,7 @@ package controller;
 
 import controller.helper.StoreHelper;
 import model.exception.OutOfStockException;
+import model.util.UTFUtils;
 import model.vo.*;
 
 import javax.servlet.ServletException;
@@ -16,15 +17,14 @@ import java.io.IOException;
 public class StoreController extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         StoreHelper helper = new StoreHelper(request.getSession(), request);
         HttpSession session = request.getSession();
 
-        switch (request.getParameter("action")) {
+        switch (UTFUtils.getParameter(request, "action")) {
             case "addToCart":
                 try {
                     Product product = parseProduct(request);
-                    helper.addToCart(product, Integer.parseInt(request.getParameter("quantity")));
+                    helper.addToCart(product, Integer.parseInt(UTFUtils.getParameter(request, "quantity")));
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                     //TODO: volver a la pagina que lo llamo
                 } catch (OutOfStockException e) {
@@ -32,12 +32,12 @@ public class StoreController extends HttpServlet {
                 }
                 break;
             case "deleteFromCart":
-                helper.removeFromCart(Integer.valueOf(request.getParameter("lineNumber")));
+                helper.removeFromCart(Integer.valueOf(UTFUtils.getParameter(request, "lineNumber")));
                 this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                 break;
             case "changeShopCartQuantity":
                 try {
-                    helper.updateShopCartQuantity(Integer.valueOf(request.getParameter("lineNumber")), Integer.valueOf(request.getParameter("quantity")));
+                    helper.updateShopCartQuantity(Integer.valueOf(UTFUtils.getParameter(request, "lineNumber")), Integer.valueOf(UTFUtils.getParameter(request, "quantity")));
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
                     this.getServletContext().getRequestDispatcher("/shoppingCart.jsp?error=outOfStockWhenAddToCart").forward(request, response);
@@ -76,11 +76,11 @@ public class StoreController extends HttpServlet {
     }
 
     private Product parseProduct(HttpServletRequest request) {
-        return new Product(Integer.parseInt(request.getParameter("productId")),
-                            request.getParameter("productName"),
-                            Float.parseFloat(request.getParameter("productPrice").replace(",", ".")),
-                            Integer.parseInt(request.getParameter("productStock")),
-                            EProductType.valueOf(request.getParameter("productType")));
+        return new Product(Integer.parseInt(UTFUtils.getParameter(request, "productId")),
+                            UTFUtils.getParameter(request, "productName"),
+                            Float.parseFloat(UTFUtils.getParameter(request, "productPrice").replace(",", ".")),
+                            Integer.parseInt(UTFUtils.getParameter(request, "productStock")),
+                            EProductType.valueOf(UTFUtils.getParameter(request, "productType")));
     }
 
     @Override
