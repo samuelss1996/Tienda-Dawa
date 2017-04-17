@@ -25,4 +25,9 @@ public class UKTaxManager implements TaxManager {
     public float revert(float price) {
         return price / 1.2f;
     }
+
+    @Override
+    public float calculateTaxes(float priceWithTaxes) {
+        return priceWithTaxes - (priceWithTaxes / 1.2f);
+    }
 }

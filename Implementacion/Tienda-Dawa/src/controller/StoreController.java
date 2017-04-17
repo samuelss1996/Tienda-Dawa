@@ -49,7 +49,7 @@ public class StoreController extends HttpServlet {
                     Client client = helper.getClientInfo((String)session.getAttribute("username"));
                     Order order = helper.createOrder(client, shopCart);
                     session.setAttribute("order", order);
-                    session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
+
                     this.getServletContext().getRequestDispatcher("/checkout.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
                     e.printStackTrace();
@@ -58,11 +58,13 @@ public class StoreController extends HttpServlet {
             case "confirmOrder":
                 try {
                     HttpSession session = request.getSession();
-                    Client client = helper.getClientInfo((String)session.getAttribute("username"));
+                    Client client = helper.getClientInfo((String)session.getAttribute("username")); // TODO que verga hace esto aquí
                     Order order = (Order) session.getAttribute("order");
                     helper.confirmOrder(order);
                     session.setAttribute("order", null);
                     request.setAttribute("order", order);
+                    session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
+
                     this.getServletContext().getRequestDispatcher("/orderResult.jsp").forward(request, response);
                 } catch (OutOfStockException e) {
                     e.printStackTrace();

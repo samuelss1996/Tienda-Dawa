@@ -12,6 +12,7 @@ public class Order {
     private float finalPrice;
     private Date date;
     private float discount;
+    private float taxesCost;
 
     public Order() {
         this.lines = new ArrayList<>();
@@ -46,11 +47,29 @@ public class Order {
         return finalPrice;
     }
 
-    public float getBasePrice() { return this.finalPrice * (1 + discount/100.0f); }
+    public float getPriceWithoutDiscount() {
+        return this.finalPrice / (1 - discount/100.0f);
+    }
 
-    public String getBasePriceAsString() { return String.format("%.2f", this.getBasePrice()); }
+    public String getPriceWithoutDiscountAsString() {
+        return String.format("%.2f", this.getPriceWithoutDiscount());
+    }
 
-    public String getFinalPriceAsString() { return String.format("%.2f", this.finalPrice); }
+    public String getFinalPriceAsString() {
+        return String.format("%.2f", this.finalPrice);
+    }
+
+    public String getBasePriceAsString() {
+        return String.format("%.2f", this.getPriceWithoutDiscount() - this.taxesCost);
+    }
+
+    public void setTaxesCost(float taxesCost) {
+        this.taxesCost = taxesCost;
+    }
+
+    public String getTaxesCostAsString() {
+        return String.format("%.2f", this.taxesCost);
+    }
 
     public void updateFinalPrice() {
         finalPrice = 0f;
@@ -82,7 +101,7 @@ public class Order {
         this.date = date;
     }
 
-    public float getFullDiscount() { return this.getBasePrice() - this.finalPrice; }
+    public float getFullDiscount() { return this.getPriceWithoutDiscount() - this.finalPrice; }
 
     public String getFullDiscountAsString() { return String.format("%.2f", this.getFullDiscount()); }
 

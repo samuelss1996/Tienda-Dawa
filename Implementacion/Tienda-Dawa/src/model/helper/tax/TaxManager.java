@@ -23,4 +23,11 @@ public interface TaxManager {
      * @param price
      */
     float revert(float price);
+
+    /**
+     *
+     * @param priceWithTaxes
+     * @return
+     */
+    float calculateTaxes(float priceWithTaxes);
 }

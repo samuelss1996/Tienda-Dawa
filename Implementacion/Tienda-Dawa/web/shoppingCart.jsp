@@ -66,11 +66,18 @@
 
     <c:if test="${not empty sessionScope.shoppingCart && sessionScope.shoppingCart.size != 0}">
         <div class="pull-right">
-            <h2 class="totalPrice">Total (${sessionScope.shoppingCart.size} producto/s): <span class="value">${sessionScope.shoppingCart.totalPriceAsString}€</span></h2>
-            <form method="post" action="store">
-                <input type="hidden" name="action" value="createOrder"/>
-                <button type="submit" class="btn btn-success btn-lg pull-right">Continuar</button>
-            </form>
+        <h2 class="totalPrice">Total (${sessionScope.shoppingCart.size} producto/s): <span class="value">${sessionScope.shoppingCart.totalPriceAsString}€</span></h2>
+        <c:choose>
+            <c:when test="${not empty sessionScope.username}">
+                <form method="post" action="store">
+                    <input type="hidden" name="action" value="createOrder"/>
+                    <button type="submit" class="btn btn-success btn-lg pull-right">Continuar</button>
+                </form>
+            </c:when>
+            <c:otherwise>
+                <a href="clientAuth.jsp" class="btn btn-success btn-lg pull-right">Continuar</a>
+            </c:otherwise>
+        </c:choose>
         </div>
     </c:if>
 </div>

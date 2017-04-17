@@ -50,8 +50,8 @@
 
             <div class="pull-right">
                 <h4 class="totalPrice">Base: <span class="value">${order.basePriceAsString}€</span></h4>
-                <h4 class="totalPrice">Impuestos (21%): <span class="value">8.68€</span></h4> <%-- TODO: ups --%>
-                <h4 class="totalPrice">Descuento (20%): <span class="value">-${order.fullDiscountAsString}€</span></h4>
+                <h4 class="totalPrice">Impuestos: <span class="value">${order.taxesCostAsString} €</span></h4>
+                <h4 class="totalPrice">Descuento (${order.discount}%): <span class="value">-${order.fullDiscountAsString}€</span></h4>
                 <h2 class="totalPrice">Precio final: <span class="value">${order.finalPriceAsString}€</span></h2>
             </div>
         </div>

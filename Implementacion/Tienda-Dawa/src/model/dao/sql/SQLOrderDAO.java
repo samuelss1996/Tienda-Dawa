@@ -131,7 +131,7 @@ public class SQLOrderDAO implements OrderDAO {
     private boolean outOfSTock(Product product, int quantity, Connection connection) throws SQLException {
         try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM product WHERE id = ? AND stock < ?")) {
             preparedStatement.setInt(1, product.getId());
-            preparedStatement.setInt(2, product.getStock());
+            preparedStatement.setInt(2, product.getStock()); // TODO aquí se te fue la olla?
 
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet.first();

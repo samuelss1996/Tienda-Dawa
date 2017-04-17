@@ -26,5 +26,8 @@ public class SpainTaxManager implements TaxManager {
         return price / 1.21f;
     }
 
-
+    @Override
+    public float calculateTaxes(float priceWithTaxes) {
+        return priceWithTaxes - (priceWithTaxes / 1.21f);
+    }
 }
