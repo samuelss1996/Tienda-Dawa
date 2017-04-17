@@ -20,5 +20,5 @@ public interface OrderDAO {
     /**
      * @param order
      */
-    void confirmOrder(Order order) throws OutOfStockException;
+    boolean confirmOrder(Order order) throws OutOfStockException;
 }

@@ -45,7 +45,9 @@ public class SQLOrderDAO implements OrderDAO {
     /**
      * @param order
      */
-    public void confirmOrder(Order order) throws OutOfStockException {
+    public boolean confirmOrder(Order order) throws OutOfStockException {
+        boolean upgraded = false;
+
         try (Connection connection = SQLDAOFactory.createConnection()) {
             connection.setAutoCommit(false);
             for (OrderLine line : order.getLines()) {
@@ -55,16 +57,20 @@ public class SQLOrderDAO implements OrderDAO {
                 }
             }
             insertOrder(order, connection);
-            upgradeClient(order.getClient(), order.getFinalPrice(), connection);
+            upgraded = upgradeClient(order.getClient(), order.getFinalPrice(), connection);
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         sendConfirmationEmail(order);
+
+        return upgraded;
     }
 
-    private void upgradeClient(Client client, float newExpense, Connection connection) throws SQLException {
+    private boolean upgradeClient(Client client, float newExpense, Connection connection) throws SQLException {
+        boolean upgraded = false;
+
         try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT totalExpenses FROM client WHERE id = ?")) {
             preparedStatement.setInt(1, client.getId());
 
@@ -75,6 +81,7 @@ public class SQLOrderDAO implements OrderDAO {
                 String update = "";
                 if (updatedExpenses > 100) {
                     update = "SET totalExpenses = " + updatedExpenses + ", type = " + 2;
+                    upgraded = true;
                 } else {
                     update = "SET totalExpenses = " + updatedExpenses;
                 }
@@ -83,6 +90,8 @@ public class SQLOrderDAO implements OrderDAO {
                 }
             }
         }
+
+        return upgraded;
     }
 
     private void sendConfirmationEmail(Order order) {

@@ -14,7 +14,7 @@
     </c:if>
 
     <c:if test="${param.error == 'registerExistingUsername'}">
-        <div class="alert alert-danger">El nombre de usuario ya existe</div>
+        <div class="alert alert-danger">El nombre de usuario/email ya existe</div>
     </c:if>
 
     <c:if test="${param.error == 'login'}">

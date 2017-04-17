@@ -58,12 +58,13 @@ public class StoreController extends HttpServlet {
             case "confirmOrder":
                 try {
                     Order order = (Order) session.getAttribute("order");
-                    helper.confirmOrder(order);
+                    boolean upgraded = helper.confirmOrder(order);
                     session.setAttribute("order", null);
                     request.setAttribute("order", order);
                     session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
 
-                    this.getServletContext().getRequestDispatcher("/orderResult.jsp").forward(request, response);
+                    String urlToShow = upgraded? "/orderResult.jsp?upgraded=true" : "/orderResult.jsp";
+                    this.getServletContext().getRequestDispatcher(urlToShow).forward(request, response);
                 } catch (OutOfStockException e) {
                     session.setAttribute(StoreHelper.SHOPPING_CART, new ShopCart());
                     this.getServletContext().getRequestDispatcher("/shopCart.jsp?error=outOfStockDuringProcess").forward(request, response);

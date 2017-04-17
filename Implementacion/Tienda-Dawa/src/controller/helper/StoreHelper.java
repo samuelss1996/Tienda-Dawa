@@ -49,12 +49,14 @@ public class StoreHelper {
     /**
      * @param order
      */
-    public void confirmOrder(Order order) throws OutOfStockException {
+    public boolean confirmOrder(Order order) throws OutOfStockException {
         OrderDAO orderDAO = DAOFactory.getFactory(DAOFactory.SQL).getOrderDAO();
-        orderDAO.confirmOrder(order);
+        boolean upgraded = orderDAO.confirmOrder(order);
 
         order.setDate(new Date(System.currentTimeMillis())); // TODO esto igual es muy cutre de dios
         order.setTaxesCost(TaxManagerFactory.getTaxManager(this.request).calculateTaxes(order.getPriceWithoutDiscount()));
+
+        return upgraded;
     }
 
     /**

@@ -5,6 +5,12 @@
         <p>Tu pedido se ha realizado correctamente. Se ha enviado un e-mail a <strong>${order.client.email}</strong></p>
     </div>
 
+    <c:if test="${param.upgraded == 'true'}">
+        <div class="alert alert-info">
+            <strong>¡Enhorabuena! Por tu confianza en esta tienda, ahora eres cliente VIP y podrás disfrutar de descuentos exclusivos</strong>
+        </div>
+    </c:if>
+
     <div class="panel panel-default">
         <div class="panel-heading">Factura</div>
         <div class="panel-body">
